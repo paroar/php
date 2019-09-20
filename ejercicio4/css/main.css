@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+}
+
+.box-link-table{
+    top: 10%;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+}
+
+.btn{
+    text-decoration: none;
+    padding: 15px;
+    background-color: lightcoral;
+    border-radius: 100px;
+    color: #fff;
+    font-weight: bolder;
+    text-transform: uppercase;
+    margin: 10px;
+    animation: moveInLeft 2s;
+}
+
+@keyframes moveInLeft{
+    0%{
+        transform: translateX(-100px);
+    }
+    80%{
+        transform: translateX(10px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+}
