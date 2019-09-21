@@ -1,7 +1,5 @@
 <?php
 $num = $_REQUEST['x'];
-echo $num;
-/*
 echo "<table>";
 for($i = 1; $i < 11 ;$i++){
         $pro = $i*$num;
@@ -12,5 +10,5 @@ for($i = 1; $i < 11 ;$i++){
         </tr>
 EOD;
 }
-echo "</table>"*/
+echo "</table>"
 ?>
