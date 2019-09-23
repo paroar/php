@@ -5,7 +5,6 @@
 }
 
 body{
-    min-width: 660px;
     font-family: 'Lato', sans-serif;
     font-weight: 400;
     font-size: 16px;
@@ -69,4 +68,30 @@ body{
     100%{
         transform: translateX(0px);
     }
+}
+
+table{
+    border-collapse: collapse;
+    top: 250%;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #000;
+}
+
+td, th, tr{
+    padding: 8px 15px 8px 15px;
+}
+
+tr:nth-child(odd){
+    background-color: #fff;
+}
+
+tr:nth-child(even){
+    background-color: #ddd;
+}
+
+table,th,td {
+    border: 1px solid rgba(0, 0, 0, 0.2);
 }
