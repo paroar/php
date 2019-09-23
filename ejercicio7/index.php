@@ -10,10 +10,10 @@ echo <<<EOD
 
 <body>
 <div class="header">
-<img src="img/logo.jpg" alt="logo" heigth="100px" width="100px">
+<img src="img/logo.jpg" alt="logo" heigth="100px" width="100px" class="logo">
 <div class="box-link-table">
     <h1 class="heading-primary">
-        <span class="heading-primary-main">Irregular verbs</span>
+        <span>Irregular verbs</span>
     </h1>
 EOD;
 
@@ -31,7 +31,17 @@ $arr = array(
 );
 
 if(true){
-
+    echo <<<EOD
+    <div class="box-verb">
+        <span class="box-verb-primary">VERBO</span><br>
+        <form class="form" method="" action="">
+            <input type="text" class="input-box" name="infinitive" value="Infinitive" required></input>
+            <input type="text" class="input-box" name="simple" value="Simple Past" required></input>
+            <input type="text" class="input-box" name="participle" value="Past Participle" required></input>
+            <input type="submit" class="submit" value="Send">
+        </form>
+    </div>
+EOD;
 }
 
 echo <<<EOD
