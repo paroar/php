@@ -56,8 +56,9 @@ body {
     width: 130px;
     height: 25px;
     border: 1px solid rgba(0,0,0,0.4);
-    color: #aaa;
+    color: rgba(0,0,0,0.8);
     border-radius: 2px;
+    background-color: rgba(255, 255, 255, 0.4);
 }
 
 .submit {

@@ -18,30 +18,43 @@ echo <<<EOD
 EOD;
 
 $arr = array(
-    "perdonar"=>array("forgive","forgave","forgiven"),
-    "empezar"=>array("begin","began","begun"),
-    "doblar"=>array("bend","bent","bent"),
-    "morder"=>array("bite","bit","bitten"),
-    "soplar"=>array("blow","blew","blown"),
-    "caer"=>array("fall","fell","fallen"),
-    "sentir"=>array("feel","felt","felt"),
-    "luchar"=>array("figth","fougth","fougth"),
-    "encontrar"=>array("find","found","found"),
-    "volar"=>array("fly","flew","flown")
+    array("perdonar","forgive","forgave","forgiven"),
+    array("empezar","begin","began","begun"),
+    array("doblar","bend","bent","bent"),
+    array("morder","bite","bit","bitten"),
+    array("soplar","blow","blew","blown"),
+    array("caer","fall","fell","fallen"),
+    array("sentir","feel","felt","felt"),
+    array("luchar","figth","fougth","fougth"),
+    array("encontrar","find","found","found"),
+    array("volar","fly","flew","flown")
 );
 
-if(true){
+$arrCompleted = array();
+
+if(count($arr) > 0){
     echo <<<EOD
     <div class="box-verb">
-        <span class="box-verb-primary">VERBO</span><br>
+        <span class="box-verb-primary">{$arr[0][0]}</span><br>
         <form class="form" method="" action="">
-            <input type="text" class="input-box" name="infinitive" value="Infinitive" required></input>
-            <input type="text" class="input-box" name="simple" value="Simple Past" required></input>
-            <input type="text" class="input-box" name="participle" value="Past Participle" required></input>
+            <input type="text" class="input-box" name="infinitive" onfocus="this.value=''" value="{$arr[0][1]}" required></input>
+            <input type="text" class="input-box" name="simple" onfocus="this.value=''" value="{$arr[0][2]}" required></input>
+            <input type="text" class="input-box" name="participle" onfocus="this.value=''" value="{$arr[0][3]}" required></input>
             <input type="submit" class="submit" value="Send">
         </form>
     </div>
 EOD;
+
+if(
+    $_REQUEST['infinitive'] == $arr[0][1] &&
+    $_REQUEST['simple'] == $arr[0][2] &&
+    $_REQUEST['participle'] == $arr[0][3] 
+    ){
+    $aciertos += 1; 
+}else{
+    $errores += 1;
+}
+print_r($arrCompleted);
 }
 
 echo <<<EOD
