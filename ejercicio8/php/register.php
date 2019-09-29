@@ -18,12 +18,12 @@ if (isset($name) && isset($pass) && $pass === $repass) {
             "nationality" => $nation,
             "hobbies" => $hobby
         ];
-        echo "Welcome $name";
-        echo "$users[$name]['password']";
-        echo "$users[$name]['gender']";
-        echo "$users[$name]['language']";
-        echo "$users[$name]['nationality']";
-        echo "$users[$name]['hobbies']";
+        echo "username: $name <br>";
+        echo "password: " . $users[$name]['password'] . "<br>";
+        echo "gender: " . $users[$name]['gender'] . "<br>";
+        echo "language: " . $users[$name]['language'] . "<br>";
+        echo "nationality: " . $users[$name]['nationality'] . "<br>";
+        echo "hobby: " . $users[$name]['hobbies'];
     } else {
         echo "Username already used, choose another one";
     }
