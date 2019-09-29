@@ -1,0 +1,9 @@
+{
+  "name": "ejercicio8",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "css": "sass ./css --watch style.scss:style.css"
+  }
+}
