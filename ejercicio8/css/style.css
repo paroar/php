@@ -35,7 +35,7 @@ body {
     text-align: center;
     padding: 5px;
     margin: 5px;
-    border: 1px solid #573d00;
+    border: 1px solid #382700;
     font-size: 0.6rem;
     width: 300px;
     display: block;
@@ -45,7 +45,7 @@ body {
   .input__section--option select {
     padding: 5px 15px;
     background-color: #fff;
-    border: 1px solid #573d00; }
+    border: 1px solid #382700; }
 
 .interline {
   text-transform: uppercase;
@@ -54,14 +54,14 @@ body {
 .btn {
   padding: 10px 40px;
   border: none;
-  background-color: #573d00;
+  background-color: #382700;
   color: #fff;
   font-weight: 600;
   font-size: 0.65rem;
-  box-shadow: 1px 2px 0 #573d00; }
+  box-shadow: 1px 2px 0 #382700; }
   .btn:hover {
     transform: translateY(-2px);
-    background-color: #573d00;
+    background-color: #382700;
     box-shadow: 3px 5px 3px; }
   .btn:active {
     transform: translateY(0);
