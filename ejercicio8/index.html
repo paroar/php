@@ -40,23 +40,23 @@
                 </div>
                 <div class="input__section input__section--option">
                     <label>Language:</label><br>
-                    <input type="checkbox" name='language' value="Spanish" />Spanish
-                    <input type="checkbox" name='language' value="French" />French
-                    <input type="checkbox" name='language' value="Italian" />Italian
-                    <input type="checkbox" name='language' value="Portuguese" />Portuguese
+                    <input type="checkbox" name='language[]' value="Spanish" />Spanish
+                    <input type="checkbox" name='language[]' value="French" />French
+                    <input type="checkbox" name='language[]' value="Italian" />Italian
+                    <input type="checkbox" name='language[]' value="Portuguese" />Portuguese
                 </div>
                 <div class="input__section input__section--option">
 
-                    <select name="nation" id="">
-                        <option selected="true" disabled="disabled">Country</option>
+                    <select name="nationality[]" id="" multiple>
+                        <option disabled="disabled">Country</option>
                         <option value="Spain">Spain</option>
                         <option value="EEUU">EEUU</option>
                         <option value="France">France</option>
                         <option value="Deutchsland">Deutchsland</option>
                     </select>
 
-                    <select name="hobby" id="">
-                        <option selected="true" disabled="disabled">Hobby</option>
+                    <select name="hobby[]" id="" multiple>
+                        <option disabled="disabled">Hobby</option>
                         <option value="Reading">Reading</option>
                         <option value="Writing">Writing</option>
                         <option value="Soccer">Soccer</option>

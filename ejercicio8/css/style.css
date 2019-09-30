@@ -8,7 +8,7 @@ html {
   font-family: "Poiret One", cursive; }
 
 body {
-  background-color: rgba(242, 234, 221, 0.233); }
+  background-color: #fff; }
 
 .access {
   position: absolute;
@@ -20,20 +20,32 @@ body {
   text-align: center;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
   background: url("../img/telegram07.jpg"); }
-
-.access__tittle {
-  font-size: 1.8rem;
-  font-weight: 800;
-  margin: 30px; }
-
-.access__login {
-  margin-bottom: 35px; }
-
-.access__register {
-  margin-top: 35px; }
+  .access__tittle {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin: 30px; }
+  .access__login {
+    margin-bottom: 35px; }
+  .access__register {
+    margin-top: 35px; }
 
 .input__section {
   padding: 15px; }
+  .input__section--text > input {
+    text-align: center;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid #573d00;
+    font-size: 0.6rem;
+    width: 300px;
+    display: block;
+    left: 50%;
+    transform: translateX(-50%);
+    position: relative; }
+  .input__section--option select {
+    padding: 5px 15px;
+    background-color: #fff;
+    border: 1px solid #573d00; }
 
 .interline {
   text-transform: uppercase;
@@ -47,31 +59,10 @@ body {
   font-weight: 600;
   font-size: 0.65rem;
   box-shadow: 1px 2px 0 #573d00; }
-
-.btn:hover {
-  transform: translateY(-2px);
-  background-color: #573d00;
-  box-shadow: 3px 5px 3px; }
-
-.btn:active {
-  transform: translateY(0);
-  box-shadow: 1px 2px 0; }
-
-.input__section--text > input {
-  text-align: center;
-  padding: 5px;
-  margin: 5px;
-  border: 1px solid #573d00;
-  font-size: 0.6rem;
-  width: 300px;
-  display: block;
-  left: 50%;
-  transform: translateX(-50%);
-  position: relative; }
-
-.input__section--option select {
-  padding: 5px 15px;
-  background-color: #fdfdfd;
-  border: 1px solid #573d00; }
-
-/*# sourceMappingURL=style.css.map */
+  .btn:hover {
+    transform: translateY(-2px);
+    background-color: #573d00;
+    box-shadow: 3px 5px 3px; }
+  .btn:active {
+    transform: translateY(0);
+    box-shadow: 1px 2px 0; }
