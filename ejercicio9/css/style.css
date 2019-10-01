@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: content-box; }
+
+html {
+  font-size: 65%; }
+
+.terminal {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: monospace;
+  top: 10%; }
+  .terminal__user {
+    position: absolute;
+    color: greenyellow;
+    font-weight: 1000;
+    font-size: 1.3rem;
+    margin-top: 1px; }
+  .terminal__screen {
+    border: 1px solid black;
+    resize: none;
+    background-color: black;
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 200;
+    box-shadow: 0 2px 3px black; }
+
+.btn {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 25px;
+  padding: 5px 15px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  font-weight: 800; }

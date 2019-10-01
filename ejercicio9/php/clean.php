@@ -4,7 +4,6 @@ if(isset($_REQUEST['text'])){
     $ys = controla_entrada($_REQUEST['text']);
     echo $ys;
 }else{
-    header("./../index.php");
+    header("location: http://localhost/php/ejercicio9");
 }
-
 ?>

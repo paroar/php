@@ -1,11 +1,10 @@
 <?php
 
-function controla_entrada($xs){
-    return 
+function controla_entrada($xs)
+{
+    return
         trim(
         htmlspecialchars(
-        strip_tags($xs
-        )));
+        strip_tags($xs)));
 }
-
 ?>
