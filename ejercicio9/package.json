@@ -1,0 +1,12 @@
+{
+  "name": "ejercicio9",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "node-sass": "^4.12.0"
+  },
+  "scripts": {
+    "sass": "node-sass sass/style.scss css/style.css -w"
+  }
+}
