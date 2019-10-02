@@ -15,71 +15,34 @@
     </h1>
 
 <?php
-$arr = array(
-    array("","","",""),
-    array("perdonar","forgive","forgave","forgiven"),
-    array("empezar","begin","began","begun"),
-    array("doblar","bend","bent","bent"),
-    array("morder","bite","bit","bitten"),
-    array("soplar","blow","blew","blown"),
-    array("caer","fall","fell","fallen"),
-    array("sentir","feel","felt","felt"),
-    array("luchar","figth","fougth","fougth"),
-    array("encontrar","find","found","found"),
-    array("volar","fly","flew","flown")
-);
-
+include("php/verbos.php");
 if(isset($_REQUEST['contador']) && $_REQUEST['contador'] < count($arr) - 1){
-    $num = $_REQUEST['contador'] + 1;
+    $num = $_REQUEST['contador'];
+    echo $_REQUEST['infinitive'] . " = " . $arr[$num][1] . "<br>";
+    echo $_REQUEST['simple'] . " = " . $arr[$num][2] . "<br>";
+    echo $_REQUEST['participle'] . " = " . $arr[$num][3] . "<br>";
     if(
-        $_REQUEST['infinitive'] === $arr[$num-1][1] &&
-        $_REQUEST['simple'] === $arr[$num-1][2] &&
-        $_REQUEST['participle'] === $arr[$num-1][3]
+        ($_REQUEST['infinitive'] === $arr[$num][1]) and 
+        ($_REQUEST['simple'] === $arr[$num][2]) and 
+        ($_REQUEST['participle'] === $arr[$num][3])
     ){
         $_REQUEST['aciertos'] += 1; 
     }else{
         $_REQUEST['errores'] += 1;
     }
-    echo <<<EOD
-    <div class="box-verb">
-        <span class="box-verb-primary">{$arr[$num][0]}</span><br>
-        <form class="form" method="get" action="{$_SERVER['PHP_SELF']}">
-            <input type="text" class="input-box" name="infinitive" value="{$arr[$num][1]}" required></input>
-            <input type="text" class="input-box" name="simple" value="{$arr[$num][2]}" required></input>
-            <input type="text" class="input-box" name="participle" value="{$arr[$num][3]}" required></input>
-            <input type="hidden" id="custId" name="contador" value="{$num}">
-            <input type="hidden" name="aciertos" value="{$_REQUEST['aciertos']}">
-            <input type="hidden" name="errores" value="{$_REQUEST['errores']}">
-            <input type="submit" class="submit" value="Send">
-        </form>
-    </div>
-EOD;
+    echo "contador: " . $_REQUEST['contador'] . "<br>";
+    echo "aciertos: " . $_REQUEST['aciertos'] . "<br>";
+    echo "errores: " . $_REQUEST['errores'] . "<br>";
+    $num += 1;
+    pintarArgumento($arr, $num);
 }elseif(!isset($_REQUEST['contador'])){
-    echo <<<EOD
-    <form class="form" method="get" action="{$_SERVER['PHP_SELF']}">
-        <input type="hidden" name="contador" value="0">
-        <input type="hidden" name="aciertos" value="0">
-        <input type="hidden" name="errores" value="0">
-        <input type="hidden" name="infinitive" value="">
-        <input type="hidden" name="simple" value="">
-        <input type="hidden" name="participle" value="">
-        <input type="submit" class="submit" value="Start">
-    </form>
-EOD;
+    include("php/utility_functions.php");
+    pintar();
 }else{
-    echo "Aciertos: {$_REQUEST['aciertos']} <br>";
+    $aciertos = $_REQUEST['aciertos']-1;
+    echo "Aciertos: {$aciertos} <br>";
     echo "Errores: {$_REQUEST['errores']}";
-    echo <<<EOD
-    <form class="form" method="get" action="{$_SERVER['PHP_SELF']}">
-        <input type="hidden" name="contador" value="0">
-        <input type="hidden" name="aciertos" value="0">
-        <input type="hidden" name="errores" value="0">
-        <input type="hidden" name="infinitive" value="">
-        <input type="hidden" name="simple" value="">
-        <input type="hidden" name="participle" value="">
-        <input type="submit" class="submit" value="Restart">
-    </form>
-EOD;
+    pintar();
 }
 ?>
 </div>
