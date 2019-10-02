@@ -16,7 +16,7 @@
 
 <?php
 $arr = array(
-    array("","",""),
+    array("","","",""),
     array("perdonar","forgive","forgave","forgiven"),
     array("empezar","begin","began","begun"),
     array("doblar","bend","bent","bent"),
@@ -31,8 +31,6 @@ $arr = array(
 
 if(isset($_REQUEST['contador']) && $_REQUEST['contador'] < count($arr) - 1){
     $num = $_REQUEST['contador'] + 1;
-    print_r($_REQUEST);
-    echo "{$arr[$num-1][3]} . {$arr[$num][3]}";
     if(
         $_REQUEST['infinitive'] === $arr[$num-1][1] &&
         $_REQUEST['simple'] === $arr[$num-1][2] &&
@@ -69,6 +67,8 @@ EOD;
     </form>
 EOD;
 }else{
+    echo "Aciertos: {$_REQUEST['aciertos']} <br>";
+    echo "Errores: {$_REQUEST['errores']}";
     echo <<<EOD
     <form class="form" method="get" action="{$_SERVER['PHP_SELF']}">
         <input type="hidden" name="contador" value="0">
