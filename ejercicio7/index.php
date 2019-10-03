@@ -16,31 +16,25 @@
 
 <?php
 include("php/verbos.php");
-if(isset($_REQUEST['contador']) && $_REQUEST['contador'] < count($arr) - 1){
-    $num = $_REQUEST['contador'];
-    echo $_REQUEST['infinitive'] . " = " . $arr[$num][1] . "<br>";
-    echo $_REQUEST['simple'] . " = " . $arr[$num][2] . "<br>";
-    echo $_REQUEST['participle'] . " = " . $arr[$num][3] . "<br>";
+include("php/utility_functions.php");
+if(isset($_REQUEST['submit'])){
+    echo "AQUÍ VA EL CONTADOR -> " . $_REQUEST['contador'] . " <-";
+    $contador = $_REQUEST['contador'];
     if(
         ($_REQUEST['infinitive'] === $arr[$num][1]) and 
         ($_REQUEST['simple'] === $arr[$num][2]) and 
         ($_REQUEST['participle'] === $arr[$num][3])
     ){
-        $_REQUEST['aciertos'] += 1; 
+        $_REQUEST['aciertos'] += 1;
     }else{
         $_REQUEST['errores'] += 1;
     }
-    echo "contador: " . $_REQUEST['contador'] . "<br>";
-    echo "aciertos: " . $_REQUEST['aciertos'] . "<br>";
-    echo "errores: " . $_REQUEST['errores'] . "<br>";
     $num += 1;
-    pintarArgumento($arr, $num);
+    pintarArgumento($arr, $contador, $aciertos);
 }elseif(!isset($_REQUEST['contador'])){
-    include("php/utility_functions.php");
     pintar();
 }else{
-    $aciertos = $_REQUEST['aciertos']-1;
-    echo "Aciertos: {$aciertos} <br>";
+    echo "Aciertos: {$_REQUEST['aciertos']} <br>";
     echo "Errores: {$_REQUEST['errores']}";
     pintar();
 }
