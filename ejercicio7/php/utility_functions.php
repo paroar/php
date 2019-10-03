@@ -16,7 +16,9 @@ function pintarArgumento($arr, $contador, $aciertos, $errores, $infinitive, $sim
     </div>
 EOD;
 }
-function comparar($arr, $contador, $infinitive, $simple, $participle){
+
+function comparar($arr, $contador, $infinitive, $simple, $participle)
+{
     include("request.php");
     if (
         $infinitive === $arr[$contador][1] &&

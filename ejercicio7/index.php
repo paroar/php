@@ -19,8 +19,7 @@
             include("php/utility_functions.php");
             if (isset($_REQUEST['submit']) && $_REQUEST['contador'] < count($arr) - 1) {
                 include("php/request.php");
-                $comp = comparar($arr, $contador, $infinitive, $simple, $participle);
-                if ($comp) {
+                if (comparar($arr, $contador, $infinitive, $simple, $participle)) {
                     $aciertos += 1;
                 } else {
                     $errores += 1;
@@ -35,12 +34,11 @@
                     $simple,
                     $participle
                 );
-            } elseif (!isset($_REQUEST['contador'])) {
+            } elseif (!isset($_REQUEST['submit'])) {
                 pintarArgumento($arr, 0, 0, 0, "", "", "");
             } else {
                 include("php/request.php");
-                $comp = comparar($arr, $contador, $infinitive, $simple, $participle);
-                if ($comp) {
+                if (comparar($arr, $contador, $infinitive, $simple, $participle)) {
                     $aciertos += 1;
                 } else {
                     $errores += 1;
