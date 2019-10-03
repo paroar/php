@@ -18,23 +18,16 @@
             include("php/verbos.php");
             include("php/utility_functions.php");
             if (isset($_REQUEST['submit']) && $_REQUEST['contador'] < count($arr) - 1) {
-                $contador = $_REQUEST['contador'];
-                $aciertos = $_REQUEST['aciertos'];
-                $errores = $_REQUEST['errores'];
-                $infinitive = $_REQUEST['infinitive'];
-                $simple = $_REQUEST['simple'];
-                $participle = $_REQUEST['participle'];
-                if (
-                    $infinitive === $arr[$contador][1] &&
-                    $simple === $arr[$contador][2] &&
-                    $participle === $arr[$contador][3]
-                ) {
+                include("php/request.php");
+                $comp = comparar($arr, $contador, $infinitive, $simple, $participle);
+                if ($comp) {
                     $aciertos += 1;
                 } else {
                     $errores += 1;
                 }
                 $contador += 1;
                 pintarArgumento(
+                    $arr,
                     $contador,
                     $aciertos,
                     $errores,
@@ -43,19 +36,11 @@
                     $participle
                 );
             } elseif (!isset($_REQUEST['contador'])) {
-                pintarArgumento(0, 0, 0, "", "", "");
+                pintarArgumento($arr, 0, 0, 0, "", "", "");
             } else {
-                $contador = $_REQUEST['contador'];
-                $aciertos = $_REQUEST['aciertos'];
-                $errores = $_REQUEST['errores'];
-                $infinitive = $_REQUEST['infinitive'];
-                $simple = $_REQUEST['simple'];
-                $participle = $_REQUEST['participle'];
-                if (
-                    $infinitive === $arr[$contador][1] &&
-                    $simple === $arr[$contador][2] &&
-                    $participle === $arr[$contador][3]
-                ) {
+                include("php/request.php");
+                $comp = comparar($arr, $contador, $infinitive, $simple, $participle);
+                if ($comp) {
                     $aciertos += 1;
                 } else {
                     $errores += 1;

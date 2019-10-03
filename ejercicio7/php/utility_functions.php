@@ -1,7 +1,6 @@
 <?php
-function pintarArgumento($contador, $aciertos, $errores, $infinitive, $simple, $participle)
+function pintarArgumento($arr, $contador, $aciertos, $errores, $infinitive, $simple, $participle)
 {
-    include("verbos.php");
     $url = $_SERVER['PHP_SELF'] .
         "?contador=$contador&aciertos=$aciertos&errores=$errores" .
         "&infinitive=$infinitive&simple=$simple&participle=$participle";
@@ -16,4 +15,15 @@ function pintarArgumento($contador, $aciertos, $errores, $infinitive, $simple, $
         </form>
     </div>
 EOD;
+}
+function comparar($arr, $contador, $infinitive, $simple, $participle){
+    include("request.php");
+    if (
+        $infinitive === $arr[$contador][1] &&
+        $simple === $arr[$contador][2] &&
+        $participle === $arr[$contador][3]
+    ) {
+        return true;
+    }
+    return false;
 }
