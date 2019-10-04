@@ -1,0 +1,14 @@
+{
+  "name": "php",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/paroar/php.git",
+  "author": "paroar <prodriguezarmida@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "scss": "node-sass scss/main.scss css/style.css -w"
+  },
+  "devDependencies": {
+    "sass-node": "^4.11.2"
+  }
+}

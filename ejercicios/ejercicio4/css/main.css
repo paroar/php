@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+}
+
+body{
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #fff;
+}
+
+.header{
+    height: 95vh;
+    background-image: url(../img/school.jpg);
+    background-size: cover;
+    background-position: left;
+    margin: 30px;
+    position: relative;
+}
+
+.heading-primary{
+    animation: moveInLeft 1.2s;
+    margin-bottom: 40px;
+}
+
+.box-link-table{
+    top: 10%;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+}    
+
+.input-number{
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 100px;
+    text-align: center;
+    font-size: 45px;
+    border: none;
+    animation: appear 3s;
+    animation-fill-mode: backwards;
+}
+
+
+@keyframes appear{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes moveInLeft{
+    0%{
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    90%{
+        transform: translateX(20px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+}
+
+table{
+    border-collapse: collapse;
+    top: 250%;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #000;
+}
+
+td, th, tr{
+    padding: 8px 15px 8px 15px;
+}
+
+tr:nth-child(odd){
+    background-color: #fff;
+}
+
+tr:nth-child(even){
+    background-color: #ddd;
+}
+
+table,th,td {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
