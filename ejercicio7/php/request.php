@@ -1,5 +1,5 @@
 <?php
-$contador = $_REQUEST['contador'];
+$index = $_REQUEST['index'];
 $aciertos = $_REQUEST['aciertos'];
 $errores = $_REQUEST['errores'];
 $infinitive = $_REQUEST['infinitive'];

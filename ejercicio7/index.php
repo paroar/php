@@ -17,28 +17,30 @@
             <?php
             include("php/verbos.php");
             include("php/utility_functions.php");
-            if (isset($_REQUEST['submit']) && $_REQUEST['contador'] < count($arr) - 1) {
+            if (isset($_REQUEST['submit']) && $_REQUEST['index'] < count($arr) - 1) {
                 include("php/request.php");
-                if (comparar($arr, $contador, $infinitive, $simple, $participle)) {
+                if (comparar($arr, $index, $infinitive, $simple, $participle)) {
                     $aciertos += 1;
                 } else {
                     $errores += 1;
                 }
-                $contador += 1;
+                $index += 1;
                 pintarArgumento(
                     $arr,
-                    $contador,
+                    $index,
                     $aciertos,
-                    $errores,
-                    $infinitive,
-                    $simple,
-                    $participle
+                    $errores
                 );
             } elseif (!isset($_REQUEST['submit'])) {
                 pintarArgumento($arr, 0, 0, 0, "", "", "");
+            
+            }elseif(isset($_REQUEST['stop'])){
+                echo "Aciertos: $aciertos<br>";
+                echo "Errores: $errores<br>";
+
             } else {
                 include("php/request.php");
-                if (comparar($arr, $contador, $infinitive, $simple, $participle)) {
+                if (comparar($arr, $index, $infinitive, $simple, $participle)) {
                     $aciertos += 1;
                 } else {
                     $errores += 1;
