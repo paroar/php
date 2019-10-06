@@ -1,0 +1,23 @@
+.btn {
+  margin: 1rem 0;
+  padding: 1rem;
+  border: none;
+  box-shadow: .1rem .1rem rgba(#082c10, 0.6);
+
+  &:hover{
+    transform: translateY(-3px);
+    box-shadow: .3rem .4rem 0.2rem rgba(#082c10, 0.6);
+  }
+
+  &:active{
+    transform: translateY(0);
+    box-shadow: 0 0 0 rgba(#082c10, 0.6);
+  }
+
+  &--green {
+    background-color: $btn-background-color-green;
+    color: $btn-color-green;
+    font-weight: 800;
+    font-size: 1.5rem;
+  }
+}

@@ -1,0 +1,5 @@
+@mixin border{
+    border: 2px dashed $table-border-color;
+    border-collapse: collapse;
+    padding: 0.7rem 1.5rem;
+}

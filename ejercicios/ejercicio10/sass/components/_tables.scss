@@ -1,0 +1,23 @@
+.file-table {
+  top: 20rem;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  @include border;
+
+  &__body__row {
+    @include border;
+
+    &:nth-child(odd) {
+      background-color: $table-primary-color;
+    }
+
+    &:nth-child(even) {
+      background-color: $table-secondary-color;
+    }
+
+    & > td {
+      @include border;
+    }
+  }
+}
