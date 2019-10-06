@@ -16,16 +16,16 @@ if (isset($_POST['submit'])) {
     if (in_array($fileActualExt, $allowed)) {
         if ($fileError === 0) {
             $fileNameNew = uniqid('', true) . "." . $fileActualExt;
-            $fileDestination = './uploads/' . $fileNameNew;
+            $fileDestination = '../uploads/' . $fileNameNew;
             move_uploaded_file($fileTmpName, $fileDestination);
-            /*header(
+            header(
                 "Location: ../index.php?" .
                     "uploadsuccess=&" .
                     "error=$fileError&" .
                     "name=$fileNameNew&" .
                     "size=$fileSize&" .
                     "type=$fileActualExt"
-            );*/
+            );
         } else {
             echo "There was an error uploading your file";
         }
