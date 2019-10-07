@@ -19,8 +19,11 @@ function pintar_formulario($index, $aciertos, $errores)
         <input type="text" class="input-box" name="simple" placeholder="Past Simple" required>
         <input type="text" class="input-box" name="participle" placeholder="Past Participle" required><br>
         <input type="submit" class="submit next" value="Next" name="submit">
+<<<<<<< HEAD
     </form>
     <form class="form" method="post" action="php/request.php?index=$index&aciertos=$aciertos&errores=$errores">
+=======
+>>>>>>> 59e135e6b39ae12feb855c1a9f3c610c176c5322
         <input type="submit" class="submit stop" value="Stop" name="stop">
     </form>
 EOD;
