@@ -11,33 +11,33 @@
         <div class="row">
             <h1>TEMA 5</h1>
             <div class="col-1-of-1">
-                <a href="ejercicios/ejercicio10">Upload file</a>
+                <a href="ejercicios/upload-file">Upload file</a>
             </div>
         </div>
 
         <div class="row">
             <h1>TEMA 3</h1>
             <div class="col-1-of-1">
-                <a href="ejercicios/ejercicio9">Textarea Aristóteles</a>
+                <a href="ejercicios/aristoteles">Textarea Aristóteles</a>
             </div>
             <div class="col-1-of-1">
-                <a href="ejercicios/ejercicio8">Login & Register</a>
+                <a href="ejercicios/login&register">Login & Register</a>
             </div>
             <div class="col-1-of-1">
-                <a href="ejercicios/ejercicio7">Verbos inglés</a>
+                <a href="ejercicios/verbos-ingles">Verbos inglés</a>
             </div>
         </div>
 
         <div class="row">
             <h2>TEMA 2</h2>
             <div class="col-1-of-1">
-                <a href="ejercicios/ejercicio4">Tabla multiplicar dinámica</a>
+                <a href="ejercicios/multiplicar-dinamica">Tabla multiplicar dinámica</a>
             </div>
             <div class="col-1-of-1">
-                <a href="ejercicios/ejercicio3">Tablas multiplicar estáticas</a>
+                <a href="ejercicios/multiplicar-estatica">Tablas multiplicar estáticas</a>
             </div>
             <div class="col-1-of-1">
-                <a href="ejercicios/ejercicio1">Temperatura cajas</a>
+                <a href="ejercicios/temperatura-cajas">Temperatura cajas</a>
             </div>
         </div>
 

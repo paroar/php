@@ -31,7 +31,7 @@
                     $aciertos,
                     $errores
                 );
-            } elseif (!isset($_REQUEST['submit'])) {
+            } elseif (!isset($_REQUEST['ejercicio7submit'])) {
                 pintarArgumento($arr, 0, 0, 0, "", "", "");
             
             }elseif(isset($_REQUEST['stop'])){
