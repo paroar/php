@@ -1,24 +1,4 @@
 <?php
-function pintarArgumento($arr, $index, $aciertos, $errores)
-{
-    $url = $_SERVER['PHP_SELF'] .
-        "?index=$index&aciertos=$aciertos&errores=$errores";
-    echo <<<EOD
-    <div class="box-verb">
-        <span class="box-verb-primary">{$arr[$index][0]}</span><br>
-        <form class="form" method="post" action="$url">
-            <input type="text" class="input-box" name="infinitive" placeholder="Infinitive" required></input>
-            <input type="text" class="input-box" name="simple" placeholder="Past Simple" required></input>
-            <input type="text" class="input-box" name="participle" placeholder="Past Participle" required></input>
-            <input type="submit" class="submit" value="Next" name='submit'>
-        </form>
-        <form>
-            <input type="submit" class="" value="Stop" name='stop'>
-        </form>
-    </div>
-EOD;
-}
-
 function comparar($arr, $index, $infinitive, $simple, $participle)
 {
     if (
@@ -29,4 +9,15 @@ function comparar($arr, $index, $infinitive, $simple, $participle)
         return true;
     }
     return false;
+}
+
+function pintar_formulario($index, $aciertos, $errores){
+    echo <<<EOD
+    <form class="form" method="post" action="php/request.php?index=$index&aciertos=$aciertos&errores=$errores">
+        <input type="text" class="input-box" name="infinitive" placeholder="Infinitive" required>
+        <input type="text" class="input-box" name="simple" placeholder="Past Simple" required>
+        <input type="text" class="input-box" name="participle" placeholder="Past Participle" required>
+        <input type="submit" class="submit" value="Next" name="submit">
+    </form>
+EOD;
 }

@@ -13,42 +13,23 @@
             <h1 class="heading-primary">
                 <span>Irregular verbs</span>
             </h1>
-
-            <?php
-            include("php/verbos.php");
-            include("php/utility_functions.php");
-            if (isset($_REQUEST['submit']) && $_REQUEST['index'] < count($arr) - 1) {
-                include("php/request.php");
-                if (comparar($arr, $index, $infinitive, $simple, $participle)) {
-                    $aciertos += 1;
+            <div class="box-verb">
+                <?php
+                require('php/verbos.php');
+                require('php/utility_functions.php');
+                if (!isset($_POST['index'])) {
+                    $index = 0;
+                    $aciertos = 0;
+                    $errores = 0;
                 } else {
-                    $errores += 1;
+                    $index = $_GET['index'];
+                    $aciertos = $_GET['aciertos'];
+                    $errores = $_GET['errores'];
                 }
-                $index += 1;
-                pintarArgumento(
-                    $arr,
-                    $index,
-                    $aciertos,
-                    $errores
-                );
-            } elseif (!isset($_REQUEST['ejercicio7submit'])) {
-                pintarArgumento($arr, 0, 0, 0, "", "", "");
-            
-            }elseif(isset($_REQUEST['stop'])){
-                echo "Aciertos: $aciertos<br>";
-                echo "Errores: $errores<br>";
-
-            } else {
-                include("php/request.php");
-                if (comparar($arr, $index, $infinitive, $simple, $participle)) {
-                    $aciertos += 1;
-                } else {
-                    $errores += 1;
-                }
-                echo "Aciertos: $aciertos<br>";
-                echo "Errores: $errores<br>";
-            }
-            ?>
+                echo "<span class='box-verb-primary'>" . $arr[$index][0] . "</span><br>";
+                pintar_formulario($index, $aciertos, $errores);
+                ?>
+            </div>
         </div>
 </body>
 
