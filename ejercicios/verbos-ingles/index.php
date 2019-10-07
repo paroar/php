@@ -17,10 +17,14 @@
                 <?php
                 require('php/verbos.php');
                 require('php/utility_functions.php');
-                if (!isset($_POST['index'])) {
+                if (!isset($_GET['index'])) {
                     $index = 0;
                     $aciertos = 0;
                     $errores = 0;
+                } elseif ($_GET['index'] >= count($arr)) {
+                    echo "Aciertos: " . $_GET['aciertos'] . "<br>";
+                    echo "Errores: " . $_GET['errores'];
+                    exit;
                 } else {
                     $index = $_GET['index'];
                     $aciertos = $_GET['aciertos'];

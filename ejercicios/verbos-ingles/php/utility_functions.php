@@ -11,7 +11,8 @@ function comparar($arr, $index, $infinitive, $simple, $participle)
     return false;
 }
 
-function pintar_formulario($index, $aciertos, $errores){
+function pintar_formulario($index, $aciertos, $errores)
+{
     echo <<<EOD
     <form class="form" method="post" action="php/request.php?index=$index&aciertos=$aciertos&errores=$errores">
         <input type="text" class="input-box" name="infinitive" placeholder="Infinitive" required>
