@@ -1,29 +1,41 @@
 <?php
 
-function formularie(){
+function formularie()
+{
     echo <<<EOD
-    <form action="php/dataproccess.php" method="POST" enctype="multipart/form-data">
-    <!--PERSONAL DATA-->
-    <label>--PERSONAL DATA--</label><br>
-    <input type="text" name="name" id="" placeholder="Name"><br>
-    <input type="text" name="firstname" id="" placeholder="Firstname"><br>
-    <input type="text" name="address" id="" placeholder="Address"><br>
-    <input type="text" name="telephone" id="" placeholder="Telephone"><br>
-    <input type="email" name="email" id="" placeholder="email@example.com"><br>
-    <input type="date" name="birthdate" id=""><br>
-    <input type="text" name="birthplace" id="" placeholder="Bornplace"><br>
-    <input type="text" name="civilstatus" id="" placeholder="Civil status"><br>
-    <input type="file" name="file"><br>
-    <input type="text" name="id" id="" placeholder="Id"><br>
+    <form action="php/dataproccess.php" method="POST" enctype="multipart/form-data" class="cv-form">
+        <!--PERSONAL DATA-->
+        <label>--PERSONAL DATA--</label><br>
+        <input type="text" name="name" id="" placeholder="Name" required><br>
+        <input type="text" name="firstname" id="" placeholder="Firstname" required><br>
+        <input type="date" name="birthdate" id="" required><br>
+        <p>Address</p>
+        <input type="text" name="address" id="" placeholder="Address" required>
+        <input type="text" name="cp" id="" placeholder="Postal code" required><br>
+        <p>Contact</p>
+        <input type="tel" name="telephone" id="" placeholder="Telephone" required><br>
+        <input type="email" name="email" id="" placeholder="email@example.com" required>
+        <p>Photo</p>
+        <input type="file" name="file" accept=".gif,.jpg,.png,.jpeg"><br>
+        <button type="submit" name="submit" class="submit">SUBMIT</button>
+    </form>
+EOD;
+}
 
-    <!--STUDIES-->
-
-    <!--EXPERIENCE-->
-
-    <!--LANGUAGES-->
-
-    <!--SUBMIT-->
-    <button type="submit" name="submit">SUBMIT</button>
-</form>
+function cv($name, $firstname,$address,$telephone,$email,$birthdate,$fileNameNew){
+    echo <<<EOD
+    <div class="row">
+        <div class="col-3-of-4">
+            <p>name: $name</p>
+            <p>firstname: $firstname</p>
+            <p>address: $address</p>
+            <p>telephone: $telephone</p>
+            <p>email: $email</p>
+            <p>birthdate: $birthdate</p>
+        </div>
+        <div class="col-1-of-4">
+            <p>photo: <img src="../uploads/$fileNameNew"></p>
+        </div>
+    </div>
 EOD;
 }

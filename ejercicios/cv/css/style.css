@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: content-box; }
+
+html {
+  font-size: 70%; }
+
+.cv-form {
+  font-size: 1.7rem; }
+  .cv-form > input {
+    font-size: 1.5rem; }
+
+.row .col-3-of-4 {
+  width: 3rem;
+  background-color: aqua; }
+
+.cv-form {
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  border: 1px solid black;
+  padding: 2rem 4rem;
+  margin: 4rem auto; }
+  .cv-form > input {
+    height: 3rem;
+    margin: 1rem auto;
+    border: 1px solid black; }

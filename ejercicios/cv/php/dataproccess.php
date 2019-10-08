@@ -1,49 +1,45 @@
 <?php
 
-if (isset($_POST['submit'])) {
+require("utilities.php");
+require("validation.php");
 
+if (isset($_POST['submit'])) {
+    $name = $_POST['name'];
+    $firstname = $_POST['firstname'];
+    $address = $_POST['address'];
+    $telephone = $_POST['telephone'];
+    $email = $_POST['email'];
+    $birthdate = $_POST['birthdate'];
     $fileName = $_FILES['file']['name'];
     $fileTmpName = $_FILES['file']['tmp_name'];
     $fileSize = $_FILES['file']['size'];
     $fileError = $_FILES['file']['error'];
     $fileType = $_FILES['file']['type'];
 
-    $fileExt = explode('.', $fileName);
-    $fileActualExt = strtolower(end($fileExt));
-
-    $allowed = array('jpg', 'jpeg', 'png', 'gif');
-
-    if (in_array($fileActualExt, $allowed)) {
-        if ($fileError === 0) {
-            $fileNameNew = uniqid('', true) . "." . $fileActualExt;
-            $fileDestination = '../uploads/' . $fileNameNew;
-            move_uploaded_file($fileTmpName, $fileDestination);
-        } else {
-            echo "There was an error uploading your file";
-        }
-    } else {
-        echo "You cannot upload .$fileActualExt files";
+    if (!email_validation($email)) {
+        echo "The email is not valid";
+        exit;
     }
 
-    $name=$_POST['name'];
-    $firstname=$_POST['firstname'];
-    $address=$_POST['address'];
-    $telephone=$_POST['telephone'];
-    $email=$_POST['email'];
-    $birthdate=$_POST['birthdate'];
-    $birthplace=$_POST['birthplace'];
-    $civilstatus=$_POST['civilstatus'];
-    $id=$_POST['id'];
+    $allowed = array('jpg', 'jpeg', 'png', 'gif');
+    $fileExt = explode('.', $fileName);
+    $fileActualExt = strtolower(end($fileExt));
+    if (!in_array($fileActualExt, $allowed)) {
+        echo "You cannot upload .$fileActualExt files";
+        exit;
+    }
 
-    echo <<<EOD
-        name: $name<br>
-        firstname: $firstname<br>
-        address: $address<br>
-        telephone: $telephone<br>
-        email: $email<br>
-        birthdate: $birthdate<br>
-        civil status: $civilstatus<br>
-        id: $id<br>
-        photo: <img src="../uploads/$fileNameNew"><br>
-EOD;
+    if ($fileError !== 0) {
+        echo "There was an error uploading your file: $fileError";
+        exit;
+    }
+
+    $fileNameNew = uniqid('', true) . "." . $fileActualExt;
+    $fileDestination = '../uploads/' . $fileNameNew;
+    if (!move_uploaded_file($fileTmpName, $fileDestination)) {
+        echo "There was an error moving the file from tmp to the server";
+        exit;
+    }
+
+    cv($name, $firstname, $address, $telephone, $email, $birthdate, $fileNameNew);
 }
