@@ -11,9 +11,22 @@ html {
   .cv-form > input {
     font-size: 1.5rem; }
 
-.row .col-3-of-4 {
-  width: 3rem;
-  background-color: aqua; }
+.row {
+  content: "";
+  clear: both;
+  display: table; }
+  .row:not(:last-child) {
+    margin: 5rem auto; }
+  .row .col-3-of-4 {
+    width: calc(($max-width - 2 * $gutter-horizontal) / 2);
+    margin-right: 5rem;
+    background-color: red;
+    float: left; }
+  .row .col-1-of-4 {
+    width: calc(($max-width - 3 * $gutter-horizontal) / 2);
+    margin-right: 5rem;
+    background-color: green;
+    float: left; }
 
 .cv-form {
   left: 50%;

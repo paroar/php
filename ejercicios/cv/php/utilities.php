@@ -22,8 +22,17 @@ function formularie()
 EOD;
 }
 
-function cv($name, $firstname,$address,$telephone,$email,$birthdate,$fileNameNew){
+function cv($name, $firstname, $address, $telephone, $email, $birthdate, $fileNameNew)
+{
     echo <<<EOD
+    <!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
     <div class="row">
         <div class="col-3-of-4">
             <p>name: $name</p>
@@ -34,8 +43,10 @@ function cv($name, $firstname,$address,$telephone,$email,$birthdate,$fileNameNew
             <p>birthdate: $birthdate</p>
         </div>
         <div class="col-1-of-4">
-            <p>photo: <img src="../uploads/$fileNameNew"></p>
+            <img src="../uploads/$fileNameNew">
         </div>
     </div>
+    </body>
+    </head>
 EOD;
 }
