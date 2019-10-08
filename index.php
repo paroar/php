@@ -11,6 +11,9 @@
         <div class="row">
             <h1>TEMA 5</h1>
             <div class="col-1-of-1">
+                <a href="ejercicios/cv">CV</a>
+            </div>
+            <div class="col-1-of-1">
                 <a href="ejercicios/upload-file">Upload file</a>
             </div>
         </div>
