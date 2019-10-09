@@ -1,0 +1,9 @@
+{
+  "name": "name-firstname-img",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "sass:compiler": "node-sass sass/. css/style.css -w"
+  }
+}
