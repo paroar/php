@@ -1,0 +1,14 @@
+.cv-form {
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  border: 1px solid black;
+  padding: 2rem 4rem;
+  margin: 4rem auto;
+
+  & > input {
+    height: 3rem;
+    margin: 1rem auto;
+    border: 1px solid black;
+  }
+}

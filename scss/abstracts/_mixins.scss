@@ -1,0 +1,18 @@
+@mixin clearfix {
+    &::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  }
+  
+  @mixin col-width {
+    @for $i from 1 to $max-units {
+      @for $j from $i to $max-units {
+        .col-#{$i}-of-#{$j} {
+          width: calc-col-width($i, $j);
+        }
+      }
+    }
+  }
+  
