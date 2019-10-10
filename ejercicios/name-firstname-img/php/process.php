@@ -4,12 +4,11 @@ if(isset($_POST['submit'])){
     $name=$_POST['name'];
     $firstname=$_POST['firstname'];
 
-    foreach($users as &$x){
-        if($x[0]==$name && $x[1] == $firstname){
-            echo "$name $firstname " . "<img src='$x[3]'>";
+    for ($i = 0; $i < count($users); $i++) {
+        if($users[$i][0]==$name && $users[$i][1] == $firstname){
+            header("Location: ../index.php?name=$name&firstname=$firstname&img={$users[$i][2]}");
         }
     }
-
+    echo "Not found, redirecting";
+    header("Refresh: 3; url=../index.php");
 }
-/*
-. "<img src='$x[2]'/>"*/
