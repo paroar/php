@@ -35,15 +35,21 @@ function register()
     <form action="php/upload_user.php" method="post" enctype="multipart/form-data">
         <input type="text" name="firstname" placeholder="Firstname">
         <input type="text" name="surname" placeholder="Surname">
-        <input type="file" name="file" acepted="image/*">
+        <input type="file" name="file" accept="image/*">
         <input type="submit" name="submit">
     </form>
 EOD;
 }
 
-/*
-<img src="uploads/$img">
-<p> $firstname</p>
-*/
+function isIn($firstname, $surname){
+    $files = scandir('../uploads');
+    $pattern = "/$firstname$surname/";
+    foreach ($files as &$file) {
+        if (preg_match($pattern, $file) == 1){
+            return $file;
+        }
+    }
+    return false;
+}
 ?>
 
