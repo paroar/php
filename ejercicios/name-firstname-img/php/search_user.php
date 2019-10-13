@@ -1,12 +1,13 @@
 <?php
-require('users.php');
 if(isset($_POST['submit'])){
     $firstname=$_POST['firstname'];
     $surname=$_POST['surname'];
-
-    for ($i = 0; $i < count($users); $i++) {
-        if($users[$i][0]==$firstname && $users[$i][1] == $surname){
-            header("Location: ../index.php?firstname=$firstname&surname=$surname&img={$users[$i][2]}");
+    $files = scandir('../uploads');
+    $pattern = "";
+    foreach ($files as &$file) {
+        $pattern = "/$firstname$surname/";
+        if(preg_match($pattern, $file) == 1){
+            header("Location: ../index.php?firstname=$firstname&surname=$surname&img=$file");
         }
     }
     echo "Not found, redirecting";

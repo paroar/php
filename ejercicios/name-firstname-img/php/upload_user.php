@@ -12,6 +12,11 @@ if (isset($_POST['submit'])) {
         header("Refresh:2; url=../index.html");
     }
 
+    if (!is_uploaded_file($file_tmp_name)) {
+        echo "Error not following rules of upload";
+        header("Refresh:2; url=../index.html");
+    }
+
     $file_actual_extension = explode("/", $file_type);
     $file_extension = "." . end($file_actual_extension);
     $file_name_new = $user_firstname . $user_surname . password_hash($user_firstname, PASSWORD_BCRYPT) . $file_extension . "<br>";
