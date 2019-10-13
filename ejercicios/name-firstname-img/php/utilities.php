@@ -1,6 +1,7 @@
 <?php
 
-function formularie(){
+function formularie()
+{
     echo <<<EOD
     <form action="php/search_user.php" method="post">
         <input type="text" name="firstname" placeholder="Firstname">
@@ -10,14 +11,26 @@ function formularie(){
 EOD;
 }
 
-function card($name, $firstname, $img){
+function card($firstname, $surname, $img)
+{
     echo <<<EOD
-    <img src="uploads/$img">
-    <p>$name $firstname</p>
+    <div class="row">
+        <div class="col-1-of-1">   
+            <div class="card">
+                <div class="card__side card__side--front">
+                    <img class="avatar" src="uploads/$img">
+                </div>
+                <div class="card__side card__side--back">
+                    <p>$firstname $surname</p>
+                </div>
+            </div>
+        </div>
+    </div>
 EOD;
 }
 
-function register(){
+function register()
+{
     echo <<<EOD
     <form action="php/upload_user.php" method="post" enctype="multipart/form-data">
         <input type="text" name="firstname" placeholder="Firstname">
@@ -27,4 +40,10 @@ function register(){
     </form>
 EOD;
 }
+
+/*
+<img src="uploads/$img">
+<p> $firstname</p>
+*/
 ?>
+
