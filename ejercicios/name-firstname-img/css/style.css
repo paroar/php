@@ -13,7 +13,8 @@
 
 .card {
   perspective: 40rem;
-  position: relative; }
+  position: relative;
+  padding: 10rem; }
   .card__side {
     color: #eee;
     font-size: 2rem;
