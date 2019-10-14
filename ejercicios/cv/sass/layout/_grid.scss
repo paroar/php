@@ -1,20 +1,25 @@
 .row {
+  width: $max-width;
+  background-color: #eee;
+  margin: 0 auto;
   @include clearfix;
 
-  &:not(:last-child) {
-    margin: 5rem auto;
-  }
   
   .col-3-of-4 {
-    width: calc(($max-width - 2 * $gutter-horizontal) / 2);
-
+    width: calc((100% - 3 * $gutter-horizontal) / 3);
     background-color: red;
     float: left;
   }
   .col-1-of-4 {
-    width: calc(($max-width - 3 * $gutter-horizontal) / 2);
-
+    width: calc((100% - 3 * ($gutter-horizontal)));
     background-color: green;
     float: left;
   }
+  
+  .col-1-of-1 {
+    width: calc(100%);
+    background-color: orangered;
+    float: left;
+  }
 }
+

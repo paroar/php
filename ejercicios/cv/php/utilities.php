@@ -34,19 +34,29 @@ function cv($name, $firstname, $address, $telephone, $email, $birthdate, $fileNa
 
 <body>
     <div class="row">
+        <div class="col-1-of-1">
+            col-1-of-1
+        </div>
+    </div>
+    <div class="row">
         <div class="col-3-of-4">
-            <p>name: $name</p>
-            <p>firstname: $firstname</p>
-            <p>address: $address</p>
-            <p>telephone: $telephone</p>
-            <p>email: $email</p>
-            <p>birthdate: $birthdate</p>
+            col-3-of-4
         </div>
         <div class="col-1-of-4">
-            <img src="../uploads/$fileNameNew">
+            col-1-of-4
         </div>
     </div>
     </body>
     </head>
 EOD;
+
+/*
+<p>name: $name</p>
+            <p>firstname: $firstname</p>
+            <p>address: $address</p>
+            <p>telephone: $telephone</p>
+            <p>email: $email</p>
+            <p>birthdate: $birthdate</p>
+<img src="../uploads/$fileNameNew">
+* */
 }
