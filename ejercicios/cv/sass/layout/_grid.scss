@@ -1,10 +1,13 @@
 .row {
   width: $max-width;
   margin: 0 auto;
-  padding: 3rem;
+  margin-top: 2rem;
+  padding: 2rem;
   position: relative;
   @include clearfix;
-  background-color: #FFFFFF;
+  background-color: $main-color;
+  height: 15rem;
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 0% 100%);
 
   &:not(:last-child){
     margin-bottom: $gutter-vertical;
@@ -13,10 +16,10 @@
   [class^="col-"]{
     float: left;
     color: black;
-    font-weight: 800;
     font-size: 1.5rem;
     overflow: hidden;
     height: 12rem;
+    line-height: 2rem;
 
     &:not(:last-child){
       margin-right: $gutter-horizontal;
@@ -38,6 +41,7 @@
 
 .avatar{
   float: right;
+  transform: translateX(-30%);
   clip-path: circle(45% at 50% 50%);
 
   img{
@@ -48,4 +52,5 @@
 .data{
   float: left;
   height: 11rem;
+  transform: translateX(10%);
 }

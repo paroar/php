@@ -4,7 +4,8 @@
   box-sizing: content-box; }
 
 html {
-  font-size: 70%; }
+  font-size: 70%;
+  font-family: 'PT Sans', sans-serif; }
 
 .cv-form {
   font-size: 1.7rem; }
@@ -12,41 +13,46 @@ html {
     font-size: 1.5rem; }
 
 .row {
-  width: 40rem;
+  width: 50rem;
   margin: 0 auto;
-  padding: 3rem;
+  margin-top: 2rem;
+  padding: 2rem;
   position: relative;
   content: "";
   clear: both;
   display: table;
-  background-color: #FFFFFF; }
+  background-color: yellow;
+  height: 15rem;
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 0% 100%); }
   .row:not(:last-child) {
     margin-bottom: 1rem; }
   .row [class^="col-"] {
     float: left;
     color: black;
-    font-weight: 800;
     font-size: 1.5rem;
     overflow: hidden;
-    height: 12rem; }
+    height: 12rem;
+    line-height: 2rem; }
     .row [class^="col-"]:not(:last-child) {
-      margin-right: 5rem; }
+      margin-right: 0rem; }
   .row .col-2-of-3 {
-    width: calc(2 * ((100% - 3 * 5rem) / 4) + 2 * 5rem); }
+    width: calc(2 * ((100% - 3 * 0rem) / 4) + 2 * 0rem); }
   .row .col-1-of-3 {
-    width: calc((100% - 2 * 5rem) / 3); }
+    width: calc((100% - 2 * 0rem) / 3); }
   .row .col-1-of-1 {
     width: calc(100%); }
 
 .avatar {
   float: right;
+  transform: translateX(-30%);
   clip-path: circle(45% at 50% 50%); }
   .avatar img {
     height: 11rem; }
 
 .data {
   float: left;
-  height: 11rem; }
+  height: 11rem;
+  transform: translateX(10%); }
 
 .cv-form {
   left: 50%;
@@ -59,3 +65,19 @@ html {
     height: 3rem;
     margin: 1rem auto;
     border: 1px solid black; }
+
+.bg-video {
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: cover; }
+
+.experience {
+  width: 50rem;
+  margin: 0 auto;
+  height: 30rem;
+  background-color: rgba(216, 216, 216, 0.2);
+  padding: 2rem;
+  padding-top: 8rem;
+  margin-top: -6rem; }
