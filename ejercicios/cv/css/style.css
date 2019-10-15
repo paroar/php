@@ -12,37 +12,41 @@ html {
     font-size: 1.5rem; }
 
 .row {
-  width: 60rem;
-  background-color: #eee;
+  width: 40rem;
   margin: 0 auto;
-  padding: 5rem;
-  transform: skewX(180deg);
+  padding: 3rem;
+  position: relative;
   content: "";
   clear: both;
-  display: table; }
+  display: table;
+  background-color: #FFFFFF; }
   .row:not(:last-child) {
     margin-bottom: 1rem; }
   .row [class^="col-"] {
     float: left;
     color: black;
     font-weight: 800;
-    font-size: 2rem;
+    font-size: 1.5rem;
     overflow: hidden;
-    transform: skewX(-180deg); }
+    height: 12rem; }
     .row [class^="col-"]:not(:last-child) {
       margin-right: 5rem; }
-  .row .col-3-of-4 {
-    width: calc(3 * ((100% - 3 * 5rem) / 4) + 2 * 5rem); }
-  .row .col-1-of-4 {
-    width: calc((100% - 3 * 5rem) / 4); }
-    .row .col-1-of-4 .avatar {
-      height: 100%; }
-      .row .col-1-of-4 .avatar img {
-        height: 100%;
-        width: 100%;
-        object-fit: cover; }
+  .row .col-2-of-3 {
+    width: calc(2 * ((100% - 3 * 5rem) / 4) + 2 * 5rem); }
+  .row .col-1-of-3 {
+    width: calc((100% - 2 * 5rem) / 3); }
   .row .col-1-of-1 {
     width: calc(100%); }
+
+.avatar {
+  float: right;
+  clip-path: circle(45% at 50% 50%); }
+  .avatar img {
+    height: 11rem; }
+
+.data {
+  float: left;
+  height: 11rem; }
 
 .cv-form {
   left: 50%;

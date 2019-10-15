@@ -35,11 +35,7 @@ function cv($name, $firstname, $address, $telephone, $email, $birthdate, $fileNa
 <body>
     <div class="row">
         <div class="col-1-of-1">
-            col-1-of-1
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-3-of-4">
+        <div class="data">
             <p>name: $name</p>
             <p>firstname: $firstname</p>
             <p>address: $address</p>
@@ -47,11 +43,11 @@ function cv($name, $firstname, $address, $telephone, $email, $birthdate, $fileNa
             <p>email: $email</p>
             <p>birthdate: $birthdate</p>
         </div>
-        <div class="col-1-of-4">
-            <div class="avatar">
-                <img src="../uploads/$fileNameNew"> 
-            </div>
+        <div class="avatar">
+            <img src="../uploads/$fileNameNew">  
         </div>
+        </div>
+    </div>
     </div>
     </body>
     </head>
