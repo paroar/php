@@ -4,7 +4,7 @@ function formularie()
 {
     echo <<<EOD
     <form action="php/dataproccess.php" method="POST" enctype="multipart/form-data" class="cv-form">
-        <!--PERSONAL DATA-->
+
         <label>--PERSONAL DATA--</label><br>
         <input type="text" name="name" id="" placeholder="Name" required><br>
         <input type="text" name="firstname" id="" placeholder="Firstname" required><br>
@@ -17,12 +17,21 @@ function formularie()
         <input type="email" name="email" id="" placeholder="email@example.com" required>
         <p>Photo</p>
         <input type="file" name="file" accept=".gif,.jpg,.png,.jpeg"><br>
+
+        <label>--RESUME--</label><br>
+        <input type="textarea"><br>
+
+        <label>--EXPERIENCE--</label><br>
+        <input type="textarea"><br>
+
+        <label>--EDUCATION--</label><br>
+        <input type="textarea"><br>
         <button type="submit" name="submit" class="submit">SUBMIT</button>
     </form>
 EOD;
 }
 
-function cv($firstname, $surname, $address, $telephone, $email, $birthdate, $fileNameNew)
+function cv($arr, $fileNameNew)
 {
     echo <<<EOD
     <!DOCTYPE html>
@@ -33,25 +42,54 @@ function cv($firstname, $surname, $address, $telephone, $email, $birthdate, $fil
 </head>
 
 <body>
-    <div class="row">
-        <div class="col-1-of-1">
-            <div class="data">
-                <p>Firstname: $firstname</p>
-                <p>Surname: $surname</p>
-                <p>Address: $address</p>
-                <p>Telephone: $telephone</p>
-                <p>Email: $email</p>
-                <p>Birthdate: $birthdate</p>
-            </div>
-            <div class="avatar">
-                <img src="../uploads/$fileNameNew">  
+    <section class="personal-data">
+        <div class="row">
+            <div class="col-1-of-1">
+                <div class="data">
+                    <p>Firstname: $arr[firstname]</p>
+                    <p>Surname: $arr[surname]</p>
+                    <p>Address: $arr[address]</p>
+                    <p>Telephone: $arr[telephone]</p>
+                    <p>Email: $arr[email]</p>
+                    <p>Birthdate: $arr[birthdate]</p>
+                </div>
+                <div class="avatar">
+                    <img src="../uploads/$fileNameNew">  
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
-        <div class="experience">
-            <h2>EXPERIENCE</h2>
+    <section class="section-wrapper">
+        <div class="section-wrapper__resume">
+            <div class="row">
+                <div class="col-1-of-1">
+                    <p>RESUME</p>
+                </div>
+            </div>
         </div>
+    </section>
+
+    <section class="section-wrapper">
+        <div class="section-wrapper__experience">
+            <div class="row">
+                <div class="col-1-of-1">
+                    <p>EXPERIENCE</p>
+                </div>
+            </div>    
+        </div>
+    </section>    
+
+    <section class="section-wrapper">
+        <div class="section-wrapper__education">
+            <div class="row">
+                <div class="col-1-of-1">
+                    <p>EDUCATION</p>
+                </div>
+            </div> 
+        </div>
+    </section>
+
 
     </body>
     </head>

@@ -4,8 +4,8 @@ require("utilities.php");
 require("validation.php");
 
 if (isset($_POST['submit'])) {
-    $name = $_POST['name'];
-    $firstname = $_POST['firstname'];
+    $name = $_POST['firstname'];
+    $firstname = $_POST['surname'];
     $address = $_POST['address'];
     $telephone = $_POST['telephone'];
     $email = $_POST['email'];
@@ -41,5 +41,6 @@ if (isset($_POST['submit'])) {
         exit;
     }
 
-    cv($name, $firstname, $address, $telephone, $email, $birthdate, $fileNameNew);
+    cv($_POST, $fileNameNew);
+    //cv($name, $firstname, $address, $telephone, $email, $birthdate, $fileNameNew);
 }

@@ -21,9 +21,7 @@ html {
   content: "";
   clear: both;
   display: table;
-  background-color: yellow;
-  height: 15rem;
-  clip-path: polygon(0 0, 100% 0, 100% 75%, 0% 100%); }
+  background-color: cyan; }
   .row:not(:last-child) {
     margin-bottom: 1rem; }
   .row [class^="col-"] {
@@ -31,7 +29,6 @@ html {
     color: black;
     font-size: 1.5rem;
     overflow: hidden;
-    height: 12rem;
     line-height: 2rem; }
     .row [class^="col-"]:not(:last-child) {
       margin-right: 0rem; }
@@ -73,11 +70,9 @@ html {
   width: 100%;
   object-fit: cover; }
 
-.experience {
+.experience, .resume, .education {
   width: 50rem;
   margin: 0 auto;
   height: 30rem;
   background-color: rgba(216, 216, 216, 0.2);
-  padding: 2rem;
-  padding-top: 8rem;
-  margin-top: -6rem; }
+  padding: 2rem; }

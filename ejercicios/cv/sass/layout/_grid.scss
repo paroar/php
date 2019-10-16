@@ -6,8 +6,6 @@
   position: relative;
   @include clearfix;
   background-color: $main-color;
-  height: 15rem;
-  clip-path: polygon(0 0, 100% 0, 100% 75%, 0% 100%);
 
   &:not(:last-child){
     margin-bottom: $gutter-vertical;
@@ -18,7 +16,6 @@
     color: black;
     font-size: 1.5rem;
     overflow: hidden;
-    height: 12rem;
     line-height: 2rem;
 
     &:not(:last-child){
