@@ -41,6 +41,20 @@ function register()
 EOD;
 }
 
+function textarea($word,$replace,$textarea)
+{
+    echo <<<EOD
+    <form action="./php/text_editor.php" method="post">
+        <input type="textarea" name="word" placeholder="word" value="$word">
+        <input type="textarea" name="replace" placeholder="replace" value="$replace">
+        <textarea name="textarea" placeholder="Place your text here..." value="" rows="10" cols="100">$textarea</textarea>
+        <input type="submit" name="submit" value="highlight">
+        <input type="submit" name="submit" value="replace">
+        <input type="submit" name="submit" value="deleteAll">
+    </form>
+EOD;
+}
+
 function isIn($firstname, $surname){
     $files = scandir('../uploads');
     $pattern = $firstname.$surname;
