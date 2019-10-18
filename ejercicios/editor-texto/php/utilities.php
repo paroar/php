@@ -46,8 +46,9 @@ function textarea($word,$replace,$textarea)
     echo <<<EOD
     <form action="./php/text_editor.php" method="post">
         <input type="textarea" name="word" placeholder="word" value="$word">
-        <input type="textarea" name="replace" placeholder="replace" value="$replace">
-        <textarea name="textarea" placeholder="Place your text here..." value="" rows="10" cols="100">$textarea</textarea>
+        <input type="textarea" name="replace" placeholder="replace" value="$replace"><br>
+        <textarea name="textarea" placeholder="Place your text here..." value="" style="height:200px;width:600px;border:1px solid black" contenteditable="true"></textarea><br>
+        <div name="textarea2" placeholder="Result" value="" style="height:200px;width:600px;border:1px solid black">$textarea</div><br>
         <input type="submit" name="submit" value="highlight">
         <input type="submit" name="submit" value="replace">
         <input type="submit" name="submit" value="deleteAll">

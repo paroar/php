@@ -17,7 +17,6 @@
             $word=$_GET['word'];
             $replace=$_GET['replace'];
             $textarea=$_GET['textarea'];
-            echo $textarea;
             textarea($word,$replace,$textarea);
         }
     ?>
