@@ -41,7 +41,7 @@ function register()
 EOD;
 }
 
-function textarea($word,$replace,$textarea)
+function textarea($word, $replace, $textarea)
 {
     echo <<<EOD
     <form action="./php/text_editor.php" method="post">
@@ -52,19 +52,77 @@ function textarea($word,$replace,$textarea)
         <input type="submit" name="submit" value="highlight">
         <input type="submit" name="submit" value="replace">
         <input type="submit" name="submit" value="deleteAll">
+        <input type="submit" name="submit" value="search">
+        <input type="submit" name="submit" value="posiciones">
+        <input type="submit" name="submit" value="existe">
+        <input type="submit" name="submit" value="reemplazar">
     </form>
 EOD;
 }
 
-function isIn($firstname, $surname){
+function isIn($firstname, $surname)
+{
     $files = scandir('../uploads');
-    $pattern = $firstname.$surname;
+    $pattern = $firstname . $surname;
     foreach ($files as &$file) {
-        if (strcmp($pattern, explode('.',$file)[0]) == 0){
+        if (strcmp($pattern, explode('.', $file)[0]) == 0) {
             return $file;
         }
     }
     return false;
 }
-?>
 
+function buscar($aguja, $pajar)
+{
+    $pajar = explode(" ", $pajar);
+    $posiciones = [];
+    for ($i = 0; $i < count($pajar); $i++) {
+        if (strcmp($pajar[$i], $aguja) == 0) {
+            array_push($posiciones, $i);
+        }
+    }
+    if (count($posiciones) !== 0) {
+        return $posiciones;
+    }
+    return false;
+}
+
+function highlight($word, $textarea)
+{
+    $textarea = str_replace($word, "<span style='background-color:yellow'>$word</span>", $textarea);
+    return $textarea;
+}
+
+function replace($word, $replace, $textarea)
+{
+    $textarea = str_replace($word, $replace, $textarea);
+    return $textarea;
+}
+
+function deleteAll($word, $textarea){
+    $textarea = str_replace($word, "", $textarea);
+    return $textarea;
+}
+
+function posiciones($aguja, $pajar)
+{
+    $pos = buscar($aguja, $pajar);
+    if ($pos !== false && count($pos) > 0) {
+        return $pos;
+    }
+}
+
+function existe($aguja, $pajar)
+{
+    $bool = buscar($aguja, $pajar);
+    if ($bool !== false && count($bool) > 0) {
+        return true;
+    }
+    return false;
+}
+
+function reemplazar($palabra, $texto)
+{
+    echo "<input type='text'>";
+    $texto = str_replace($palabra, $reemplazo, $texto);
+}
