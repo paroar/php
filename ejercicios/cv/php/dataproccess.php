@@ -4,12 +4,7 @@ require("utilities.php");
 require("validation.php");
 
 if (isset($_POST['submit'])) {
-    $name = $_POST['firstname'];
-    $firstname = $_POST['surname'];
-    $address = $_POST['address'];
-    $telephone = $_POST['telephone'];
     $email = $_POST['email'];
-    $birthdate = $_POST['birthdate'];
     $fileName = $_FILES['file']['name'];
     $fileTmpName = $_FILES['file']['tmp_name'];
     $fileSize = $_FILES['file']['size'];
@@ -42,5 +37,4 @@ if (isset($_POST['submit'])) {
     }
 
     cv($_POST, $fileNameNew);
-    //cv($name, $firstname, $address, $telephone, $email, $birthdate, $fileNameNew);
 }

@@ -3,7 +3,7 @@ require('utilities.php');
 if(isset($_POST['submit'])){
     $firstname=$_POST['firstname'];
     $surname=$_POST['surname'];
-    $files = scandir('../uploads');
+    //$files = scandir('../uploads');
     $pattern = "";
     if(isIn($firstname,$surname)){
         $file = isIn($firstname,$surname);

@@ -14,8 +14,8 @@ html {
 
 .row {
   width: 50rem;
+  max-width: 50rem;
   margin: 0 auto;
-  margin-top: 2rem;
   padding: 2rem;
   position: relative;
   content: "";
@@ -28,7 +28,6 @@ html {
     float: left;
     color: black;
     font-size: 1.5rem;
-    overflow: hidden;
     line-height: 2rem; }
     .row [class^="col-"]:not(:last-child) {
       margin-right: 0rem; }
@@ -76,3 +75,11 @@ html {
   height: 30rem;
   background-color: rgba(216, 216, 216, 0.2);
   padding: 2rem; }
+
+.heading {
+  margin-bottom: 1rem; }
+
+.paragraph {
+  max-width: 48rem;
+  overflow-wrap: break-word;
+  padding: 1rem; }

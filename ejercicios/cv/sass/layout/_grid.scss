@@ -1,7 +1,7 @@
 .row {
   width: $max-width;
+  max-width: $max-width;
   margin: 0 auto;
-  margin-top: 2rem;
   padding: 2rem;
   position: relative;
   @include clearfix;
@@ -15,7 +15,6 @@
     float: left;
     color: black;
     font-size: 1.5rem;
-    overflow: hidden;
     line-height: 2rem;
 
     &:not(:last-child){
