@@ -6,9 +6,9 @@ if (isset($_POST['enviar'])) {
 
     echo "<<<";
     $accion = $_POST['enviar'];
-    $palabra = $_POST['palabra'];
-    $reemplazo = $_POST['reemplazo'];
-    $texto = $_POST['texto'];
+    $palabra = trim($_POST['palabra']);
+    $reemplazo = trim($_POST['reemplazo']);
+    $texto = trim($_POST['texto']);
 
     switch ($accion) {
         case "posiciones":
