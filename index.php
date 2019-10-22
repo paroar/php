@@ -9,6 +9,13 @@
 
     <section class="grid">
         <div class="row">
+            <h1>TEMA 8</h1>
+            <div class="col-1-of-1">
+                <a href="ejercicios/fecha">Fechas</a>
+            </div>
+        </div>
+
+        <div class="row">
             <h1>TEMA 6</h1>
             <div class="col-1-of-1">
                 <a href="ejercicios/editor-texto">Editor texto</a>

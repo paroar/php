@@ -11,21 +11,21 @@ function formularie()
         <input type="date" name="birthdate" id="" required><br>
         <p>Address</p>
         <input type="text" name="address" id="" placeholder="Address" required>
-        <input type="text" name="cp" id="" placeholder="Postal code" required><br>
+        <input type="text" name="cp" id="" placeholder="Postal code" required>
         <p>Contact</p>
-        <input type="tel" name="telephone" id="" placeholder="Telephone" required><br>
+        <input type="tel" name="telephone" id="" placeholder="Telephone" required>
         <input type="email" name="email" id="" placeholder="email@example.com" required>
         <p>Photo</p>
         <input type="file" name="file" accept=".gif,.jpg,.png,.jpeg"><br>
 
         <label>--RESUME--</label><br>
-        <input type="textarea" name="resume"><br>
+        <textarea name="resume" rows="14" cols="70"></textarea><br>
 
         <label>--EXPERIENCE--</label><br>
-        <input type="textarea" name="experience"><br>
+        <textarea name="experience" rows="14" cols="70"></textarea><br>
 
         <label>--EDUCATION--</label><br>
-        <input type="textarea" name="education"><br>
+        <textarea name="education" rows="14" cols="70"></textarea><br>
         <button type="submit" name="submit" class="submit">SUBMIT</button>
     </form>
 EOD;

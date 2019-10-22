@@ -83,3 +83,7 @@ html {
   max-width: 48rem;
   overflow-wrap: break-word;
   padding: 1rem; }
+
+.cv-form {
+  width: 60rem;
+  background-color: orangered; }
