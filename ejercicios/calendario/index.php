@@ -16,10 +16,9 @@
     if(!isset($_POST['submit'])){
         paintForm();
     }else{
-        $month = $_POST['month'];
         $year = $_POST['year'];
-        paintForm($month,$year);
-        calendarMonth();
+        paintForm($year);
+        calendarYear($year);
     }
     ?>
 </body>

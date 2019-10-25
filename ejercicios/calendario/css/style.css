@@ -21,6 +21,8 @@
 .month {
   overflow: auto;
   width: 434px;
+  float: left;
+  margin: 30px;
 }
 
 .center > *{
