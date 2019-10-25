@@ -4,28 +4,56 @@
   box-sizing: content-box;
 }
 
-.heading{
-    margin: 1rem;
-    text-align: center;
+.heading {
+  margin: 1rem;
+  text-align: center;
+}
+.heading--year{
+  margin: 1rem;
+  text-align: center;
+  min-width: 1333px;
 }
 
 .box {
-  height: 58px;
-  width: 58px;
-  border: 1px solid black;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 15rem;
   float: left;
   text-align: center;
   margin: 1px;
 }
 
-.month {
-  overflow: auto;
-  width: 434px;
-  float: left;
-  margin: 30px;
+.day:hover {
+  background-color: orangered;
+  transform: scale(1.4);
+  font-weight: 600;
+  color: white;
+  transition: 0.4s;
 }
 
-.center > *{
-  font-size: 1.3rem;
-  margin-top: 18px;
+.month {
+  overflow: auto;
+  width: 19.3rem;
+  padding: 1rem;
+}
+
+.week {
+  font-weight: 600;
+}
+
+.center > * {
+  margin-top: 10px;
+}
+
+.year {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  align-items: center;
+  justify-items: center;
+}
+
+.wrapper > * {
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
 }

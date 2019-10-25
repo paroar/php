@@ -16,9 +16,8 @@
     if(!isset($_POST['submit'])){
         paintForm();
     }else{
-        $year = $_POST['year'];
-        paintForm($year);
-        calendarYear($year);
+        paintForm();
+        control();
     }
     ?>
 </body>
