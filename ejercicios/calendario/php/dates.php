@@ -79,9 +79,7 @@ function calendarMonth($month, $year, $stringYear = '')
     } else {
       echo "<div class='box day center'><p>" . $days[$i] . "</p></div>";
     }
-    if($modulus == 6){
-      $modulus = -1;
-    }
+    ($modulus == 6 ? $modulus = -1 : '');
     $modulus++;
   }
   echo "</div>";
