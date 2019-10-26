@@ -18,9 +18,9 @@
   height: 2.5rem;
   width: 2.5rem;
   border-radius: 15rem;
-  float: left;
   text-align: center;
   margin: 1px;
+  
 }
 
 .day:hover {
@@ -33,8 +33,11 @@
 
 .month {
   overflow: auto;
-  width: 19.3rem;
   padding: 1rem;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto;
+  align-items: center;
+  justify-items: center;
 }
 
 .week {
@@ -48,7 +51,6 @@
 .year {
   display: grid;
   grid-template-columns: auto auto auto auto;
-  align-items: center;
   justify-items: center;
 }
 
@@ -56,4 +58,8 @@
   left: 50%;
   transform: translateX(-50%);
   position: absolute;
+}
+
+.weekend{
+  color: orangered;
 }
