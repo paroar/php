@@ -9,7 +9,7 @@
   text-align: center;
 }
 .heading--year{
-  margin: 1rem;
+  margin: 5rem 0;
   text-align: center;
   min-width: 1333px;
 }
@@ -51,6 +51,7 @@
 .year {
   display: grid;
   grid-template-columns: auto auto auto auto;
+  row-gap: 5rem;
   justify-items: center;
 }
 

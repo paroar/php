@@ -33,13 +33,11 @@ function arrayDaysMonth($month, $year)
   $date = new DateTime("$month $year");
   $flagWeek = $date->format('l');
   $days = $date->format('t');
-  $count = 0;
   for ($i = 0; $i < $days; $i++) {
     if ($flagWeek == $arrWeeks[$i]) {
       break;
     }
     array_push($arr, '');
-    $count++;
   }
   for ($i = 1; $i <= $days; $i++) {
     array_push($arr, $i);
@@ -79,9 +77,7 @@ function calendarMonth($month, $year, $stringYear = '')
     } else {
       echo "<div class='box day center'><p>" . $days[$i] . "</p></div>";
     }
-    if($modulus == 6){
-      $modulus = -1;
-    }
+    ($modulus == 6 ? $modulus = -1 : '');
     $modulus++;
   }
   echo "</div>";
