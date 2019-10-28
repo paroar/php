@@ -51,9 +51,13 @@ function calendarYear($year)
   $months = $arrMonths;
   echo "<h2 class='heading--year'>$year</h2>";
   echo "<div class='year'>";
+  array_walk($months, 'calendarMonth');
+  
+  /*
   foreach ($months as $month) {
     calendarMonth($month, $year);
-  }
+  }*/
+  
   echo "</div>";
 }
 
