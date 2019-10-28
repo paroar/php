@@ -11,7 +11,7 @@
         <div class="row">
             <h1>TEMA 8</h1>
             <div class="col-1-of-1">
-                <a href="ejercicios/fecha">Fechas</a>
+                <a href="ejercicios/calendario">Calendario</a>
             </div>
         </div>
 
