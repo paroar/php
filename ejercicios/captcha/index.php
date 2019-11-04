@@ -14,8 +14,8 @@ foreach($chars as$char){
     $negro = imagecolorallocate($im, 0, 0, 0);
     imagettftext ( $im , $fontSize , $deg , $posX , $posY , $colorTexto , "./Roboto-Regular.ttf" , $char );
 }
-
-imagepng($im);
+//$path = "./img/captcha.png";
+imagejpeg($im);
 imagedestroy($im);
 //base64 para poner en etiqueta img
 
