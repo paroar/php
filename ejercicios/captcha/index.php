@@ -1,18 +1,18 @@
 <?php
 header("Content-Type: image/png");
-$im = imagecreate(200, 200);
+$im = imagecreate(220, 220);
 $color_fondo = imagecolorallocate($im, 0, 0, 0);
 $str = generateRandomString(6);
 $chars = str_split($str);
-$w = 10;
+$posX = 10;
 foreach($chars as$char){
-    $color_texto = imagecolorallocate($im, rand(20,255), rand(20,255), rand(20,255));
-    $w +=30;
-    $posY = rand(20, 180);
-    $size = rand(5, 150);
+    $fontSize = rand(15,35);
+    $deg = rand(0,360);
+    $posX +=30;
+    $posY = rand(35, 180);
+    $colorTexto = imagecolorallocate($im, rand(20,255), rand(20,255), rand(20,255));
     $negro = imagecolorallocate($im, 0, 0, 0);
-    imagettftext ( $im , 10 , 45 , $w , $posY , $color_texto , "./Roboto-Regular.ttf" , $char );
-    //imagestring($im, 5, $w, $posY, $char, $color_texto);
+    imagettftext ( $im , $fontSize , $deg , $posX , $posY , $colorTexto , "./Roboto-Regular.ttf" , $char );
 }
 
 imagepng($im);
@@ -21,7 +21,7 @@ imagedestroy($im);
 
  
 function generateRandomString($length) {
-    $include_chars = "123456789abcdefghijkmnopqrstuvwxyz";
+    $include_chars = "234578acefhjkmnorstuvwxyz";
     $charLength = strlen($include_chars);
     $randomString = '';
     for ($i = 0; $i < $length; $i++) {
