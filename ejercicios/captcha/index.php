@@ -1,10 +1,11 @@
 <?php
-header("Content-Type: image/png");
+
+//function generateCaptcha(){}
 $im = imagecreate(220, 220);
 $color_fondo = imagecolorallocate($im, 0, 0, 0);
 $str = generateRandomString(6);
 $chars = str_split($str);
-$posX = 10;
+$posX = 0;
 foreach($chars as$char){
     $fontSize = rand(15,35);
     $deg = rand(0,360);
@@ -14,12 +15,11 @@ foreach($chars as$char){
     $negro = imagecolorallocate($im, 0, 0, 0);
     imagettftext ( $im , $fontSize , $deg , $posX , $posY , $colorTexto , "./Roboto-Regular.ttf" , $char );
 }
-//$path = "./img/captcha.png";
-imagejpeg($im);
+imagejpeg($im, "img/captcha.jpeg");
 imagedestroy($im);
+
 //base64 para poner en etiqueta img
 
- 
 function generateRandomString($length) {
     $include_chars = "234578acefhjkmnorstuvwxyz";
     $charLength = strlen($include_chars);
@@ -29,3 +29,5 @@ function generateRandomString($length) {
     }
     return $randomString;
 }
+
+echo "<img src='img/captcha.jpeg'>";
