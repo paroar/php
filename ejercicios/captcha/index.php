@@ -1,33 +1,24 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
 
-//function generateCaptcha(){}
-$im = imagecreate(220, 220);
-$color_fondo = imagecolorallocate($im, 0, 0, 0);
-$str = generateRandomString(6);
-$chars = str_split($str);
-$posX = 0;
-foreach($chars as$char){
-    $fontSize = rand(15,35);
-    $deg = rand(0,360);
-    $posX +=30;
-    $posY = rand(35, 180);
-    $colorTexto = imagecolorallocate($im, rand(20,255), rand(20,255), rand(20,255));
-    $negro = imagecolorallocate($im, 0, 0, 0);
-    imagettftext ( $im , $fontSize , $deg , $posX , $posY , $colorTexto , "./Roboto-Regular.ttf" , $char );
-}
-imagejpeg($im, "img/captcha.jpeg");
-imagedestroy($im);
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
 
-//base64 para poner en etiqueta img
+<body>
 
-function generateRandomString($length) {
-    $include_chars = "234578acefhjkmnorstuvwxyz";
-    $charLength = strlen($include_chars);
-    $randomString = '';
-    for ($i = 0; $i < $length; $i++) {
-        $randomString .= $include_chars [rand(0, $charLength - 1)];
-    }
-    return $randomString;
-}
+    <?php
+    require("create.php");
+    $arr = create();    
+    echo '<img src="' . $arr[0] . '"/><br>';
+    echo $arr[1];
+    
+    ?>
 
-echo "<img src='img/captcha.jpeg'>";
+
+</body>
+
+</html>
