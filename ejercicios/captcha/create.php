@@ -29,7 +29,7 @@ function create()
 
 function generateRandomString($length)
 {
-    $include_chars = "23458ABCDEFGHJKNOQRSTUVXYZ";
+    $include_chars = "23458ABCDEFGHJKNQRSTUVXYZ";
     $charLength = strlen($include_chars);
     $randomString = '';
     for ($i = 0; $i < $length; $i++) {
