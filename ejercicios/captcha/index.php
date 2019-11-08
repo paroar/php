@@ -12,15 +12,15 @@
 
     <?php
     require("create.php");
-    require("form.php");
     require("authentication.php");
     $arr = create();    
     echo '<img src="' . $arr[0] . '"/><br>';
     echo $arr[1];
     echo<<<EOD
-    <form method="POST" action="?arr=$arr[1]">
-        <input type="text" name="input"/>
-        <input type="submit" name="submit" value="Enviar"/>
+    <form method="POST" action="./authentication.php">
+        <input type="text" name="input">
+        <input type="submit" name="submit" value="Enviar">
+        <input type="hidden" name="auth" value="$arr[1]">
     </form>
 EOD;
     ?>

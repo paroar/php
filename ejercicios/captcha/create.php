@@ -2,10 +2,10 @@
 
 function create()
 {
-
+    require("./form.php");
     $im = imagecreate(320, 220);
     $color_fondo = imagecolorallocate($im, 0, 0, 0);
-    $str = generateRandomString(6);
+    $str = AUTH;
     $chars = str_split($str);
     $posX = 0;
     foreach ($chars as $char) {
@@ -25,15 +25,4 @@ function create()
     $img = 'data:image/jpeg;base64,' . base64_encode($content);
 
     return [$img,$str];
-}
-
-function generateRandomString($length)
-{
-    $include_chars = "23458ABCDEFGHJKNQRSTUVXYZ";
-    $charLength = strlen($include_chars);
-    $randomString = '';
-    for ($i = 0; $i < $length; $i++) {
-        $randomString .= $include_chars[rand(0, $charLength - 1)];
-    }
-    return $randomString;
 }
