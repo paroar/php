@@ -1,23 +1,39 @@
 <?php
-function viewForm(){
-    echo<<<EOD
+function viewForm()
+{
+  require("formArr.php");
+  echo <<<EOD
 <form action="" method="POST">
   <select name="language">
   <option disabled selected>Language</option>
-    <option value="english">English</option>
-    <option value="spanish">Español</option>
-  </select> 
-  <select name="bodyColor">
-    <option disabled selected>BodyColor</option>
-    <option value="blue">Blue</option>
-    <option value="red">Red</option>
-  </select>
+EOD;
+  echo echoOptions($arrLanguages);
+  echo "</select>";
+
+  echo <<<EOD
+  <select name="backgroundColor">
+  <option disabled selected>BackgroundColor</option>
+EOD;
+  echo echoOptions($arrBackgroundColor);
+  echo "</select>";
+
+  echo <<<EOD
   <select name="fontColor">
   <option disabled selected>FontColor</option>
-  <option value="black">Black</option>
-  <option value="white">White</option>
-  </select>
-  <input type="submit" name="submit" value="submit">
-</form> 
 EOD;
+  echo echoOptions($arrFontColor);
+  echo<<<EOD
+   </select>
+   <input type="submit" name="submit" value="submit">
+  </form>
+EOD;
+}
+
+function echoOptions($xs)
+{
+  $options = "";
+  foreach ($xs as $key => $value) {
+    $options .= "<option value=" . $key . ">" . $value . "</option>";
+  }
+  return $options;
 }
