@@ -10,14 +10,13 @@
 <?php
 require("form.php");
 require("setCookies.php");
-if(!isset($_POST["submit"])){
-    viewForm();
+if(!isset($_POST["submit"]) ){
+    viewForm("formArr.php");
 }else{
     setCookies();
     header("Location: ./viewCookies.php");
 }
 ?>
-    
 </body>
 </html>
 

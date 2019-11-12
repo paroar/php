@@ -1,9 +1,4 @@
 <?php
-$str = file_get_contents("./text.json");
-$arr = json_decode($str, true);
-
-highlight_string(var_export($arr, true));
-
 if (isset($_COOKIE["language"])) {
     $language = 0;
     switch ($_COOKIE["language"]) {

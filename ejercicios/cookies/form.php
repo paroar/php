@@ -1,7 +1,7 @@
 <?php
-function viewForm()
+function viewForm($path)
 {
-  require("formArr.php");
+  require($path);
   echo <<<EOD
 <form action="" method="POST">
   <select name="language">
