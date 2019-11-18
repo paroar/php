@@ -1,0 +1,66 @@
+{
+  "es": {
+    "title": {
+      "label": "Selecciona tu configuración"
+    },
+    "select": {
+      "label": "Idioma:",
+      "options": {
+        "es": "Español",
+        "en": "Ingles"
+      }
+    },
+    "font": {
+      "label": "Color de fuente:",
+      "color":{
+          "white": "Blanco",
+          "black":"Negro"
+      }
+    },
+    "background": {
+      "label": "Color de fondo:",
+      "color":{
+        "red": "Rojo",
+        "blue":"Azul"
+    }
+    },
+    "submit": {
+      "title": "Logearse",
+      "label": "Guardar",
+      "user": "Usuario",
+      "password": "Contraseña"
+    }
+  },
+  "en": {
+    "title": {
+      "label": "Select your settings"
+    },
+    "select": {
+      "label": "Language:",
+      "options": {
+        "en": "English",
+        "es": "Spanish"
+      }
+    },
+    "font": {
+      "label": "Font color:",
+      "color":{
+        "white": "White",
+        "black":"Black"
+    }
+    },
+    "background": {
+      "label": "Background color:",
+      "color":{
+        "red": "Red",
+        "blue":"Blue"
+    }
+    },
+    "submit": {
+      "title": "Login",
+      "label": "Save",
+      "user": "User",
+      "password": "Password"
+    }
+  }
+}
