@@ -1,15 +1,69 @@
-.form{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    width: 50%;
-    display: flex;
-    flex-direction: column;
+body {
+  background-color: whitesmoke;
+}
+.form {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  padding: 2rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0.5rem 0.5rem 0.3rem rgba(0, 0, 0, 0.1);
+  background-color: white;
 }
 
-.form > input{
-    padding: 0.5rem 2rem;
-    border: 1px solid grey;
-    margin: 0.5rem 0;
+.form > input {
+  padding: 0.5rem 2rem;
+  border: 1px solid grey;
+  margin: 0.5rem 0;
+  border-radius: 2px;
+  opacity: 0.7;
+}
+
+.form > input:hover {
+  border-top: 1px solid green;
+}
+
+.form > input:focus {
+  border: 1px solid green;
+}
+
+.form > label {
+  margin: 1rem 1rem 0 1rem;
+}
+
+.submit {
+  color: white;
+  border: none !important;
+  background-color: rgb(0, 132, 255);
+}
+
+.submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0.1rem 0.2rem 0rem rgb(0, 85, 182);
+}
+
+legend {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.loadingBody {
+  background-color: white;
+}
+
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

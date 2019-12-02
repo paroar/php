@@ -6,7 +6,7 @@ session_start();
 <html>
 
 <head>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
@@ -14,9 +14,10 @@ session_start();
         unset($_SESSION['username']);
         unset($_SESSION['password']);
         unset($_SESSION['repassword']);
+        unset($_SESSION['email']);
         session_destroy();
         echo "You are logged out, redirecting to index in 3 sec...";
-        header("Refresh: 3; ../index.php");
+        header("Refresh: 3; ./index.php");
     ?>
 
 </body>

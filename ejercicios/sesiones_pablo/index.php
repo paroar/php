@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("./php/functions.php")
+require("./functions.php")
 ?>
 
 <!DOCTYPE html>
@@ -11,14 +11,16 @@ require_once("./php/functions.php")
 </head>
 
 <body>
+
     <?php
-    if(isset($_SESSION["username"])){
-        paintForm($_SESSION["username"]);
-    }else{
-        paintForm();
+    if (
+        isset($_SESSION["username"]) &&
+        isset($_SESSION["email"])
+    ) {
+        paintFormSession($_SESSION["username"], $_SESSION["email"]);
+    } else {
+        paintFormSession();
     }
-
-
     ?>
 
 </body>
