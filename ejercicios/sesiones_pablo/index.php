@@ -17,9 +17,17 @@ require("./functions.php")
         isset($_SESSION["username"]) &&
         isset($_SESSION["email"])
     ) {
-        paintFormSession($_SESSION["username"], $_SESSION["email"]);
+        paintFormSession($_SESSION["username"], $_SESSION["email"], array(
+            'kayaking',
+            'bobsleigh',
+            'canoeing'
+        ), $_SESSION["sports"]);
     } else {
-        paintFormSession();
+        paintFormSession('', '', array(
+            'kayaking',
+            'bobsleigh',
+            'canoeing'
+        ), array());
     }
     ?>
 

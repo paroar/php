@@ -12,7 +12,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 40%;
-  min-width: 250px;
+  min-width: 460px;
   display: flex;
   flex-direction: column;
   box-shadow: 0.5rem 0.5rem 0.3rem rgba(0, 0, 0, 0.1);

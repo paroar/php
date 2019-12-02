@@ -21,6 +21,10 @@ if (isset($_POST["submit"])) {
     } else {
         $_SESSION["email"] = '';
     }
+
+    $_SESSION['sports'] = $_POST['sports'];
+
+    print_r($_SESSION);
     header("Location: ./sessionControl.php");
 } else {
     header("Location: ./index.php");

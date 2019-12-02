@@ -1,6 +1,6 @@
 <?php
 
-function paintFormSession($username = "", $email = "")
+function paintFormSession($username = "", $email = "", $hobbies, $checkbox)
 {
     echo '<form action="./correctInputs.php" method="post" class="form">';
     echo '<legend>Register</legend>';
@@ -13,6 +13,8 @@ function paintFormSession($username = "", $email = "")
 
     echo '<label for="">Email*</label>';
     echo inputEmail($email);
+
+    echo inputCheckbox($hobbies, $checkbox);
 
     echo '<input type="submit" name="submit" value="Register" class="submit">';
     echo '</form>';
@@ -97,5 +99,17 @@ function inputPassword()
 function inputRepassword()
 {
     $input = "<input type='text' name='repassword' placeholder='Repassword' required>";
+    return $input;
+}
+
+function inputCheckbox($hobbies, $checkbox){
+    $input='';
+    foreach ($hobbies as $hobby) {
+        if(in_array($hobby, $checkbox)){
+            $input .= "<label><input type='checkbox' name='sports[]' value='$hobby' checked> $hobby</label><br>";
+        }else{
+            $input .= "<label><input type='checkbox' name='sports[]' value='$hobby'> $hobby</label><br>";
+        }
+    }
     return $input;
 }
