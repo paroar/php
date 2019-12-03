@@ -16,6 +16,7 @@ session_start();
         unset($_SESSION['repassword']);
         unset($_SESSION['email']);
         echo "You are logged out, redirecting to index in 2 sec...";
+        echo "<img src='./loading.gif' class='loading'/>";
         header("Refresh: 2; ./index.php");
     ?>
 

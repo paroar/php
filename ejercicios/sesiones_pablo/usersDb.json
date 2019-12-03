@@ -1,6 +1,1 @@
-{
-    "users": {
-        "admin": 123456,
-        "pablo": 123456789
-    }
-}
+{"users":{"admin":123456,"pablo":123456789,"pablet":"Aa1234"}}

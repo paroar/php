@@ -16,26 +16,30 @@ if (isset($_POST["submit"])) {
     if ($passwordErrorCode === 1) {
         $_SESSION["password"] = $_POST["password"];
         $_SESSION["repassword"] = $_POST["repassword"];
-    } elseif($passwordErrorCode === 2) {
+    } elseif ($passwordErrorCode === 2) {
         $_SESSION["password"] = 2;
         $_SESSION["repassword"] = 2;
-    } elseif($passwordErrorCode === 3) {
+    } elseif ($passwordErrorCode === 3) {
         $_SESSION["password"] = 3;
         $_SESSION["repassword"] = 3;
-    }else{
+    } else {
         $_SESSION["password"] = 4;
         $_SESSION["repassword"] = 4;
     }
-
-    if (isValidEmail($_POST["email"]) === 1) {
+    $emailErrorCode = isValidEmail($_POST["email"]);
+    if ($emailErrorCode === 1) {
         $_SESSION["email"] = $_POST["email"];
     } else {
-        $_SESSION["email"] = '';
+        $_SESSION["email"] = 2;
     }
 
-    $_SESSION['sports'] = $_POST['sports'];
-
-    print_r($_SESSION);
+    if(isset($_SESSION['sports'])){
+        $_SESSION['sports'] = $_POST['sports'];
+    }else{
+        $_SESSION['sports'] = array();
+    }
+    
+    
     header("Location: ./sessionControl.php");
 } else {
     header("Location: ./index.php");

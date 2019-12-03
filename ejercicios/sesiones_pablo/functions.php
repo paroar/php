@@ -5,7 +5,7 @@ function paintFormSession(
     $email = "",
     $password = "",
     $repassword = "",
-    $checkbox = [""],
+    $checkbox = array(),
     $hobbies = array(
         'kayaking',
         'bobsleigh',
@@ -24,6 +24,7 @@ function paintFormSession(
     echo '<label for="">Email*</label>';
     echo inputEmail($email);
 
+    echo '<label for="">Activities</label>';
     echo inputCheckbox($hobbies, $checkbox);
 
     echo '<input type="submit" name="submit" value="Register" class="submit">';
@@ -103,6 +104,7 @@ function inputEmail($email)
     if ($email === 2) {
         $style = 'border: 1px solid red';
         $error = 'Not valid email';
+        $email = '';
     } else {
         $style = '';
         $error = '';
@@ -141,14 +143,20 @@ function inputRepassword($repassword)
     return $input;
 }
 
-function inputCheckbox($hobbies = [], $checkbox = [])
+function inputCheckbox($hobbies, $checkbox)
 {
     $input = '';
-    foreach ($hobbies as $hobby) {
-        if (in_array($hobby, $checkbox)) {
-            $input .= "<label><input type='checkbox' name='sports[]' value='$hobby' checked> $hobby</label><br>";
-        } else {
-            $input .= "<label><input type='checkbox' name='sports[]' value='$hobby'> $hobby</label><br>";
+    if (empty($checkbox)) {
+        foreach ($hobbies as $hobby) {
+            $input .= "<label><input type='checkbox' name='sports[] 'value='$hobby'> $hobby</label><br>";
+        }
+    } else {
+        foreach ($hobbies as $hobby) {
+            if (in_array($hobby, $checkbox)) {
+                $input .= "<label><input type='checkbox' name='sports[]' value='$hobby' checked> $hobby</label><br>";
+            } else {
+                $input .= "<label><input type='checkbox' name='sports[]' value='$hobby'> $hobby</label><br>";
+            }
         }
     }
     return $input;
