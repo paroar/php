@@ -14,10 +14,9 @@ session_start();
 <body class="loadingBody">
 <?php
 if (
-    $_SESSION["username"] === '' ||
-    $_SESSION["password"] === '' ||
-    $_SESSION["repassword"] === '' ||
-    $_SESSION["email"] === ''
+    $_SESSION["username"] !== 1 ||
+    $_SESSION["password"] !== 1 ||
+    $_SESSION["email"] !== 1
 ) {
     header("Location: ./index.php");
 } elseif (!isValidUsername($_SESSION["username"])) {

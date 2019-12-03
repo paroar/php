@@ -1,15 +1,25 @@
 <?php
 
-function paintFormSession($username = "", $email = "", $hobbies, $checkbox)
-{
+function paintFormSession(
+    $username = "",
+    $email = "",
+    $password = "",
+    $repassword = "",
+    $checkbox = [""],
+    $hobbies = array(
+        'kayaking',
+        'bobsleigh',
+        'canoeing'
+    )
+) {
     echo '<form action="./correctInputs.php" method="post" class="form">';
     echo '<legend>Register</legend>';
-    echo '<label for="">Your full name* (only letters)</label>';
+    echo '<label for="">Your full name*</label>';
     echo inputUsername($username);
 
-    echo '<label for="">Password* (must include number & mayus)</label>';
-    echo inputPassword();
-    echo inputRepassword();
+    echo '<label for="">Password*</label>';
+    echo inputPassword($password);
+    echo inputRepassword($repassword);
 
     echo '<label for="">Email*</label>';
     echo inputEmail($email);
@@ -29,7 +39,6 @@ function loadJson()
 
 function isValidUsername($username)
 {
-
     if (preg_match("/[^a-z]/", $username)) {
         return 3;
     };
@@ -46,68 +55,99 @@ function isValidEmail($email)
 {
     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
         return 1;
-    } elseif ($email === "") {
-        return 2;
     } else {
-        return 3;
+        return 2;
     }
 }
 
 function isValidPassword($password, $repassword)
 {
-    if (
-        preg_match("/[a-z]/", $password) &&
-        preg_match("/[A-Z]/", $password) &&
-        preg_match("/[0-9]/", $password)
-    ) {
-        if (strlen($password) > 5 && $password === $repassword) {
-            return true;
-        }
+    if ($password !== $repassword) {
+        return 4;
     }
-    return false;
+    if (strlen($password) < 5) {
+        return 3;
+    }
+    if (
+        !preg_match("/[a-z]/", $password) ||
+        !preg_match("/[A-Z]/", $password) ||
+        !preg_match("/[0-9]/", $password)
+    ) {
+        return 2;
+    }
+
+    return 1;
 }
 
 function inputUsername($username)
 {
-    if ($username === '') {
+    if ($username === 2) {
         $style = 'border: 1px solid red';
+        $error = 'Name already in use';
+        $username = '';
+    } elseif ($username === 3) {
+        $style = 'border: 1px solid red';
+        $error = 'Only letters from [a-z]';
+        $username = '';
     } else {
         $style = '';
+        $error = '';
     }
 
-    $input = "<input type='text' name='username' placeholder='Name' value='$username' style='$style' required>";
+    $input = "<input type='text' name='username' placeholder='Name' value='$username' style='$style' required>" . "<span style='color:red;'>$error</span>";
     return $input;
 }
 
 function inputEmail($email)
 {
-    if ($email === "") {
+    if ($email === 2) {
+        $style = 'border: 1px solid red';
+        $error = 'Not valid email';
+    } else {
+        $style = '';
+        $error = '';
+    }
+    $input = "<input type='email' name='email' placeholder='Email' value='$email' style='$style' required>" . "<span style='color:red;'>$error</span>";
+    return $input;
+}
+
+function inputPassword($password)
+{
+    if ($password === 2 || $password === 3 || $password === 4) {
         $style = 'border: 1px solid red';
     } else {
         $style = '';
     }
-    $input = "<input type='email' name='email' placeholder='Email' value='$email' style='$style' required>";
+    $input = "<input type='text' name='password' placeholder='Password' required style='$style'>";
     return $input;
 }
 
-function inputPassword()
+function inputRepassword($repassword)
 {
-    $input = "<input type='text' name='password' placeholder='Password' required>";
+    if ($repassword === 2) {
+        $style = 'border: 1px solid red';
+        $error = 'Password must include mayus and numbers';
+    } elseif ($repassword === 3) {
+        $style = 'border: 1px solid red';
+        $error = 'Password length must be longer than 5 chars';
+    } elseif ($repassword === 4) {
+        $style = 'border: 1px solid red';
+        $error = 'Passwords doesn\'t match';
+    } else {
+        $style = '';
+        $error = '';
+    }
+    $input = "<input type='text' name='repassword' placeholder='Repassword' required style='$style'>" . "<span style='color:red;'>$error</span>";
     return $input;
 }
 
-function inputRepassword()
+function inputCheckbox($hobbies = [], $checkbox = [])
 {
-    $input = "<input type='text' name='repassword' placeholder='Repassword' required>";
-    return $input;
-}
-
-function inputCheckbox($hobbies, $checkbox){
-    $input='';
+    $input = '';
     foreach ($hobbies as $hobby) {
-        if(in_array($hobby, $checkbox)){
+        if (in_array($hobby, $checkbox)) {
             $input .= "<label><input type='checkbox' name='sports[]' value='$hobby' checked> $hobby</label><br>";
-        }else{
+        } else {
             $input .= "<label><input type='checkbox' name='sports[]' value='$hobby'> $hobby</label><br>";
         }
     }

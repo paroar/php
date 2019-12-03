@@ -15,9 +15,8 @@ session_start();
         unset($_SESSION['password']);
         unset($_SESSION['repassword']);
         unset($_SESSION['email']);
-        session_destroy();
-        echo "You are logged out, redirecting to index in 3 sec...";
-        header("Refresh: 3; ./index.php");
+        echo "You are logged out, redirecting to index in 2 sec...";
+        header("Refresh: 2; ./index.php");
     ?>
 
 </body>
