@@ -8,10 +8,20 @@ function paintForm(){
 EOD;
 }
 
-function paintHangman(){
-    echo<<<EOD
-    <img src="./animations/basic.gif" alt="">
-EOD;
+function paintHangman($hangmanWord){
+    echo "<div class='wrapper-hangman'>";
+    foreach($hangmanWord as $char){
+        echo "<span class='char'>$char</span>";
+    }
+    echo "</div>";
+}
+
+function paintKeyboard($keyboard){
+    echo "<form class='wrapper-keyboard' action='./hangmanControl.php' method='post'>";
+    foreach($keyboard as $char){
+        echo "<input type='submit' class='key' name='$char' value='$char'>";
+    }
+    echo "</form>";
 }
 
 function randomWord(){
