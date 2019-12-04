@@ -2,16 +2,15 @@
 session_start();
 require_once("./functions.php");
 $_SESSION["counter"] = 0;
+$_SESSION["guessed"] = array();
 $word = randomWord();
 $_SESSION["word"] = $word;
 $charWord = str_split($word);
 $_SESSION["charWord"] = $charWord;
-$uniqueChar = array_unique($charWord);
-$_SESSION["charUniqueWord"] = array_unique($charWord);
+$_SESSION["unique"] = array_unique($charWord);
 $_SESSION["abc"] = array(
-    'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',
-    'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'p', 'q',
-    'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
+    'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p',
+    'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'ñ',
+    'z', 'x', 'c', 'v', 'b', 'n', 'm'
 );
-$_SESSION["output"] = paintHangman($_SESSION["charWord"]);
-header("Location: ./hangman.php");
+header("Location: ./index.php");
