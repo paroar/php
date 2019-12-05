@@ -2,6 +2,10 @@ html {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
+body{
+  min-width: 1000px;
+}
+
 .wrapper-hangman {
   display: flex;
   position: absolute;
@@ -65,13 +69,24 @@ html {
   top: 15%;
   left: 50%;
   transform: translateX(-50%);
-    width: 80%;
+    width: 30%;
 }
 
 .hb{
-    width: 30%;
+    width: 20%;
 }
 
 h1{
   text-align: center;
+}
+
+.anchor{
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background-color: tomato;
+  color: white;
+  margin: 1rem;
+  padding:  0.5rem 1rem;
+  border-radius: 2px;
 }

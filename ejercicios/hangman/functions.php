@@ -1,13 +1,4 @@
 <?php
-function paintForm(){
-    echo<<<EOD
-    <form method="post" action="./index.php">
-        <input type="text" name="username" id="" placeholder="Username">
-        <input type="submit" value="Start">
-    </form>
-EOD;
-}
-
 function paintHangman($hangmanWord,$arr){
     echo "<div class='wrapper-hangman'>";
     foreach($hangmanWord as $char){
@@ -31,11 +22,6 @@ function paintKeyboard($keyboard){
     }
     echo "</form>";
 }
-
-function guessed(){
-
-}
-
 
 function randomWord(){
     require_once("./words.php");

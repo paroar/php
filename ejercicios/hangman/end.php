@@ -14,7 +14,7 @@ session_start();
 
 <body>
     <?php
-        echo '<a href="index.php">Replay</a>';
+        echo '<a href="index.php" class="anchor">Replay</a>';
     if ($_GET["end"] === "win") {
         echo "<h1>WIN</h1>";
         echo "<img src='./animations/win.gif' class='win'>";
