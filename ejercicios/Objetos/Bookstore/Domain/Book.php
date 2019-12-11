@@ -1,4 +1,4 @@
-<?php
+<?php namespace Bookstore\Domain;
 class Book
 {
     public $autor;
@@ -22,9 +22,9 @@ class Book
 
     public function __toString()
     {
-        echo "
-        $this->autor\n
-        $this->titulo\n
-        ";
+        return "
+        $this->autor
+        $this->titulo 
+        <br>";
     }
 }

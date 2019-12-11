@@ -4,7 +4,7 @@ class MiCabecera
 {
     private $header;
 
-    public function MiCabecera($hdr)
+    public function __constructor($hdr)
     {
         $this->header = $hdr;
     }
