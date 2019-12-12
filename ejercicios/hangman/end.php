@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once 'MiCabecera.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,10 +17,11 @@ session_start();
     <?php
         echo '<a href="index.php" class="anchor">Replay</a>';
     if ($_GET["end"] === "win") {
-        echo "<h1>WIN</h1>";
+        echo new MiCabecera("WIN");
         echo "<img src='./animations/win.gif' class='win'>";
     } else {
-        echo "<h1>LOSE: $_SESSION[word]</h1>";
+        echo new MiCabecera("LOSE");
+        echo "<h1>$_SESSION[word]</h1>";
         echo "<img src='./animations/lose.gif' class='win'>";
     }
     unset($_SESSION["counter"]);
