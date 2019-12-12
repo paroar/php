@@ -2,6 +2,7 @@
 function classAutoLoader($class)
 {
     print $class . "<br>";
+    var_dump(__NAMESPACE__);
     $directory = str_replace("\\", "/", $class);
     print $directory . "<br>";
     $fileName = __DIR__ . '/' . $directory . '.php';
