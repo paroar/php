@@ -1,0 +1,10 @@
+.form{
+    display: grid;
+    margin: 5rem;
+    padding: 1rem;
+    border: 1px solid grey;
+}
+
+.form > input{
+    margin: 0.3rem;
+}

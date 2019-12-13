@@ -1,14 +1,19 @@
-<?php namespace Bookstore\Domain;
+<?php
+
+namespace Bookstore\Domain;
+
 class Book
 {
+    public $isbn;
     public $autor;
     public $titulo;
-    public $isbn = 0;
 
-    public function __construct($tit, $aut)
+
+    public function __construct($tit, $aut,$isbn="0")
     {
         $this->autor = $aut;
         $this->titulo = $tit;
+        $this->isbn = $isbn;
     }
 
     public function getPrintableTitle(): string
@@ -24,7 +29,17 @@ class Book
     {
         return "
         $this->autor
-        $this->titulo 
+        $this->titulo
+        $this->isbn 
         <br>";
+    }
+
+    public function toArray()
+    {
+        return [
+            $this->isbn,
+            $this->autor,
+            $this->titulo
+        ];
     }
 }

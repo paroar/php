@@ -1,5 +1,7 @@
-<?php 
+<?php
+
 namespace Bookstore\Domain;
+
 class Customer
 {
     private static $lastid = 0;
@@ -28,7 +30,8 @@ class Customer
         $this->correo = $correo;
     }
 
-    public static function getLastid(){
+    public static function getLastid()
+    {
         return self::$lastid;
     }
 
@@ -41,5 +44,16 @@ class Customer
         $this->segundoApellido
         $this->correo
         <br>";
+    }
+
+    public function toArray()
+    {
+        return [
+            $this->id,
+            $this->nombre,
+            $this->primerApellido,
+            $this->segundoApellido,
+            $this->correo
+        ];
     }
 }
