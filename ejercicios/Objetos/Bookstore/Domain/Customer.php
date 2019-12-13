@@ -1,4 +1,5 @@
-<?php namespace Bookstore\Domain;
+<?php 
+namespace Bookstore\Domain;
 class Customer
 {
     private static $lastid = 0;

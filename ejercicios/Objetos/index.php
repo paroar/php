@@ -1,19 +1,12 @@
 <?php
 function classAutoLoader($class)
 {
-    print $class . "<br>";
-    var_dump(__NAMESPACE__);
-    $directory = str_replace("\\", "/", $class);
-    print $directory . "<br>";
-    $fileName = __DIR__ . '/' . $directory . '.php';
-    print $fileName . "<br>";
-    require_once $fileName;
+    require_once str_replace("\\", "/", $class) . '.php';
 }
 spl_autoload_register('classAutoLoader');
 
-use Bookstore\Domain\Book;
-use Bookstore\Domain\Customer;
-
+use Bookstore\Domain\{Book,Customer};
+use Form\Register\{Book as RegisterBook,Customer as RegisterCustomer};
 ?>
 
 <!DOCTYPE html>
@@ -56,7 +49,11 @@ use Bookstore\Domain\Customer;
 
     echo Customer::getLastid();
 
+    RegisterBook::paintForm();
+    RegisterCustomer::paintForm()
     ?>
+
+
 </body>
 
 </html>
