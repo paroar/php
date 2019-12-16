@@ -4,26 +4,20 @@ namespace Bookstore\Domain;
 
 class Customer
 {
-    private static $lastid = 0;
-    private $id = 0;
+    private $id;
     private $nombre;
     private $primerApellido;
     private $segundoApellido;
     private $correo;
 
     public function __construct(
-        $id,
         $nombre,
         $primerApellido,
         $segundoApellido,
         $correo
     ) {
-        $id == null
-            ? $this->id = ++self::$lastid
-            : $this->id = $id;
-        $id > self::$lastid
-            ? self::$lastid = $id
-            : null;
+        $id = $this::getLastid();
+        $this->id = $id;
         $this->nombre = $nombre;
         $this->primerApellido = $primerApellido;
         $this->segundoApellido = $segundoApellido;
@@ -32,7 +26,9 @@ class Customer
 
     public static function getLastid()
     {
-        return self::$lastid;
+        $file = file_get_contents("../Model/Customers.json");
+        $arr = json_decode($file, true);
+        return count($arr);
     }
 
     public function __toString()

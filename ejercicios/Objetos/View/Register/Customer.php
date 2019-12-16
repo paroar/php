@@ -6,7 +6,6 @@ class Customer
     {
         echo <<<EOD
         <form action="./Controller/Customer.php" method="post" class="form">
-            <input type="text" placeholder="Id" name="id">
             <input type="text" placeholder="Nombre" name="name">
             <input type="text" placeholder="Primer apellido" name="firstSurname">
             <input type="text" placeholder="Segundo apellido" name="secondSurname">

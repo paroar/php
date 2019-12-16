@@ -8,13 +8,7 @@ use Bookstore\Domain\Customer;
 require_once './addJson.php';
 
 if (isset($_POST["customer"])) {
-    if ($_POST["id"] === "") {
-        $id = null;
-    } else {
-        $id = $_POST["id"];
-    }
     $customer = new Customer(
-        $id,
         $_POST["name"],
         $_POST["firstSurname"],
         $_POST["secondSurname"],
