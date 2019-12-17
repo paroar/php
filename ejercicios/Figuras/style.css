@@ -1,0 +1,13 @@
+.form{
+    display: grid;
+    padding: 1rem;
+    border: 1px solid grey;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.form > input{
+    margin: 0.3rem;
+}
