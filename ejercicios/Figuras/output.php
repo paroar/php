@@ -1,5 +1,5 @@
 <?php
-require_once './View/view.php';
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,9 +12,7 @@ require_once './View/view.php';
 </head>
 <body>
 <?php
-    if(!isset($_POST["submit"])){
-        paintFiguresShapesForm();
-    }
+    echo $_SESSION["output"];
 ?>
 </body>
 </html>

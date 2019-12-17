@@ -3,11 +3,21 @@
     padding: 1rem;
     border: 1px solid grey;
     position: absolute;
-    top: 20%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%,-50%);
 }
 
-.form > input{
-    margin: 0.3rem;
+.form > input,select{
+    margin: 1rem;
+}
+
+.checkbox{
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+}
+
+.img{
+    margin: 1rem;
+    pad
 }

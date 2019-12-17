@@ -1,6 +1,6 @@
 <?php
 require_once '../Classes/Figure.php';
-class Triangle extends Figure
+class Pentagon extends Figure
 {
 
     public function __construct($sides, $size, $color)
@@ -15,30 +15,32 @@ class Triangle extends Figure
         $color = parent::getColor();
 
         $points = array(
-            $size*0.5 ,  0,
-            $size,  $size,
-            0, $size
+            $size*0.5,  0,
+            $size,  $size*0.38,
+            $size*0.82, $size,
+            $size*0.18, $size,
+            0, $size*0.38
         );
 
         $im = imagecreate($size, $size);
         $backgroundColor   = imagecolorallocate($im, 255, 255, 255);
         imagefilledrectangle(
-            $im,
-            0,
-            0,
-            $size,
-            $size,
+            $im, 
+            0, 
+            0, 
+            $size, 
+            $size, 
             $backgroundColor
         );
 
         $hexToRGB = $this->hexToRgb($color);
         $color = imagecolorallocate(
-            $im,
-            $hexToRGB['r'],
-            $hexToRGB['g'],
+            $im, 
+            $hexToRGB['r'], 
+            $hexToRGB['g'], 
             $hexToRGB['b']
         );
-        imagefilledpolygon($im, $points, 3, $color);
+        imagefilledpolygon($im, $points, 5, $color);
 
         ob_start();
         imagepng($im);
