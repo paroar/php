@@ -3,6 +3,7 @@ session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,9 +11,15 @@ session_start();
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<?php
-    echo $_SESSION["output"];
-?>
+    <a href="./index.php">Return</a>
+
+    <div class="img-container">
+        <?php
+        echo $_SESSION["output"];
+        ?>
+    </div>
 </body>
+
 </html>

@@ -14,10 +14,38 @@
 
 .checkbox{
     display: grid;
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: repeat(4, auto);
+    gap: 2rem;
+    margin: 1rem;
+}
+
+.figureName{
+    width: 5rem;
+}
+
+.img-container{
+    display: grid;
+    grid-template-columns: repeat(2,auto);
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
 
 .img{
     margin: 1rem;
-    pad
+}
+
+a{
+    padding: 1rem;
+    background-color: brown;
+    position: fixed;
+    top: 0;
+    left: 0;
+    color:white;
+    text-decoration: none;
+}
+
+input[type=number]{
+    width: 4rem;
 }

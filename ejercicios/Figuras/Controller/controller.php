@@ -30,25 +30,25 @@ function switchFigures($sides, $figures){
         case 2:
             array_push(
                 $figures,
-                new Circle(2, $_POST["size"], $_POST["color"])
+                new Circle(2, $_POST["circleSize"], $_POST["circleColor"])
             );
             break;
         case 3:
             array_push(
                 $figures,
-                new Triangle(3, $_POST["size"], $_POST["color"])
+                new Triangle(3, $_POST["triangleSize"], $_POST["triangleColor"])
             );
             break;
         case 4:
             array_push(
                 $figures,
-                new Square(4, $_POST["size"], $_POST["color"])
+                new Square(4, $_POST["squareSize"], $_POST["squareColor"])
             );
             break;
         case 5:
             array_push(
                 $figures,
-                new Pentagon(5, $_POST["size"], $_POST["color"])
+                new Pentagon(5, $_POST["pentagonSize"], $_POST["pentagonColor"])
             );
             break;
     }
