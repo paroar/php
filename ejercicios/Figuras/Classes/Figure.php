@@ -17,25 +17,13 @@ abstract class Figure
     {
         return $this->sides;
     }
-    public function setSides($sides)
-    {
-        $this->color = $sides;
-    }
     public function getSize()
     {
         return $this->size;
     }
-    public function setSize($size)
-    {
-        $this->color = $size;
-    }
     public function getColor()
     {
         return $this->color;
-    }
-    public function setColor($color)
-    {
-        $this->color = $color;
     }
 
     public function hexToRgb($hex, $alpha = false)
