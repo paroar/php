@@ -5,6 +5,13 @@ require_once '../Classes/Triangle.php';
 require_once '../Classes/Pentagon.php';
 require_once '../Classes/Circle.php';
 
+$shapes = [
+    array("2", "Circle", "circleColor", "circleSize"),
+    array("3", "Triangle", "triangleColor", "triangleSize"),
+    array("4", "Square", "squareColor", "squareSize"),
+    array("5", "Pentagon", "pentagonColor", "pentagonSize")
+  ];
+
 if ($_POST["submit"]) {
     $figures = [];
     if (isset($_POST["shapes"])) {

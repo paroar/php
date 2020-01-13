@@ -34,10 +34,12 @@ class Circle extends Figure
         );
         imagefilledellipse($im, $size * 0.5, $size * 0.5, $size, $size, $color);
 
+        
+
         ob_start();
         imagepng($im);
         $content = ob_get_contents();
-        ob_clean();
+        ob_end_clean();
 
         $img = 'data:image/jpeg;base64,' . base64_encode($content);
 

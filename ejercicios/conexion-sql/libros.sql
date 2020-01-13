@@ -1,6 +1,6 @@
 CREATE DATABASE IF NOT EXISTS libros;
 use libros;
-CREATE TABLE IF NOT EXISTS Book 
+CREATE TABLE IF NOT EXISTS Book
 (
   id int(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   isbn varchar(13),
@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS Book
   stock smallint(5),
   price float
 ) ENGINE=INNODB;
-CREATE TABLE IF NOT EXISTS Customer 
+CREATE TABLE IF NOT EXISTS Customer
 (
   id int(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   firstname varchar(255),
@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS Customer
   email varchar(255),
   type enum('basic', 'premium')
 ) ENGINE=INNODB;
-CREATE TABLE IF NOT EXISTS Sale 
+CREATE TABLE IF NOT EXISTS Sale
 (
   id int(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   customer_id int(10),

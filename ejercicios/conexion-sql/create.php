@@ -7,7 +7,7 @@ define("PASSWORD", "");
 function createDB($dbname)
 {
     try {
-        $db = new PDO(DBNAME, USER, PASSWORD);  
+        $db = new PDO(DBNAME, USER, PASSWORD);
         $sql = "CREATE DATABASE IF NOT EXISTS $dbname";
         $statement = $db->prepare($sql);
         $statement->execute();
@@ -20,7 +20,7 @@ function createDB($dbname)
 function createTable($dbname, $table)
 {
     try {
-        $db = new PDO(DBNAME.";dbname=$dbname", USER, PASSWORD);
+        $db = new PDO(DBNAME . ";dbname=$dbname", USER, PASSWORD);
         $query = $db->prepare($table);
         $query->execute();
         echo "TABLA CREADA CON ÉXITO\n";
