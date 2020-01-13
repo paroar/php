@@ -14,9 +14,10 @@ include_once("ConnectDB.php");
 <body>
     <?php
     $DBlibro = ConnectDB::getInstance("config/config.json");
-    $query = file_get_contents("libros.sql");
-    var_dump($query);
-    $DBlibro->query($query);
+    $customers = file_get_contents("customers.sql");
+    $DBlibro->query($customers);
+
+
     ?>
 </body>
 
