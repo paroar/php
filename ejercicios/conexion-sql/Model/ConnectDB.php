@@ -8,7 +8,7 @@ class ConnectDb
     private function __construct($configFile)
     {
         try {
-            $config = json_decode(file_get_contents($configFile),true);
+            $config = json_decode(file_get_contents($configFile), true);
             $DBType = $config["DBType"];
             $DBName = $config["DBName"];
             $Host = $config["Host"];
@@ -34,7 +34,8 @@ class ConnectDb
         return $this->connection;
     }
 
-    public function query($query){
+    public function exec($query)
+    {
         try {
             $pdo = $this->getConnectionDB();
             $statement= $pdo->prepare($query);
@@ -42,6 +43,17 @@ class ConnectDb
         } catch (PDOException $e) {
             echo "QUERY ERROR" . $e->getMessage();
         }
+    }
 
+    public function query($query, $params)
+    {
+        try {
+            $pdo = $this->getConnectionDB();
+            $statement= $pdo->prepare($query);
+            $statement->execute($params);
+            return $statement->fetch();
+        } catch (PDOException $e) {
+            echo "QUERY ERROR" . $e->getMessage();
+        }
     }
 }

@@ -1,19 +1,15 @@
 <?php
 require_once("../Model/Login.php");
+require_once("../Model/ConnectDB.php");
 session_start();
 
 $user = new Login($_POST["user"], $_POST["pass"]);
 $_SESSION["user"] = serialize($user);
-
-echo unserialize($_SESSION["user"]);
-
-echo $_SESSION["instanceLibros"];
-//$instance = unserialize($_SESSION["instanceLibros"]);
-
-$query = "SELECT FROM * User;";
-$DBlibro = ConnectDB::getInstance("config/config.json");
-
-echo $DBlibro->query($query);
-
-
+if ($user->correctPass()) {
+    echo "WELCOME, redirecting to users page in 3s";
+    header('refresh:3; url=../usersPage.php');
+} else {
+    echo "ERROR, redirecting to index in 3s";
+    header('refresh:3; url=../index.php');
+}
 

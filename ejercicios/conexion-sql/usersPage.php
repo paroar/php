@@ -1,7 +1,5 @@
 <?php
 session_start();
-include_once("Model/ConnectDB.php");
-require_once("View/Login.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,10 +12,9 @@ require_once("View/Login.php");
 </head>
 
 <body>
-    <?php
-    loginForm();
-    ?>
-
+    <a href="./View/Book/Book.php">Book</a>
+    <a href="">Customer</a>
+    <a href="">Sale</a>
 </body>
 
 </html>

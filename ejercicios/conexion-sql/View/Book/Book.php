@@ -1,7 +1,6 @@
 <?php
 session_start();
-include_once("Model/ConnectDB.php");
-require_once("View/Login.php");
+require_once("bookFunctions.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,9 +14,8 @@ require_once("View/Login.php");
 
 <body>
     <?php
-    loginForm();
+    bookForm();
     ?>
-
 </body>
 
 </html>
