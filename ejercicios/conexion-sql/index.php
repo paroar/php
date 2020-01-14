@@ -1,5 +1,7 @@
 <?php
-include_once("ConnectDB.php");
+session_start();
+include_once("Model/ConnectDB.php");
+require_once("View/Login.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,11 +16,14 @@ include_once("ConnectDB.php");
 <body>
     <?php
     $DBlibro = ConnectDB::getInstance("config/config.json");
-    $customers = file_get_contents("customers.sql");
-    $DBlibro->query($customers);
+    // $users = file_get_contents("insertUsers.sql");
+    // $DBlibro->query($users);
+
+    loginForm();
 
 
     ?>
+
 </body>
 
 </html>
