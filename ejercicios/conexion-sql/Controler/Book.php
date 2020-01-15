@@ -6,5 +6,8 @@ if($_POST["submit"] === "insert"){
     $params = [$_POST["isbn"],$_POST["title"],$_POST["author"],$_POST["stock"], $_POST["price"]];
     $DBlibro->query($sqlInsertBook, $params);
 }elseif ($_POST["submit"] === "delete") {
+    $sqlInsertBook = "DELETE FROM `Book` WHERE ";
+    $params = [$_POST["isbn"],$_POST["title"],$_POST["author"],$_POST["stock"], $_POST["price"]];
+    $DBlibro->query($sqlInsertBook, $params);
     echo "DELETE";
 }
