@@ -50,7 +50,22 @@ class ConnectDb
         try {
             $pdo = $this->getConnectionDB();
             $statement= $pdo->prepare($query);
-            $statement->execute($params);
+            var_dump($query);
+            var_dump($params);
+            //exit;
+            foreach($params as $key => $value){
+                echo "$key $value";
+            }
+            $user = $params[":user"];
+            $user = $params[":pass"];
+            $statement->bindParam(":user", $user);
+            $statement->bindParam(":pass", $pass);
+
+            // exit;
+            // foreach($params as $key => $value){
+            //     $statement->bindParam($key, $value);
+            // }
+            $statement->execute();
             return $statement->fetch();
         } catch (PDOException $e) {
             echo "QUERY ERROR" . $e->getMessage();

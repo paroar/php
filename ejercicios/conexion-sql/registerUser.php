@@ -1,6 +1,5 @@
 <?php
 session_start();
-include_once("Model/ConnectDB.php");
 require_once("View/Login.php");
 ?>
 <!DOCTYPE html>
@@ -15,8 +14,9 @@ require_once("View/Login.php");
 
 <body>
     <?php
-    loginForm();
+    registerForm();
     ?>
+    <a href="./index.php">Back to login</a>
 </body>
 
 </html>
