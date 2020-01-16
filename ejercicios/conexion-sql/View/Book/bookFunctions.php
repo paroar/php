@@ -1,11 +1,15 @@
 <?php
+require_once("../../php/commonFunctions.php");
 
-function BookForm(){
+function BookForm()
+{
     insertBook();
+    viewAllBook();
     deleteBook();
 }
 
-function insertBook(){
+function insertBook()
+{
     echo<<<EOD
     <form action="../../Controler/Book.php" method="POST">
         <input type="text" class="login-input" name="isbn" placeholder="isbn">
@@ -18,10 +22,37 @@ function insertBook(){
 EOD;
 }
 
-function deleteBook(){
+function viewAllBook()
+{
     echo<<<EOD
     <form action="../../Controler/Book.php" method="POST">
+        <input type="submit" class="" value="view" name="submit">
+    </form>
+EOD;
+}
+
+function deleteBook()
+{
+    echo<<<EOD
+    <form action="../../Controler/Book.php" method="POST">
+        <input type="text" class="login-input" name="id" placeholder="id to delete">
         <input type="submit" class="" value="delete" name="submit">
     </form>
 EOD;
+}
+
+function tableBook($arr)
+{
+    echo<<<EOD
+     <table class="table">
+     <tr>
+        <th>ID</th>
+        <th>ISBN</th>
+        <th>TITLE</th>
+        <th>AUTHOR</th>
+        <th>STOCK</th>
+        <th>PRICE</th>
+    </tr>
+EOD;
+    table($arr);
 }

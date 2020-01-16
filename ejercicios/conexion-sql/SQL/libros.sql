@@ -1,44 +1,48 @@
-CREATE DATABASE IF NOT EXISTS libros;
 use libros;
+CREATE TABLE IF NOT EXISTS User
+(
+  user varchar(255) NOT NULL PRIMARY KEY,
+  pass varchar(255) NOT NULL
+) ENGINE=INNODB;
 CREATE TABLE IF NOT EXISTS Book
 (
   id int(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  isbn varchar(13),
-  title varchar(255),
-  author varchar(255),
-  stock smallint(5),
-  price float
+  isbn varchar(13) NOT NULL,
+  title varchar(255) NOT NULL,
+  author varchar(255) NOT NULL,
+  stock smallint(5) NOT NULL,
+  price float NOT NULL
 ) ENGINE=INNODB;
 CREATE TABLE IF NOT EXISTS Customer
 (
   id int(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  firstname varchar(255),
-  surname varchar(255),
-  email varchar(255),
-  type enum('basic', 'premium')
+  firstname varchar(255) NOT NULL,
+  surname varchar(255) NOT NULL,
+  email varchar(255) NOT NULL,
+  subscription enum('basic', 'premium') NOT NULL
 ) ENGINE=INNODB;
 CREATE TABLE IF NOT EXISTS Sale
 (
   id int(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  customer_id int(10),
-  date datetime,
+  customer_id int(10) NOT NULL,
+  saleDate datetime NOT NULL,
   FOREIGN KEY(customer_id) REFERENCES Customer(id)
 ) ENGINE=INNODB;
 CREATE TABLE IF NOT EXISTS Borrowed_books 
 (
-  customer_id int(10),
-  book_id int(10),
-  start datetime,
-  end datetime,
+  customer_id int(10) NOT NULL,
+  book_id int(10) NOT NULL,
+  borrowStart datetime NOT NULL,
+  borrowEnd datetime NOT NULL,
   PRIMARY KEY(customer_id,book_id),
   FOREIGN KEY(customer_id) REFERENCES Customer(id) ON UPDATE CASCADE ON DELETE CASCADE,
   FOREIGN KEY(book_id) REFERENCES Book(id) ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE=INNODB;
 CREATE TABLE IF NOT EXISTS Sale_book 
 (
-  book_id int(10),
-  sale_id int(10),
-  amount smallint(5),
+  book_id int(10) NOT NULL,
+  sale_id int(10) NOT NULL,
+  amount smallint(5) NOT NULL,
   PRIMARY KEY(book_id,sale_id),
   FOREIGN KEY(sale_id) REFERENCES Sale(id) ON UPDATE CASCADE ON DELETE CASCADE,
   FOREIGN KEY(book_id) REFERENCES Book(id) ON UPDATE CASCADE ON DELETE CASCADE

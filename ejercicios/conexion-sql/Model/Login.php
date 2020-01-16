@@ -21,11 +21,14 @@ class Login
         return $this->pass;
     }
 
-    public function correctPass($DBlibro)
+    public function correctPass($DB)
     {
         $query = "SELECT * FROM User WHERE user=:user";
-        $params = [':user' => $this->getUser()];
-        $arr = $DBlibro->query($query, $params);
+        $pdo = $DB->getConnectionDB();
+        $statement = $pdo->prepare($query);
+        $statement->bindParam(":user", $this->getUser());
+        $statement->execute();
+        $arr = $statement->fetch();
         if ($arr["pass"] === $this->getPass()) {
             return true;
         } else {
@@ -33,17 +36,13 @@ class Login
         }
     }
 
-    public function registerUser($DBlibro)
+    public function registerUser($DB)
     {
-        $sqlInsertBook = "INSERT INTO `User`(user, pass) VALUES (:user,:pass)";
-        $params = [":user" => $this->getUser(), ":pass" => $this->getPass()];
-        $DBlibro->query($sqlInsertBook, $params);
-        $statement->bindParam(":user", $user);
-        $statement->bindParam(":pass", $pass);
-    }
-
-    public function __toString()
-    {
-        return "username: $_POST[user] <br> password: $_POST[pass] <br>";
+        $query = "INSERT INTO `User`(user, pass) VALUES (?,?)";
+        $pdo = $DB->getConnectionDB();
+        $statement = $pdo->prepare($query);
+        $statement->bindParam(1, $this->user);
+        $statement->bindParam(2, $this->pass);
+        $statement->execute();
     }
 }
