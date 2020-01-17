@@ -4,15 +4,15 @@ class Borrowed_books
 {
     private $customer_id;
     private $book_id;
-    private $start;
-    private $end;
+    private $borrowStart;
+    private $borrowEnd;
   
-    public function __construct($customer_id, $book_id, $start, $end)
+    public function __construct($customer_id, $book_id, $borrowStart, $borrowEnd)
     {
         $this->customer_id = $customer_id;
         $this->book_id = $book_id;
-        $this->start = $start;
-        $this->end = $end;
+        $this->borrowStart = $borrowStart;
+        $this->borrowEnd = $borrowEnd;
     }
 
     public function getcustomer_id()
@@ -25,25 +25,25 @@ class Borrowed_books
         return $this->book_id;
     }
 
-    public function getstart()
+    public function getborrowStart()
     {
-        return $this->start;
+        return $this->borrowStart;
     }
 
-    public function getend()
+    public function getborrowEnd()
     {
-        return $this->end;
+        return $this->borrowEnd;
     }
 
-    public function insertCustomer($DB)
+    public function insertBorrowed($DB)
     {
-        $query = "INSERT INTO `Customer`(customer_id, book_id, start, end, price) VALUES (?,?,?,?,?)";
+        $query = "INSERT INTO `Borrowed_books`(customer_id, book_id, borrowStart, borrowEnd) VALUES (?,?,?,?)";
         $pdo = $DB->getConnectionDB();
         $statement = $pdo->prepare($query);
         $statement->bindParam(1, $this->customer_id);
         $statement->bindParam(2, $this->book_id);
-        $statement->bindParam(3, $this->start);
-        $statement->bindParam(4, $this->end);
+        $statement->bindParam(3, $this->borrowStart);
+        $statement->bindParam(4, $this->borrowEnd);
         $statement->execute();
     }
 }

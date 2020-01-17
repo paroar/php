@@ -15,6 +15,7 @@ function insertCustomer()
         <input type="text" name="firstname" placeholder="firstname">
         <input type="text" name="surname" placeholder="surname">
         <input type="email" name="email" placeholder="email">
+        <input type="password" name="pass" placeholder="pass">
         <input type="radio" name="subscription" value="basic">Basic
         <input type="radio" name="subscription" value="premium">Premium
         <input type="submit" class="" value="insert" name="submit">
@@ -50,6 +51,7 @@ function tableCustomer($arr)
         <th>FIRSTNAME</th>
         <th>SURNAME</th>
         <th>EMAIL</th>
+        <th>PASSWORD</th>
         <th>SUBSCRIPTION</th>
     </tr>
 EOD;

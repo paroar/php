@@ -2,18 +2,18 @@
 require_once("../Model/ConnectDB.php");
 class Login
 {
-    private $user;
+    private $email;
     private $pass;
 
-    public function __construct($user, $pass)
+    public function __construct($email, $pass)
     {
-        $this->user = $user;
+        $this->email = $email;
         $this->pass = $pass;
     }
 
-    public function getUser()
+    public function getemail()
     {
-        return $this->user;
+        return $this->email;
     }
 
     public function getPass()
@@ -23,10 +23,10 @@ class Login
 
     public function correctPass($DB)
     {
-        $query = "SELECT * FROM User WHERE user=:user";
+        $query = "SELECT * FROM Customer WHERE email=:email";
         $pdo = $DB->getConnectionDB();
         $statement = $pdo->prepare($query);
-        $statement->bindParam(":user", $this->getUser());
+        $statement->bindParam(":email", $this->email);
         $statement->execute();
         $arr = $statement->fetch();
         if ($arr["pass"] === $this->getPass()) {
@@ -34,15 +34,5 @@ class Login
         } else {
             return false;
         }
-    }
-
-    public function registerUser($DB)
-    {
-        $query = "INSERT INTO `User`(user, pass) VALUES (?,?)";
-        $pdo = $DB->getConnectionDB();
-        $statement = $pdo->prepare($query);
-        $statement->bindParam(1, $this->user);
-        $statement->bindParam(2, $this->pass);
-        $statement->execute();
     }
 }

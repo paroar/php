@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once("borrowedFunctions.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,14 +10,16 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="../../CSS/style.css">
 </head>
 
 <body>
-    <a href="./View/Book/Book.php">Book</a>
-    <a href="./View/Customer/Customer.php">Customer</a>
-    <a href="./View/Sale/Sale.php">Sale</a>
-    <a href="./View/Sale_book/Sale_book.php">Sale_book</a>
-    <a href="./View/Borrowed_books/Borrowed_books.php">Borrowed_book</a>
+    <?php
+    borrowedForm();
+    if (isset($_SESSION["tableCustomer"])) {
+        tableCustomer($_SESSION["tableCustomer"]);
+    }
+    ?>
 </body>
 
 </html>

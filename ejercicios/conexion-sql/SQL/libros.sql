@@ -1,9 +1,4 @@
 use libros;
-CREATE TABLE IF NOT EXISTS User
-(
-  user varchar(255) NOT NULL PRIMARY KEY,
-  pass varchar(255) NOT NULL
-) ENGINE=INNODB;
 CREATE TABLE IF NOT EXISTS Book
 (
   id int(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -19,6 +14,7 @@ CREATE TABLE IF NOT EXISTS Customer
   firstname varchar(255) NOT NULL,
   surname varchar(255) NOT NULL,
   email varchar(255) NOT NULL,
+  pass varchar(255) NOT NULL,
   subscription enum('basic', 'premium') NOT NULL
 ) ENGINE=INNODB;
 CREATE TABLE IF NOT EXISTS Sale

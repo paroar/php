@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("View/Login.php");
+require_once("./Login.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +16,7 @@ require_once("View/Login.php");
     <?php
     registerForm();
     ?>
-    <a href="./index.php">Back to login</a>
+    <a href="../index.php">Back to login</a>
 </body>
 
 </html>

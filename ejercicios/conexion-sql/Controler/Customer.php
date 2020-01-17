@@ -6,7 +6,7 @@ require_once("../Model/Customer.php");
 $DB = ConnectDB::getInstance("../config/config.json");
 
 if ($_POST["submit"] === "insert") {
-    $customer = new Customer($_POST["firstname"], $_POST["surname"], $_POST["email"], $_POST["subscription"]);
+    $customer = new Customer($_POST["firstname"], $_POST["surname"], $_POST["email"], $_POST["pass"], $_POST["subscription"]);
     $_SESSION["customer"] = serialize($customer);
     $customer->insertCustomer($DB);
 }
