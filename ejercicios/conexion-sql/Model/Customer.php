@@ -11,6 +11,7 @@ class Customer
   
     public function __construct($id, $firstname, $surname, $email, $pass, $subscription)
     {
+        $this->id = $id;
         $this->firstname = $firstname;
         $this->surname = $surname;
         $this->email = $email;
@@ -59,6 +60,17 @@ class Customer
         $statement->bindParam(4, $pass);
         $statement->bindParam(5, $subscription);
         $statement->execute();
+    }
+
+    public static function selectCustomer($DB, $email)
+    {
+        $query = "SELECT * FROM Customer WHERE email=:email";
+        $pdo = $DB->getConnectionDB();
+        $statement = $pdo->prepare($query);
+        $statement->bindParam(":email", $email);
+        $statement->execute();
+        $arr = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $arr;
     }
 
     public static function selectAllCustomer($DB)

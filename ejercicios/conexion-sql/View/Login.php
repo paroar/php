@@ -16,7 +16,7 @@ function registerForm()
 {
     echo <<<EOD
     <h1>REGISTER FORM</h1>
-    <form action="Controler/Login.php" method="POST">
+    <form action="../Controler/Login.php" method="POST">
         <input type="text" name="firstname" placeholder="firstname">
         <input type="text" name="surname" placeholder="surname">
         <input type="email" name="email" placeholder="email">
