@@ -4,6 +4,7 @@ include_once("../Model/ConnectDB.php");
 require_once("../Model/Book.php");
 require_once("../Model/Sale.php");
 require_once("../Model/Customer.php");
+require_once("../Model/Borrowed_books.php");
 
 $DB = ConnectDB::getInstance("../config/config.json");
 $arrCustomer = unserialize($_SESSION["customer"])[0];
@@ -25,6 +26,12 @@ if ($_POST["submit"] === "buy") {
     Sale::insertSale($DB, $customer->getId(), $dateFormat);
 }
 if ($_POST["submit"] === "borrow") {
+    $date = new DateTime();
+    $startDateFormat = $date->format("Y-m-d H:i:s");
+    $interval = new DateInterval('P1W');
+    $nextWeek = $date->add($interval);
+    $endDateFormat = $nextWeek->format('Y-m-d H:i:s');
+    Borrowed_books::insertBorrowed($DB, $customer->getId(), $_POST["id"], $startDateFormat, $endDateFormat);
 }
 $arr = Book::selectAllBook($DB, $_POST["id"]);
 $_SESSION["tableBook"] = $arr;

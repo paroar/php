@@ -35,15 +35,15 @@ class Borrowed_books
         return $this->borrowEnd;
     }
 
-    public function insertBorrowed($DB)
+    public static function insertBorrowed($DB, $customer_id, $book_id, $borrowStart, $borrowEnd)
     {
         $query = "INSERT INTO `Borrowed_books`(customer_id, book_id, borrowStart, borrowEnd) VALUES (?,?,?,?)";
         $pdo = $DB->getConnectionDB();
         $statement = $pdo->prepare($query);
-        $statement->bindParam(1, $this->customer_id);
-        $statement->bindParam(2, $this->book_id);
-        $statement->bindParam(3, $this->borrowStart);
-        $statement->bindParam(4, $this->borrowEnd);
+        $statement->bindParam(1, $customer_id);
+        $statement->bindParam(2, $book_id);
+        $statement->bindParam(3, $borrowStart);
+        $statement->bindParam(4, $borrowEnd);
         $statement->execute();
     }
 }

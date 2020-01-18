@@ -4,7 +4,7 @@ class Sale_book
 {
     private $book_id;
     private $sale_id;
-    private $amount
+    private $amount;
 
   
     public function __construct($book_id, $sale_id, $amount)
