@@ -4,7 +4,6 @@ require_once("../../php/commonFunctions.php");
 function BookForm()
 {
     insertBook();
-    viewAllBook();
     deleteBook();
 }
 
@@ -18,15 +17,6 @@ function insertBook()
         <input type="number" class="login-input" name="stock" placeholder="stock">
         <input type="number" step="0.01" class="login-input" name="price" placeholder="price">
         <input type="submit" class="" value="insert" name="submit">
-    </form>
-EOD;
-}
-
-function viewAllBook()
-{
-    echo<<<EOD
-    <form action="../../Controler/Book.php" method="POST">
-        <input type="submit" class="" value="view" name="submit">
     </form>
 EOD;
 }
@@ -46,6 +36,9 @@ function tableBook($arr)
     echo<<<EOD
      <table class="table">
      <tr>
+        <th>DELETE</th>
+        <th>BUY</th>
+        <th>BORROW</th>
         <th>ID</th>
         <th>ISBN</th>
         <th>TITLE</th>
@@ -54,5 +47,5 @@ function tableBook($arr)
         <th>PRICE</th>
     </tr>
 EOD;
-    table($arr);
+    table($arr, "../../Controler/Book.php");
 }

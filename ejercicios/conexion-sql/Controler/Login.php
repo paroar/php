@@ -9,14 +9,13 @@ $_SESSION["user"] = serialize($user);
 
 $DB = ConnectDB::getInstance("../config/config.json");
 
-if($_POST["submit"] === "register" && $_POST["repass"] === $_POST["pass"]){
-    $customer = new Customer($_POST["firstname"], $_POST["surname"], $_POST["email"], $_POST["pass"], $_POST["subscription"]);
-    $_SESSION["customer"] = serialize($customer);
-    $customer->insertCustomer($DB);
+if ($_POST["submit"] === "register" && $_POST["repass"] === $_POST["pass"]) {
+    Customer::insertCustomer($DB, $_POST["firstname"], $_POST["surname"], $_POST["email"], $_POST["pass"], $_POST["subscription"]);
     header('Location: ../index.php');
-}elseif ($user->correctPass($DB)) {
+} elseif ($user->correctPass($DB)) {
+    $customer = Customer::selectCustomer($_POST);
+    $_SESSION["customer"] = serialize($customer);
     header('Location: ../usersPage.php');
-}else {
+} else {
     header('Location: ../View/registerCustomer.php');
 }
-

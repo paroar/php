@@ -73,4 +73,17 @@ class Book
         $statement->bindParam(":id", $id);
         $statement->execute();
     }
+
+    public static function saleBook($DB,$id)
+    {
+        $query = "UPDATE Book
+        SET stock = stock - 1
+        WHERE id=:id";
+        $pdo = $DB->getConnectionDB();
+        $statement = $pdo->prepare($query);
+        $statement->bindParam(":id", $id);
+        $statement->execute();
+    }
+
+
 }

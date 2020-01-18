@@ -17,6 +17,8 @@ if ($_POST["submit"] === "view") {
 if ($_POST["submit"] === "delete") {
     $arr = Customer::deleteCustomer($DB, $_POST["id"]);
 }
+
+
 header("Location: ../View/Customer/Customer.php");
 
 ?>

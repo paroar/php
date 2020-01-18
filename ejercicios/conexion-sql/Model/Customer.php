@@ -2,19 +2,25 @@
 
 class Customer
 {
+    private $id;
     private $firstname;
     private $surname;
     private $email;
     private $pass;
     private $subscription;
   
-    public function __construct($firstname, $surname, $email, $pass, $subscription)
+    public function __construct($id, $firstname, $surname, $email, $pass, $subscription)
     {
         $this->firstname = $firstname;
         $this->surname = $surname;
         $this->email = $email;
         $this->pass = $pass;
         $this->subscription= $subscription;
+    }
+
+    public function getId()
+    {
+        return $this->id;
     }
 
     public function getfirstname()
@@ -42,16 +48,16 @@ class Customer
         return $this->pass;
     }
 
-    public function insertCustomer($DB)
+    public static function insertCustomer($DB, $firstname, $surname, $email, $pass, $subscription)
     {
         $query = "INSERT INTO `Customer`(firstname, surname, email, pass, subscription) VALUES (?,?,?,?,?)";
         $pdo = $DB->getConnectionDB();
         $statement = $pdo->prepare($query);
-        $statement->bindParam(1, $this->firstname);
-        $statement->bindParam(2, $this->surname);
-        $statement->bindParam(3, $this->email);
-        $statement->bindParam(4, $this->pass);
-        $statement->bindParam(5, $this->subscription);
+        $statement->bindParam(1, $firstname);
+        $statement->bindParam(2, $surname);
+        $statement->bindParam(3, $email);
+        $statement->bindParam(4, $pass);
+        $statement->bindParam(5, $subscription);
         $statement->execute();
     }
 
@@ -65,7 +71,7 @@ class Customer
         return $arr;
     }
 
-    public static function deleteCustomer($DB,$id)
+    public static function deleteCustomer($DB, $id)
     {
         $query = "DELETE FROM Customer WHERE id=:id";
         $pdo = $DB->getConnectionDB();
