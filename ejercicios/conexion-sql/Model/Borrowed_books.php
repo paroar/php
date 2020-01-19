@@ -46,4 +46,25 @@ class Borrowed_books
         $statement->bindParam(4, $borrowEnd);
         $statement->execute();
     }
+
+    public static function selectAllMyBorrowed($DB, $customer_id)
+    {
+        $query = "SELECT * FROM `Borrowed_books` WHERE customer_id=:customer_id";
+        $pdo = $DB->getConnectionDB();
+        $statement = $pdo->prepare($query);
+        $statement->bindParam(":customer_id", $customer_id);
+        $statement->execute();
+        $arr = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $arr;
+    }
+
+    public static function returnBorrowed($DB, $customer_id, $book_id)
+    {
+        $query = "DELETE FROM `Borrowed_books` WHERE customer_id=:customer_id and book_id=:book_id";
+        $pdo = $DB->getConnectionDB();
+        $statement = $pdo->prepare($query);
+        $statement->bindParam(":customer_id", $customer_id);
+        $statement->bindParam(":book_id", $book_id);
+        $statement->execute();
+    }
 }

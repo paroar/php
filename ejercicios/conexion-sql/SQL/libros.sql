@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS Sale
   id int(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   customer_id int(10) NOT NULL,
   saleDate datetime NOT NULL,
-  FOREIGN KEY(customer_id) REFERENCES Customer(id)
+  FOREIGN KEY(customer_id) REFERENCES Customer(id) ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE=INNODB;
 CREATE TABLE IF NOT EXISTS Borrowed_books 
 (

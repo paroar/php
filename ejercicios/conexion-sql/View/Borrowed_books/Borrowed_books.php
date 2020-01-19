@@ -1,6 +1,9 @@
 <?php
 session_start();
 require_once("borrowedFunctions.php");
+require_once("../../Model/Borrowed_books.php");
+require_once("../../Model/ConnectDB.php");
+require_once("../../Model/Customer.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,10 +18,11 @@ require_once("borrowedFunctions.php");
 
 <body>
     <?php
-    borrowedForm();
-    if (isset($_SESSION["tableCustomer"])) {
-        tableCustomer($_SESSION["tableCustomer"]);
-    }
+        $DB = ConnectDB::getInstance("../../config/config.json");
+        $arrCustomer = unserialize($_SESSION["customer"])[0];
+        $customer = new Customer($arrCustomer["id"], $arrCustomer["firstname"], $arrCustomer["surname"], $arrCustomer["email"], $arrCustomer["pass"], $arrCustomer["subscription"]);
+        $arr = Borrowed_books::selectAllMyBorrowed($DB, $customer->getId());
+        tableBorrowed($arr);
     ?>
 </body>
 

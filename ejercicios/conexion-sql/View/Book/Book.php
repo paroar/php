@@ -22,7 +22,6 @@ require_once("../../Model/ConnectDB.php");
     $arr = Book::selectAllBook($DB);
     bookForm();
     tableBook($arr);
-
     ?>
 </body>
 

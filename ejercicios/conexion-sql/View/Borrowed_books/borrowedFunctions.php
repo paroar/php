@@ -3,37 +3,15 @@ require_once("../../php/commonFunctions.php");
 
 function BorrowedForm()
 {
-    insertBorrowed();
     viewAllBorrowed();
-    //deleteBorrowed();
 }
 
-function insertBorrowed()
-{
-    echo<<<EOD
-    <form action="../../Controler/Borrowed.php" method="POST">
-        Start<input type="date" name="borrowStart">
-        End<input type="date" name="borrowEnd">
-        <input type="submit" class="" value="insert" name="submit">
-    </form>
-EOD;
-}
 
 function viewAllBorrowed()
 {
     echo<<<EOD
-    <form action="../../Controler/Borrowed.php" method="POST">
+    <form action="../../Controler/Borrowed_books.php" method="POST">
         <input type="submit" class="" value="view" name="submit">
-    </form>
-EOD;
-}
-
-function deleteBorrowed()
-{
-    echo<<<EOD
-    <form action="../../Controler/Borrowed.php" method="POST">
-        <input type="text" name="id" placeholder="id to delete">
-        <input type="submit" class="" value="delete" name="submit">
     </form>
 EOD;
 }
@@ -41,13 +19,30 @@ EOD;
 function tableBorrowed($arr)
 {
     echo<<<EOD
-     <table class="table">
-     <tr>
-        <th>CUSTOMER_ID</th>
-        <th>BOOK_ID</th>
-        <th>BORROW START</th>
-        <th>BORROW END</th>
+    <table>
+    <tr>
+    <th>RETURN</th>
+    <th>CUSTOMER_ID</th>
+    <th>BOOK_ID</th>
+    <th>BORROW_START</th>
+    <th>BORROW_END</th>
     </tr>
+
 EOD;
-    table($arr);
+    foreach ($arr as $rowkey => $row) {
+        echo<<<EOD
+        <td>
+        <form method="post" action="../../Controler/Borrowed_books.php">
+           <input type="submit" value="return" name="submit">
+           <input type="hidden" value="$row[customer_id]" name="customer_id">
+           <input type="hidden" value="$row[book_id]" name="book_id">
+        </form>
+        </td>
+EOD;
+        foreach ($row as $col => $colvalue) {
+            echo "<td>$colvalue</td>";
+        }
+        echo "</tr>";
+    }
+    echo "</table>";
 }
