@@ -29,13 +29,14 @@ class Sale_book
         return $this->amount;
     }
 
-    public function insertSale($DB)
+    public static function insertSaleBook($DB, $book_id, $sale_id, $amount)
     {
-        $query = "INSERT INTO `Sale`(book_id, sale_id) VALUES (?,?)";
+        $query = "INSERT INTO `Sale_book`(book_id, sale_id, amount) VALUES (?,?,?)";
         $pdo = $DB->getConnectionDB();
         $statement = $pdo->prepare($query);
-        $statement->bindParam(1, $this->book_id);
-        $statement->bindParam(2, $this->sale_id);
+        $statement->bindParam(1, $book_id);
+        $statement->bindParam(2, $sale_id);
+        $statement->bindParam(3, $amount);
         $statement->execute();
     }
 }

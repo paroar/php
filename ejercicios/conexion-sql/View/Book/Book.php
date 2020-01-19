@@ -1,6 +1,8 @@
 <?php
 session_start();
 require_once("bookFunctions.php");
+require_once("../../Model/Book.php");
+require_once("../../Model/ConnectDB.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,10 +17,12 @@ require_once("bookFunctions.php");
 
 <body>
     <?php
+    $DB = ConnectDB::getInstance("../../config/config.json");
+
+    $arr = Book::selectAllBook($DB);
     bookForm();
-    if (isset($_SESSION["tableBook"])) {
-        tableBook($_SESSION["tableBook"]);
-    }
+    tableBook($arr);
+
     ?>
 </body>
 

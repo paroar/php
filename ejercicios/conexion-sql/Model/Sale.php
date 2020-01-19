@@ -22,7 +22,7 @@ class Sale
         return $this->date;
     }
 
-    public function insertSale($DB, $customer_id, $saleDate)
+    public static function insertSale($DB, $customer_id, $saleDate)
     {
         $query = "INSERT INTO `Sale`(customer_id, saleDate) VALUES (?,?)";
         $pdo = $DB->getConnectionDB();
@@ -30,6 +30,7 @@ class Sale
         $statement->bindParam(1, $customer_id);
         $statement->bindParam(2, $saleDate);
         $statement->execute();
+        return $pdo->lastInsertId();
     }
 
     public static function selectAllSale($DB)

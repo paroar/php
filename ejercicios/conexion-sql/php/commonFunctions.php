@@ -1,6 +1,6 @@
 <?php
 
-function table($arr,$controllerPath){
+function table($arr=[],$controllerPath){
     foreach ($arr as $rowkey => $row) {
         echo<<<EOD
          <tr>
@@ -13,6 +13,7 @@ function table($arr,$controllerPath){
          <td>
          <form method="post" action="$controllerPath">
             <input type="submit" value="buy" name="submit">
+            <input type="number" value="1" name="amount">
             <input type="hidden" value="$row[id]" name="id">
          </form>
          </td>
