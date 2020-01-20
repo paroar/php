@@ -99,7 +99,7 @@ class Customer
         $statement->bindParam(":email", $email);
         $statement->execute();
         $arr = $statement->fetch();
-        if (count($arr) > 0) {
+        if ($arr) {
             return true;
         } else {
             return false;
