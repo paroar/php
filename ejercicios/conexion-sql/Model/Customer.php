@@ -92,6 +92,20 @@ class Customer
         $statement->execute();
     }
 
+    public static function isUserRegistered($DB, $email){
+        $query = "SELECT * FROM Customer WHERE email=:email";
+        $pdo = $DB->getConnectionDB();
+        $statement = $pdo->prepare($query);
+        $statement->bindParam(":email", $email);
+        $statement->execute();
+        $arr = $statement->fetch();
+        if (count($arr) > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function correctPass($DB)
     {
         $query = "SELECT * FROM Customer WHERE email=:email";
