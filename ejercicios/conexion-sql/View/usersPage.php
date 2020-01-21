@@ -12,8 +12,8 @@ session_start();
 </head>
 
 <body>
-    <a href="./View/Book/Book.php">Book</a>
-    <a href="./View/Borrowed_books/Borrowed_books.php">Borrowed_book</a>
+    <a href="./Book/Book.php">Book</a>
+    <a href="./Borrowed_books/Borrowed_books.php">Borrowed_book</a>
 </body>
 
 </html>
