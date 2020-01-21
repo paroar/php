@@ -16,7 +16,7 @@ if ($_POST["submit"] === "register" && $_POST["repass"] === $_POST["pass"]) {
     } else {
         Customer::insertCustomer($DB, $_POST["firstname"], $_POST["surname"], $_POST["email"], $_POST["pass"], $_POST["subscription"]);
         echo "User registered";        
-        header('Refresh:2: url=../index.php');
+        header('Refresh:2; url=../index.php');
     }
 } elseif ($user->correctPass($DB)) {
     $customer = Customer::selectCustomer($DB, $_POST["email"]);
