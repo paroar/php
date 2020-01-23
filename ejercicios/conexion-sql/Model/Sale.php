@@ -9,7 +9,7 @@ class Sale
     public function __construct($customer_id, $saleDate)
     {
         $this->customer_id = $customer_id;
-        $this->date = $date;
+        $this->saleDate = $saleDate;
     }
 
     public function getcustomer_id()

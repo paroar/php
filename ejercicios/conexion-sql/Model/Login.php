@@ -23,16 +23,20 @@ class Login
 
     public function correctPass($DB)
     {
-        $query = "SELECT * FROM Customer WHERE email=:email";
-        $pdo = $DB->getConnectionDB();
-        $statement = $pdo->prepare($query);
-        $statement->bindParam(":email", $this->email);
-        $statement->execute();
-        $arr = $statement->fetch();
-        if ($arr["pass"] === $this->getPass()) {
-            return true;
-        } else {
-            return false;
+        try {
+            $query = "SELECT * FROM Customer WHERE email=:email";
+            $pdo = $DB->getConnectionDB();
+            $statement = $pdo->prepare($query);
+            $statement->bindParam(":email", $this->email);
+            $statement->execute();
+            $arr = $statement->fetch();
+            if ($arr["pass"] === $this->getPass()) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            echo 'Excepción capturada en Model/Login/correctPass:  ', $e->getMessage(), "\n";
         }
     }
 }

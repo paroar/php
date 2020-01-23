@@ -18,11 +18,10 @@ require_once("../../Model/Customer.php");
 
 <body>
     <?php
-        $DB = ConnectDB::getInstance("../../config/config.json");
-        $arrCustomer = unserialize($_SESSION["customer"])[0];
-        $customer = new Customer($arrCustomer["id"], $arrCustomer["firstname"], $arrCustomer["surname"], $arrCustomer["email"], $arrCustomer["pass"], $arrCustomer["subscription"]);
-        $arr = Borrowed_books::selectAllMyBorrowed($DB, $customer->getId());
-        tableBorrowed($arr);
+    $DB = ConnectDB::getInstance("../../config/config.json");
+    $customer = unserialize($_SESSION["customer"]); 
+    $arr = Borrowed_books::selectAllMyBorrowed($DB, $customer->getId());
+    tableBorrowed($arr);
     ?>
 </body>
 
