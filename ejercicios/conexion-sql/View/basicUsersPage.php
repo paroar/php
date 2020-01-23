@@ -12,7 +12,7 @@ session_start();
 </head>
 
 <body>
-    BASIC USERS PAGE
+    <a href="./Book/basicBook.php">Books</a>
     <a href="./Borrowed_books/Borrowed_books.php">Borrowed_book</a>
 </body>
 

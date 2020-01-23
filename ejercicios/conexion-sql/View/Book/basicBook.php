@@ -20,8 +20,7 @@ require_once("../../Model/ConnectDB.php");
     $DB = ConnectDB::getInstance("../../config/config.json");
 
     $arr = Book::selectAllBook($DB);
-    bookForm();
-    tableBook($arr);
+    basicTableBook($arr, "../../Controler/Book.php");
     ?>
 </body>
 

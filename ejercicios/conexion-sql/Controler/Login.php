@@ -10,9 +10,17 @@ $DB = ConnectDB::getInstance("../config/config.json");
 
 if ($_POST["submit"] === "login") {
     if ($user->correctPass($DB)) {
-        $customer = Customer::selectCustomer($DB, $_POST["email"]);
+        $arrCustomer = Customer::selectCustomer($DB, $_POST["email"])[0];
+        $customer = new Customer($arrCustomer["id"], $arrCustomer["firstname"], $arrCustomer["surname"], $arrCustomer["email"], $arrCustomer["pass"], $arrCustomer["subscription"]);
         $_SESSION["customer"] = serialize($customer);
-        header('Location: ../usersPage.php');
+        $subscription = $customer->getsubscription();
+        if ($subscription === "basic") {
+            header('Location: ../View/basicUsersPage.php');
+        } elseif ($subscription === "premium") {
+            header('Location: ../View/premiumUsersPage.php');
+        } else {
+            header('Location: ../index.php');
+        }
     } else {
         header('Location: ../View/registerCustomer.php');
     }

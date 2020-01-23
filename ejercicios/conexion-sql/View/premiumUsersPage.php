@@ -12,7 +12,7 @@ session_start();
 </head>
 
 <body>
-    PREMIUM USERS PAGE
+    <a href="./Book/premiumBook.php">Books</a>
 </body>
 
 </html>

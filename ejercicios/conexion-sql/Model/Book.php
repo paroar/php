@@ -78,7 +78,7 @@ class Book
     {
         $query = "UPDATE Book
         SET stock = stock - :amount
-        WHERE id=:id";
+        WHERE id=:id AND stock >= :amount";
         $pdo = $DB->getConnectionDB();
         $statement = $pdo->prepare($query);
         $statement->bindParam(":id", $id);

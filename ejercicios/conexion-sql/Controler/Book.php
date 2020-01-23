@@ -9,10 +9,7 @@ require_once("../Model/Sale_book.php");
 
 $DB = ConnectDB::getInstance("../config/config.json");
 
-$arrCustomer = unserialize($_SESSION["customer"])[0];
-var_dump($arrCustomer);
-exit;
-$customer = new Customer($arrCustomer["id"], $arrCustomer["firstname"], $arrCustomer["surname"], $arrCustomer["email"], $arrCustomer["pass"], $arrCustomer["subscription"]);
+$customer = unserialize($_SESSION["customer"]);
 
 if ($_POST["submit"] === "insert") {
     $book = new Book($_POST["isbn"], $_POST["title"], $_POST["author"], $_POST["stock"], $_POST["price"]);
@@ -20,7 +17,7 @@ if ($_POST["submit"] === "insert") {
     $book->insertBook($DB);
 }
 if ($_POST["submit"] === "delete") {
-    $arr = Book::deleteBook($DB, $_POST["id"]);
+    Book::deleteBook($DB, $_POST["id"]);
 }
 if ($_POST["submit"] === "buy") {
     Book::saleBook($DB, $_POST["id"], $_POST["amount"]);
@@ -39,4 +36,10 @@ if ($_POST["submit"] === "borrow") {
     $endDateFormat = $nextWeek->format('Y-m-d H:i:s');
     Borrowed_books::insertBorrowed($DB, $customer->getId(), $_POST["id"], $startDateFormat, $endDateFormat);
 }
-header("Location: ../View/Book/Book.php");
+if($customer->getsubscription() === "basic"){
+    header("Location: ../View/Book/basicBook.php");
+}elseif($customer->getsubscription() === "premium"){
+    header("Location: ../View/Book/premiumBook.php");
+}else{
+    echo "controller/book";
+}
