@@ -1,6 +1,8 @@
 <?php
 session_start();
 require_once("customerFunctions.php");
+require_once("../../Model/ConnectDB.php");
+require_once("../../Model/Customer.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,10 +17,11 @@ require_once("customerFunctions.php");
 
 <body>
     <?php
+    $DB = ConnectDB::getInstance("../../config/config.json");
+
+    $arr = Customer::selectAllCustomer($DB);
     CustomerForm();
-    if (isset($_SESSION["tableCustomer"])) {
-        tableCustomer($_SESSION["tableCustomer"]);
-    }
+    tableCustomer($arr, "../../Controler/Customer.php");
     ?>
 </body>
 

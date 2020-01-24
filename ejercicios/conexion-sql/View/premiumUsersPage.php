@@ -13,6 +13,7 @@ session_start();
 
 <body>
     <a href="./Book/premiumBook.php">Books</a>
+    <a href="./Customer/Customer.php">Customer</a>
 </body>
 
 </html>

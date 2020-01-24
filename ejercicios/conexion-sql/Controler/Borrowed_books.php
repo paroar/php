@@ -7,10 +7,7 @@ require_once("../Model/Customer.php");
 
 $DB = ConnectDB::getInstance("../config/config.json");
 
-$arrCustomer = unserialize($_SESSION["customer"])[0];
-var_dump($arrCustomer);
-exit;
-$customer = new Customer($arrCustomer["id"], $arrCustomer["firstname"], $arrCustomer["surname"], $arrCustomer["email"], $arrCustomer["pass"], $arrCustomer["subscription"]);
+$customer = unserialize($_SESSION["customer"]);
 
 if($_POST["submit"] === "return"){
     Borrowed_books::returnBorrowed($DB, $customer->getId(), $_POST["book_id"]);

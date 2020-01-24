@@ -22,6 +22,7 @@ require_once("../../Model/ConnectDB.php");
     $arr = Book::selectAllBook($DB);
     basicTableBook($arr, "../../Controler/Book.php");
     ?>
+    <a href="">Go back</a>
 </body>
 
 </html>

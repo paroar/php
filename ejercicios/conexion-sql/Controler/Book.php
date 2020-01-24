@@ -36,7 +36,7 @@ if ($_POST["submit"] === "borrow") {
     $endDateFormat = $nextWeek->format('Y-m-d H:i:s');
     Borrowed_books::insertBorrowed($DB, $customer->getId(), $_POST["id"], $startDateFormat, $endDateFormat);
 }
-if($customer->getsubscription() === "basic"){
+if($customer->getSubscription() === "basic"){
     header("Location: ../View/Book/basicBook.php");
 }elseif($customer->getsubscription() === "premium"){
     header("Location: ../View/Book/premiumBook.php");

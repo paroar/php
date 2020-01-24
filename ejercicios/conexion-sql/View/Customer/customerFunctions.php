@@ -1,10 +1,8 @@
 <?php
-require_once("../../php/commonFunctions.php");
 
 function CustomerForm()
 {
     insertCustomer();
-    viewAllCustomer();
     deleteCustomer();
 }
 
@@ -23,15 +21,6 @@ function insertCustomer()
 EOD;
 }
 
-function viewAllCustomer()
-{
-    echo<<<EOD
-    <form action="../../Controler/Customer.php" method="POST">
-        <input type="submit" class="" value="view" name="submit">
-    </form>
-EOD;
-}
-
 function deleteCustomer()
 {
     echo<<<EOD
@@ -42,7 +31,7 @@ function deleteCustomer()
 EOD;
 }
 
-function tableCustomer($arr)
+function tableCustomer($arr=[], $controllerPath)
 {
     echo<<<EOD
      <table class="table">
@@ -55,5 +44,21 @@ function tableCustomer($arr)
         <th>SUBSCRIPTION</th>
     </tr>
 EOD;
-    table($arr);
+    foreach ($arr as $rowkey => $row) {
+        echo<<<EOD
+         <tr>
+         <td>
+         <form method="post" action="$controllerPath">
+            <input type="submit" value="delete" name="submit">
+            <input type="hidden" value="$row[id]" name="id">
+         </form>
+         </td>
+EOD;
+}
+        foreach ($row as $col => $colvalue) {
+            echo "<td>$colvalue</td>";
+        }
+        echo "</tr>";
+    
+    echo "</table>";
 }
