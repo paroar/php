@@ -36,6 +36,7 @@ function tableCustomer($arr=[], $controllerPath)
     echo<<<EOD
      <table class="table">
      <tr>
+        <th>DELETE</th>
         <th>ID</th>
         <th>FIRSTNAME</th>
         <th>SURNAME</th>
@@ -46,19 +47,18 @@ function tableCustomer($arr=[], $controllerPath)
 EOD;
     foreach ($arr as $rowkey => $row) {
         echo<<<EOD
-         <tr>
-         <td>
-         <form method="post" action="$controllerPath">
-            <input type="submit" value="delete" name="submit">
-            <input type="hidden" value="$row[id]" name="id">
-         </form>
-         </td>
+     <tr>
+     <td>
+     <form method="post" action="$controllerPath">
+        <input type="submit" value="delete" name="delete">
+        <input type="hidden" value="$row[id]" name="id">
+     </form>
+     </td>
 EOD;
-}
         foreach ($row as $col => $colvalue) {
             echo "<td>$colvalue</td>";
         }
         echo "</tr>";
-    
+    }
     echo "</table>";
 }
