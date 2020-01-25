@@ -6,7 +6,7 @@ require_once("../Model/Customer.php");
 $DB = ConnectDB::getInstance("../config/config.json");
 
 if ($_POST["submit"] === "insert") {
-    Customer::insertCustomer($DB, $_POST["id"],$_POST["firstname"],$_POST["surname"],$_POST["email"],$_POST["pass"],$_POST["subscription"]);
+    Customer::insertCustomer($DB,$_POST["firstname"],$_POST["surname"],$_POST["email"],$_POST["pass"],$_POST["subscription"]);
 }
 if ($_POST["submit"] === "delete") {
     Customer::deleteCustomer($DB, $_POST["id"]);

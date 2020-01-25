@@ -50,7 +50,7 @@ EOD;
      <tr>
      <td>
      <form method="post" action="$controllerPath">
-        <input type="submit" value="delete" name="delete">
+        <input type="submit" value="delete" name="submit">
         <input type="hidden" value="$row[id]" name="id">
      </form>
      </td>
