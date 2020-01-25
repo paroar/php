@@ -1,5 +1,5 @@
 <?php
-require_once("../Model/ConnectDB.php");
+
 class Login
 {
     private $email;
@@ -21,11 +21,10 @@ class Login
         return $this->pass;
     }
 
-    public function correctPass($DB)
+    public function correctPass($pdo)
     {
         try {
             $query = "SELECT * FROM Customer WHERE email=:email";
-            $pdo = $DB->getConnectionDB();
             $statement = $pdo->prepare($query);
             $statement->bindParam(":email", $this->email);
             $statement->execute();

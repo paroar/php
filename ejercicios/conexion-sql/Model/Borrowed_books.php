@@ -35,10 +35,9 @@ class Borrowed_books
         return $this->borrowEnd;
     }
 
-    public static function insertBorrowed($DB, $customer_id, $book_id, $borrowStart, $borrowEnd)
+    public static function insertBorrowed($pdo, $customer_id, $book_id, $borrowStart, $borrowEnd)
     {
         $query = "INSERT INTO `Borrowed_books`(customer_id, book_id, borrowStart, borrowEnd) VALUES (?,?,?,?)";
-        $pdo = $DB->getConnectionDB();
         $statement = $pdo->prepare($query);
         $statement->bindParam(1, $customer_id);
         $statement->bindParam(2, $book_id);
@@ -47,10 +46,9 @@ class Borrowed_books
         $statement->execute();
     }
 
-    public static function selectAllMyBorrowed($DB, $customer_id)
+    public static function selectAllMyBorrowed($pdo, $customer_id)
     {
         $query = "SELECT * FROM `Borrowed_books` WHERE customer_id=:customer_id";
-        $pdo = $DB->getConnectionDB();
         $statement = $pdo->prepare($query);
         $statement->bindParam(":customer_id", $customer_id);
         $statement->execute();
@@ -58,10 +56,9 @@ class Borrowed_books
         return $arr;
     }
 
-    public static function returnBorrowed($DB, $customer_id, $book_id)
+    public static function returnBorrowed($pdo, $customer_id, $book_id)
     {
         $query = "DELETE FROM `Borrowed_books` WHERE customer_id=:customer_id and book_id=:book_id";
-        $pdo = $DB->getConnectionDB();
         $statement = $pdo->prepare($query);
         $statement->bindParam(":customer_id", $customer_id);
         $statement->bindParam(":book_id", $book_id);

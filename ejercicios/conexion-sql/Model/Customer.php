@@ -49,10 +49,9 @@ class Customer
         return $this->pass;
     }
 
-    public static function insertCustomer($DB, $firstname, $surname, $email, $pass, $subscription)
+    public static function insertCustomer($pdo, $firstname, $surname, $email, $pass, $subscription)
     {
         $query = "INSERT INTO `Customer`(firstname, surname, email, pass, subscription) VALUES (?,?,?,?,?)";
-        $pdo = $DB->getConnectionDB();
         $statement = $pdo->prepare($query);
         $statement->bindParam(1, $firstname);
         $statement->bindParam(2, $surname);
@@ -62,10 +61,9 @@ class Customer
         $statement->execute();
     }
 
-    public static function selectCustomer($DB, $email)
+    public static function selectCustomer($pdo, $email)
     {
         $query = "SELECT * FROM Customer WHERE email=:email";
-        $pdo = $DB->getConnectionDB();
         $statement = $pdo->prepare($query);
         $statement->bindParam(":email", $email);
         $statement->execute();
@@ -73,74 +71,57 @@ class Customer
         return $arr;
     }
 
-    public static function selectAllCustomer($DB)
+    public static function selectAllCustomer($pdo)
     {
         $query = "SELECT * FROM Customer";
-        $pdo = $DB->getConnectionDB();
         $statement = $pdo->prepare($query);
         $statement->execute();
         $arr = $statement->fetchAll(PDO::FETCH_ASSOC);
         return $arr;
     }
 
-    public static function deleteCustomer($DB, $id)
+    public static function deleteCustomer($pdo, $id)
     {
         $query = "DELETE FROM Customer WHERE id=:id";
-        $pdo = $DB->getConnectionDB();
         $statement = $pdo->prepare($query);
         $statement->bindParam(":id", $id);
         $statement->execute();
     }
 
-    public static function isUserRegistered($DB, $email)
+    public static function isUserRegistered($pdo, $email)
     {
-        try {
-            $query = "SELECT * FROM Customer WHERE email=:email";
-            $pdo = $DB->getConnectionDB();
-            $statement = $pdo->prepare($query);
-            $statement->bindParam(":email", $email);
-            $statement->execute();
-            $arr = $statement->fetch();
-            if ($arr) {
-                return true;
-            } else {
-                return false;
-            }
-        } catch (Exception $e) {
-            echo 'Excepción capturada en Model/Customer/isUserRegistered:  ', $e->getMessage(), "\n";
+        $query = "SELECT * FROM Customer WHERE email=:email";
+        $statement = $pdo->prepare($query);
+        $statement->bindParam(":email", $email);
+        $statement->execute();
+        $arr = $statement->fetch();
+        if ($arr) {
+            return true;
+        } else {
+            return false;
         }
     }
 
-    public function correctPass($DB)
+    public function correctPass($pdo)
     {
-        try {
-            $query = "SELECT * FROM Customer WHERE email=:email";
-            $pdo = $DB->getConnectionDB();
-            $statement = $pdo->prepare($query);
-            $statement->bindParam(":email", $this->getemail());
-            $statement->execute();
-            $arr = $statement->fetch();
-            if ($arr["pass"] === $this->getpass()) {
-                return true;
-            } else {
-                return false;
-            }
-        } catch (Exception $e) {
-            echo 'Excepción capturada en Model/Customer/correctPass:  ', $e->getMessage(), "\n";
+        $query = "SELECT * FROM Customer WHERE email=:email";
+        $statement = $pdo->prepare($query);
+        $statement->bindParam(":email", $this->getemail());
+        $statement->execute();
+        $arr = $statement->fetch();
+        if ($arr["pass"] === $this->getpass()) {
+            return true;
+        } else {
+            return false;
         }
     }
 
-    public function registerUser($DB)
+    public function registerUser($pdo)
     {
-        try {
-            $query = "INSERT INTO `Customer`(email, pass) VALUES (?,?)";
-            $pdo = $DB->getConnectionDB();
-            $statement = $pdo->prepare($query);
-            $statement->bindParam(1, $this->user);
-            $statement->bindParam(2, $this->pass);
-            $statement->execute();
-        } catch (Exception $e) {
-            echo 'Excepción capturada en Model/Customer/registerUser:  ', $e->getMessage(), "\n";
-        }
+        $query = "INSERT INTO `Customer`(email, pass) VALUES (?,?)";
+        $statement = $pdo->prepare($query);
+        $statement->bindParam(1, $this->user);
+        $statement->bindParam(2, $this->pass);
+        $statement->execute();
     }
 }

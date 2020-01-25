@@ -18,6 +18,7 @@ require_once("../../Model/Customer.php");
 <body>
     <?php
     $DB = ConnectDB::getInstance("../../config/config.json");
+    $pdo = $DB->getConnectionDB();
 
     $arr = Customer::selectAllCustomer($DB);
     CustomerForm();

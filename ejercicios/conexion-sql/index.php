@@ -17,6 +17,8 @@ require_once("View/Login.php");
 <body>
     <?php
     $DB = ConnectDB::getInstance("./config/config.json");
+    $pdo = $DB->getConnectionDB();
+
     $query = file_get_contents("./SQL/libros.sql");
     $DB->exec($query);
     loginForm();

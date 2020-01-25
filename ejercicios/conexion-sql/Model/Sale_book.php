@@ -29,10 +29,9 @@ class Sale_book
         return $this->amount;
     }
 
-    public static function insertSaleBook($DB, $book_id, $sale_id, $amount)
+    public static function insertSaleBook($pdo, $book_id, $sale_id, $amount)
     {
         $query = "INSERT INTO `Sale_book`(book_id, sale_id, amount) VALUES (?,?,?)";
-        $pdo = $DB->getConnectionDB();
         $statement = $pdo->prepare($query);
         $statement->bindParam(1, $book_id);
         $statement->bindParam(2, $sale_id);

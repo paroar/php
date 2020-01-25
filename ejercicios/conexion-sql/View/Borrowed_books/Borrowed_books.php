@@ -19,8 +19,10 @@ require_once("../../Model/Customer.php");
 <body>
     <?php
     $DB = ConnectDB::getInstance("../../config/config.json");
+    $pdo = $DB->getConnectionDB();
+
     $customer = unserialize($_SESSION["customer"]); 
-    $arr = Borrowed_books::selectAllMyBorrowed($DB, $customer->getId());
+    $arr = Borrowed_books::selectAllMyBorrowed($pdo, $customer->getId());
     tableBorrowed($arr);
     ?>
 </body>

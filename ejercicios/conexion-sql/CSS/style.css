@@ -24,3 +24,23 @@ table tr:nth-child(even) {
 table tr:hover {
   background-color: #ddd;
 }
+
+.pagination-container{
+  display: flex;
+  justify-content: center;
+}
+
+.pagination{
+  background-color: orangered;
+  text-decoration-style: none;
+  color: white;
+  padding: 1rem;
+  margin: 1rem .5rem;
+  width: .5rem;
+  height: .5rem;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+}

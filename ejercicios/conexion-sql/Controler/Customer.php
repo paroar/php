@@ -4,15 +4,16 @@ require_once("../Model/ConnectDB.php");
 require_once("../Model/Customer.php");
 
 $DB = ConnectDB::getInstance("../config/config.json");
+$pdo = $DB->getConnectionDB();
 
-if ($_POST["submit"] === "insert") {
-    Customer::insertCustomer($DB,$_POST["firstname"],$_POST["surname"],$_POST["email"],$_POST["pass"],$_POST["subscription"]);
+$option = $_POST["submit"];
+switch ($option) {
+    case "insert":     
+        Customer::insertCustomer($pdo, $_POST["firstname"], $_POST["surname"], $_POST["email"], $_POST["pass"], $_POST["subscription"]);
+        break;
+    case 'delete':
+        Customer::deleteCustomer($pdo, $_POST["id"]);
+        break;
 }
-if ($_POST["submit"] === "delete") {
-    Customer::deleteCustomer($DB, $_POST["id"]);
-}
-
 
 header("Location: ../View/Customer/Customer.php");
-
-?>
