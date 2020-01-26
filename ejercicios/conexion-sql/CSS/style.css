@@ -44,3 +44,22 @@ table tr:hover {
   align-items: center;
   font-weight: 600;
 }
+
+.num-results-container{
+  display: flex;
+  align-items: center;
+}
+
+.num-results{
+  color: #000;
+  text-decoration-style: none;
+  padding: .5rem;
+  margin: 1rem .2rem;
+  width: .5rem;
+  height: .5rem;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+}

@@ -23,14 +23,23 @@ require_once("../../Model/ConnectDB.php");
     premiumBookForm();
 
     isset($_GET["page"]) ? $page = $_GET["page"] : $page = 1;
-    $resultsPerPage = 10;
+    isset($_GET["resultsPerPage"]) ? $resultsPerPage = $_GET["resultsPerPage"] : $resultsPerPage = 10;
+
     $start = ($page-1)*$resultsPerPage;
     $numOfPages = ceil(Book::numBooks($pdo)/$resultsPerPage);
     $arr = Book::selectLimitBooks($pdo, $start, $resultsPerPage);
+
+    $selectResultsPerPage = [5,10,15,25];
+    echo "<div class='num-results-container'>";
+    echo "Nº of results per page: ";
+    foreach ($selectResultsPerPage as $option) {
+        echo "<a href='$_SERVER[PHP_SELF]?resultsPerPage=$option' class='num-results'>$option</a>";
+    }
+    echo "</div>";
     premiumTableBook($arr, "../../Controler/Book.php");
     echo "<div class='pagination-container'>";
     for ($page=1; $page<=$numOfPages;$page++) {
-        echo "<a href='$_SERVER[PHP_SELF]?page=$page' class='pagination'>$page</a>";
+        echo "<a href='$_SERVER[PHP_SELF]?page=$page&resultsPerPage=$resultsPerPage' class='pagination'>$page</a>";
     }
     echo "</div>";
     ?>

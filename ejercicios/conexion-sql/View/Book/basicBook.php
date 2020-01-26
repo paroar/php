@@ -20,7 +20,7 @@ require_once("../../Model/ConnectDB.php");
     $DB = ConnectDB::getInstance("../../config/config.json");
     $pdo = $DB->getConnectionDB();
     isset($_GET["page"]) ? $page = $_GET["page"] : $page = 1;
-    $resultsPerPage = 10;
+    $resultsPerPage = 5;
     $start = ($page-1)*$resultsPerPage;
     $numOfPages = ceil(Book::numBooks($pdo)/$resultsPerPage);
     $arr = Book::selectLimitBooks($pdo, $start, $resultsPerPage);
