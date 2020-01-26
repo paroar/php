@@ -42,6 +42,8 @@ require_once("../../Model/ConnectDB.php");
         echo "<a href='$_SERVER[PHP_SELF]?page=$page&resultsPerPage=$resultsPerPage' class='pagination'>$page</a>";
     }
     echo "</div>";
+
+    isset($_SESSION["err"]) ? print(unserialize($_SESSION["err"])[2]): null;
     ?>
 </body>
 

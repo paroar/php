@@ -7,18 +7,14 @@ class ConnectDb
 
     private function __construct($configFile)
     {
-        try {
-            $config = json_decode(file_get_contents($configFile), true);
-            $DBType = $config["DBType"];
-            $DBName = $config["DBName"];
-            $Host = $config["Host"];
-            $User = $config["User"];
-            $Password = $config["Password"];
-            $DSN = $DBType . ":" . "host=" . $Host . ";" . "dbname=" . $DBName;
-            $this->connection = new PDO($DSN, $User, $Password);
-        } catch (PDOException $e) {
-            echo $e->getMessage();
-        }
+        $config = json_decode(file_get_contents($configFile), true);
+        $DBType = $config["DBType"];
+        $DBName = $config["DBName"];
+        $Host = $config["Host"];
+        $User = $config["User"];
+        $Password = $config["Password"];
+        $DSN = $DBType . ":" . "host=" . $Host . ";" . "dbname=" . $DBName;
+        $this->connection = new PDO($DSN, $User, $Password);
     }
 
     public static function getInstance($configFile)
@@ -34,7 +30,8 @@ class ConnectDb
         return $this->connection;
     }
 
-    public function exec($query){
+    public function exec($query)
+    {
         $pdo = $this->getConnectionDB();
         $statement = $pdo->prepare($query);
         $statement->execute();

@@ -2,6 +2,7 @@
 session_start();
 include_once("Model/ConnectDB.php");
 require_once("View/Login.php");
+require_once("./php/commonFunctions.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,6 +17,9 @@ require_once("View/Login.php");
 
 <body>
     <?php
+    set_error_handler("customError");
+    set_exception_handler("customException");
+
     $DB = ConnectDB::getInstance("./config/config.json");
     $pdo = $DB->getConnectionDB();
 
