@@ -3,6 +3,6 @@ function customError($errno, $errstr) {
    echo "<b>MyError:</b> [$errno] $errstr";
  }
 
-function customException($exception) {
-   echo "<b>MyException:</b>" . $exception . "<b>END</b>";
- }
+function customException($code, $message, $file, $line, $context) {
+    throw new ErrorException($code, $message, $file, $line, $context);
+}

@@ -20,7 +20,7 @@ require_once("../../Model/Customer.php");
     $DB = ConnectDB::getInstance("../../config/config.json");
     $pdo = $DB->getConnectionDB();
 
-    $arr = Customer::selectAllCustomer($DB);
+    $arr = Customer::selectAllCustomer($pdo);
     CustomerForm();
     tableCustomer($arr, "../../Controler/Customer.php");
     ?>

@@ -43,7 +43,6 @@ require_once("../../Model/ConnectDB.php");
     }
     echo "</div>";
 
-    isset($_SESSION["err"]) ? print(unserialize($_SESSION["err"])[2]): null;
     ?>
 </body>
 
