@@ -31,7 +31,8 @@ require_once("../../Model/ConnectDB.php");
     echo "</div>";
     basicTableBook($arr, "../../Controler/Book.php");
     ?>
-    <a href="">Go back</a>
+    <a href='../basicUsersPage.php'>Go Back</a>
+
 </body>
 
 </html>

@@ -7,18 +7,22 @@ class ConnectDb
 
     private function __construct($configFile)
     {
-        try{
+        try {
             $config = json_decode(file_get_contents($configFile), true);
-            $DBType = $config["DBType"];
-            $DBName = $config["DBName"];
-            $Host = $config["Host"];
-            $User = $config["User"];
-            $Password = $config["Password"];
-            $DSN = $DBType . ":" . "host=" . $Host . ";" . "dbname=" . $DBName;
-            $this->connection = new PDO($DSN, $User, $Password);
-        }catch(Exception $e){
-            echo "Can't create pdo: " . $e->getMessage();
+        $DBType = $config["DBType"];
+        $DBName = $config["DBName"];
+        $Host = $config["Host"];
+        $User = $config["User"];
+        $Password = $config["Password"];
+        $DSN = $DBType . ":" . "host=" . $Host . ";" . "dbname=" . $DBName;
+        $pdo = new PDO($DSN, $User, $Password);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $this->connection = $pdo;
+        } catch (Throwable $th) {
+            echo $th->getMessage();
         }
+        
     }
 
     public static function getInstance($configFile)
@@ -36,15 +40,8 @@ class ConnectDb
 
     public function exec($query)
     {
-        try{
-            $pdo = $this->getConnectionDB();
-            $statement = $pdo->prepare($query);
-            $statement->execute();
-        }catch(Error $err){
-            echo "Error: " . $err->getMessage();
-        }catch(Exception $e){
-            echo "Couldn't create the database: " . $e->getMessage();;
-        }
-        
+        $pdo = $this->getConnectionDB();
+        $statement = $pdo->prepare($query);
+        $statement->execute();
     }
 }

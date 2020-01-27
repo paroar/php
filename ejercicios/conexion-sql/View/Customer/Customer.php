@@ -23,7 +23,10 @@ require_once("../../Model/Customer.php");
     $arr = Customer::selectAllCustomer($pdo);
     CustomerForm();
     tableCustomer($arr, "../../Controler/Customer.php");
+    
+
     ?>
+    <a href='../premiumUsersPage.php'>Go Back</a>
 </body>
 
 </html>

@@ -17,11 +17,11 @@ function registerForm()
     echo <<<EOD
     <h1>REGISTER FORM</h1>
     <form action="../Controler/Login.php" method="POST">
-        <input type="text" name="firstname" placeholder="firstname">
-        <input type="text" name="surname" placeholder="surname">
-        <input type="email" name="email" placeholder="email">
-        <input type="password" name="pass" placeholder="pass">
-        <input type="password" name="repass" placeholder="repass">
+        <input type="text" name="firstname" placeholder="firstname" required>
+        <input type="text" name="surname" placeholder="surname" required>
+        <input type="email" name="email" placeholder="email" required>
+        <input type="password" name="pass" placeholder="pass" required>
+        <input type="password" name="repass" placeholder="repass" required>
         <input type="radio" name="subscription" value="basic">Basic
         <input type="radio" name="subscription" value="premium">Premium
         <input type="submit" class="" value="register" name="submit">

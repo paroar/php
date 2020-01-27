@@ -1,8 +1,9 @@
 <?php
-function customError($errno, $errstr) {
-   echo "<b>MyError:</b> [$errno] $errstr";
- }
-
-function customException($code, $message, $file, $line, $context) {
-    throw new ErrorException($code, $message, $file, $line, $context);
+function isEmpty($arr){
+  foreach ($arr as $value) {
+    if($value === "") {
+     return true;
+    }
+  }
+  return false;
 }

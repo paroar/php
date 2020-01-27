@@ -25,6 +25,7 @@ require_once("../../Model/Customer.php");
     $arr = Borrowed_books::selectAllMyBorrowed($pdo, $customer->getId());
     tableBorrowed($arr);
     ?>
+    <a href="../basicUsersPage.php">Go Back</a>
 </body>
 
 </html>

@@ -12,7 +12,6 @@ $pdo = $DB->getConnectionDB();
 
 $customer = unserialize($_SESSION["customer"]);
 
-$err = [];
 $submit = $_POST["submit"];
 switch ($submit) {
     case "insert":
@@ -23,13 +22,13 @@ switch ($submit) {
             $_POST["stock"],
             $_POST["price"]
         );
-        $err = $book->insertBook($pdo);
+        $book->insertBook($pdo);
     break;
     case "delete":
-        $err = Book::deleteBook($pdo, $_POST["id"]);
+        Book::deleteBook($pdo, $_POST["id"]);
     break;
     case "buy":
-        $err = Book::updateStockBook($pdo, $_POST["id"], $_POST["amount"]);
+        Book::updateStockBook($pdo, $_POST["id"], $_POST["amount"]);
 
         $date = new DateTime();
         $dateFormat = $date->format("Y-m-d H:i:s");
@@ -46,8 +45,6 @@ switch ($submit) {
         Borrowed_books::insertBorrowed($pdo, $customer->getId(), $_POST["id"], $startDateFormat, $endDateFormat);
     break;
 }
-
-$_SESSION["err"] = serialize($err);
 
 if ($customer->getSubscription() === "basic") {
     header("Location: ../View/Book/basicBook.php");

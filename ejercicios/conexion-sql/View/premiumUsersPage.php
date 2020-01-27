@@ -14,6 +14,7 @@ session_start();
 <body>
     <a href="./Book/premiumBook.php">Books</a>
     <a href="./Customer/Customer.php">Customer</a>
+    <a href="../Controler/Logout.php">LOGOUT</a>
 </body>
 
 </html>

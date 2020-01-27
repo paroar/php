@@ -42,8 +42,8 @@ require_once("../../Model/ConnectDB.php");
         echo "<a href='$_SERVER[PHP_SELF]?page=$page&resultsPerPage=$resultsPerPage' class='pagination'>$page</a>";
     }
     echo "</div>";
-
     ?>
+<a href='../premiumUsersPage.php'>Go Back</a>
 </body>
 
 </html>

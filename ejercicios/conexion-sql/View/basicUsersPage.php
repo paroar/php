@@ -14,6 +14,8 @@ session_start();
 <body>
     <a href="./Book/basicBook.php">Books</a>
     <a href="./Borrowed_books/Borrowed_books.php">Borrowed_book</a>
+    <a href="../Controler/Logout.php">LOGOUT</a>
+
 </body>
 
 </html>

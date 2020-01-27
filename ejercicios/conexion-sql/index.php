@@ -1,6 +1,7 @@
 <?php
 session_start();
 include_once("Model/ConnectDB.php");
+include_once("Model/Customer.php");
 require_once("View/Login.php");
 require_once("./php/commonFunctions.php");
 ?>
@@ -17,13 +18,30 @@ require_once("./php/commonFunctions.php");
 
 <body>
     <?php
-    set_exception_handler("customException");
 
+if (isset($_SESSION["customer"])) {
+    $customer = unserialize($_SESSION["customer"]);
+    $subscription = $customer->getsubscription();
+
+    if ($subscription === "basic") {
+        header('Location: ./View/basicUsersPage.php');
+    } elseif ($subscription === "premium") {
+        header('Location: ./View/premiumUsersPage.php');
+    } else {
+        echo "No subscription";
+    }
+}
+
+try {
     $DB = ConnectDB::getInstance("./config/config.json");
 
     $query = file_get_contents("./SQL/libros.sql");
     $DB->exec($query);
     loginForm();
+} catch (Error $e) {
+    echo "ERROR" . $e->getMessage();
+}
+
     ?>
 </body>
 
