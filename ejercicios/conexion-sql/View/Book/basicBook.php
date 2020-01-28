@@ -19,17 +19,15 @@ require_once("../../Model/ConnectDB.php");
     <?php
     $DB = ConnectDB::getInstance("../../config/config.json");
     $pdo = $DB->getConnectionDB();
-    isset($_GET["page"]) ? $page = $_GET["page"] : $page = 1;
-    $resultsPerPage = 5;
-    $start = ($page-1)*$resultsPerPage;
-    $numOfPages = ceil(Book::numBooks($pdo)/$resultsPerPage);
-    $arr = Book::selectLimitBooks($pdo, $start, $resultsPerPage);
-    echo "<div class='pagination-container'>";
-    for ($page=1; $page<=$numOfPages;$page++) {
-        echo "<a href='$_SERVER[PHP_SELF]?page=$page' class='pagination'>$page</a>";
+    
+    if(isset($_SESSION["search"])){
+        $arr = unserialize($_SESSION["search"]);
+    }else{
+        $arr = Book::selectAllBook($pdo);
     }
+    basicFormBook();
     echo "</div>";
-    basicTableBook($arr, "../../Controler/Book.php");
+    basicTableBook($arr, "../../Controler/Book.php",$title);
     ?>
     <a href='../basicUsersPage.php'>Go Back</a>
 

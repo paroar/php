@@ -62,7 +62,7 @@ EOD;
     echo "</table>";
 }
 
-function basicTableBook($arr, $controllerPath)
+function basicTableBook($arr, $controllerPath, $title)
 {
     echo<<<EOD
      <table class="table">
@@ -80,7 +80,7 @@ foreach ($arr as $rowkey => $row) {
     echo<<<EOD
      <tr>
      <td>
-     <form method="post" action="$controllerPath">
+     <form method="post" action="$controllerPath?title=$title">
         <input type="submit" value="buy" name="submit">
         <input type="number" value="1" name="amount" min="1">
         <input type="hidden" value="$row[id]" name="id">
@@ -101,4 +101,17 @@ EOD;
     echo "</tr>";
 }
 echo "</table>";
+}
+
+function basicFormBook(){
+    searchBook();
+}
+
+function searchBook(){
+    echo<<<EOD
+    <form action="../../Controler/Book.php" method="POST">
+        <input type="text" class="login-input" name="title" placeholder="title to search">
+        <input type="submit" class="" value="search" name="submit">
+    </form>
+EOD;
 }

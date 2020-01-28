@@ -23,9 +23,13 @@ switch ($submit) {
             $_POST["price"]
         );
         $book->insertBook($pdo);
+        $arr = Book::selectAllBook($pdo);
+        $_SESSION["search"] = serialize($arr);
     break;
     case "delete":
         Book::deleteBook($pdo, $_POST["id"]);
+        $arr = Book::selectAllBook($pdo);
+        $_SESSION["search"] = serialize($arr);
     break;
     case "buy":
         Book::updateStockBook($pdo, $_POST["id"], $_POST["amount"]);
@@ -35,6 +39,8 @@ switch ($submit) {
         $sale_id = Sale::insertSale($pdo, $customer->getId(), $dateFormat);
     
         Sale_book::insertSaleBook($pdo, $_POST["id"], $sale_id, $_POST["amount"]);
+        $arr = Book::selectAllBook($pdo);
+        $_SESSION["search"] = serialize($arr);
     break;
     case "borrow":
         $date = new DateTime();
@@ -43,8 +49,15 @@ switch ($submit) {
         $nextWeek = $date->add($interval);
         $endDateFormat = $nextWeek->format('Y-m-d H:i:s');
         Borrowed_books::insertBorrowed($pdo, $customer->getId(), $_POST["id"], $startDateFormat, $endDateFormat);
+        $_SESSION["search"] = serialize($arr);
+    break;
+    case "search":
+        $title = "%" . $_POST["title"] . "%";
+        $arr = Book::searchBook($pdo, $title);
+        $_SESSION["search"] = serialize($arr);
     break;
 }
+
 
 if ($customer->getSubscription() === "basic") {
     header("Location: ../View/Book/basicBook.php");

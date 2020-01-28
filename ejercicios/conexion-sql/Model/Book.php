@@ -90,7 +90,7 @@ class Book
 
     }
 
-    public static function updateStockBook($pdo,$id, $amount)
+    public static function updateStockBook($pdo, $id, $amount)
     {
         $query = "UPDATE Book
         SET stock = stock - :amount
@@ -100,6 +100,15 @@ class Book
         $statement->bindParam(":amount", $amount);
         $statement->execute();
         return $statement->errorInfo();
+    }
+
+    public static function searchBook($pdo, $title){
+        $query = "SELECT * FROM Book WHERE title LIKE :title";
+        $statement = $pdo->prepare($query);
+        $statement->bindParam(":title", $title);
+        $statement->execute();
+        $arr = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $arr;
     }
 
 

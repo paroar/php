@@ -37,13 +37,18 @@ class Borrowed_books
 
     public static function insertBorrowed($pdo, $customer_id, $book_id, $borrowStart, $borrowEnd)
     {
-        $query = "INSERT INTO `Borrowed_books`(customer_id, book_id, borrowStart, borrowEnd) VALUES (?,?,?,?)";
-        $statement = $pdo->prepare($query);
-        $statement->bindParam(1, $customer_id);
-        $statement->bindParam(2, $book_id);
-        $statement->bindParam(3, $borrowStart);
-        $statement->bindParam(4, $borrowEnd);
-        $statement->execute();
+        try{
+            $query = "INSERT INTO `Borrowed_books`(customer_id, book_id, borrowStart, borrowEnd) VALUES (?,?,?,?)";
+            $statement = $pdo->prepare($query);
+            $statement->bindParam(1, $customer_id);
+            $statement->bindParam(2, $book_id);
+            $statement->bindParam(3, $borrowStart);
+            $statement->bindParam(4, $borrowEnd);
+            $statement->execute();
+        }catch(Exception $e){
+            echo $e->getMessage();
+        }
+
     }
 
     public static function selectAllMyBorrowed($pdo, $customer_id)
