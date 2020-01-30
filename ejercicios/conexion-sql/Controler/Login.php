@@ -1,9 +1,11 @@
 <?php
-require_once("../Model/Login.php");
-require_once("../Model/Customer.php");
-require_once("../Model/ConnectDB.php");
+
 require_once("../php/commonFunctions.php");
 session_start();
+
+spl_autoload_register(function($className){
+    include __DIR__ . '/../Model/' . $className . '.php'; 
+});
 
 try {
     $DB = ConnectDB::getInstance("../config/config.json");
