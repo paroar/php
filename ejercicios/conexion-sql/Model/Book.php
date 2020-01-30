@@ -86,8 +86,6 @@ class Book
         $statement = $pdo->prepare($query);
         $statement->bindParam(":id", $id);
         $statement->execute();
-        return $statement->errorInfo();
-
     }
 
     public static function updateStockBook($pdo,$id, $amount)
@@ -99,7 +97,6 @@ class Book
         $statement->bindParam(":id", $id);
         $statement->bindParam(":amount", $amount);
         $statement->execute();
-        return $statement->errorInfo();
     }
 
 
