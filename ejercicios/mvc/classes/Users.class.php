@@ -13,7 +13,7 @@ class Users extends Dbh
 
     protected function selectUser($firstname)
     {
-        $sql = "SELECT * FROM users WHERE users_firstname = ?";
+        $sql = "SELECT * FROM users WHERE user_firstname = ?";
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$firstname]);
         return $stmt->fetchAll();
@@ -21,7 +21,7 @@ class Users extends Dbh
 
     protected function insertUser($firstname, $lastname)
     {
-        $sql = "INSERT INTO users(users_firstname, users_lastname) VALUES (?,?)";
+        $sql = "INSERT INTO users(user_firstname, user_lastname) VALUES (?,?)";
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$firstname, $lastname]);
     }
