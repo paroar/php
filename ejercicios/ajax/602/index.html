@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="texto">
+      <h1>AJAX</h1>
+      <button id="cambiarContenido">Cambia el contenido</button>
+    </div>
+
+    <script>
+      document
+        .getElementById("cambiarContenido")
+        .addEventListener("click", cambiaContenido);
+        
+      function cambiaContenido() {
+        let xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+          if (this.readyState === 4 && this.status === 200) {
+            document.getElementById("texto").innerHTML += this.responseText;
+          }
+        };
+        xhr.open("GET", "ajax.txt", true);
+        xhr.send();
+      }
+    </script>
+  </body>
+</html>
