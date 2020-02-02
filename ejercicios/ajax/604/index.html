@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+
+    <script>
+      window.addEventListener("load", inicio);
+
+      function inicio(){
+        document
+          .getElementById("nombre")
+          .addEventListener("keyup", mostrarNombre);
+      };
+
+      function mostrarNombre(e){
+        var cadena = e.target.value;
+
+        if(cadena.length === 0){
+            document.getElementById("sugerencia").innerHTML = "";
+            return;
+        }else{
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if(this.readyState === 4 && this.status === 200){
+                    document.getElementById("sugerencia").innerHTML = this.responseText;
+                }
+            };
+            xhr.open("GET", "ajax.php?nombre="+cadena, true);
+            xhr.send();
+        }
+      }
+
+    </script>
+  </head>
+  <body>
+    Nombre: <input type="text" id="nombre" />
+    <p>Sugerencias: <span id="sugerencia"></span></p>
+  </body>
+</html>
