@@ -16,17 +16,23 @@
       document
         .getElementById("cambiarContenido")
         .addEventListener("click", cambiaContenido);
+
+        async function cambiaContenido(){
+          const res = await fetch("ajax.txt");
+          const text = await res.text();
+          document.getElementById("texto").innerHTML += text;
+        }
         
-      function cambiaContenido() {
-        let xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function() {
-          if (this.readyState === 4 && this.status === 200) {
-            document.getElementById("texto").innerHTML += this.responseText;
-          }
-        };
-        xhr.open("GET", "ajax.txt", true);
-        xhr.send();
-      }
+      // function cambiaContenido() {
+      //   let xhr = new XMLHttpRequest();
+      //   xhr.onreadystatechange = function() {
+      //     if (this.readyState === 4 && this.status === 200) {
+      //       document.getElementById("texto").innerHTML += this.responseText;
+      //     }
+      //   };
+      //   xhr.open("GET", "ajax.txt", true);
+      //   xhr.send();
+      // }
     </script>
   </body>
 </html>
