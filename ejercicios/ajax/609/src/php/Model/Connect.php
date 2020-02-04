@@ -1,7 +1,7 @@
 <?php
-//namespace Model;
-//use PDO as PDO;
-//use Exception as Exception;
+namespace Model;
+use PDO as PDO;
+use Exception as Exception;
 
 class Connect
 {

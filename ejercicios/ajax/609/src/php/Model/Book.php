@@ -1,9 +1,9 @@
 <?php
 
-//namespace Model;
-//use Model\Connect;
+namespace Model;
+use Model\Connect;
 
-require("Connect.php");
+//require("Connect.php");
 
 class Book extends Connect{
 

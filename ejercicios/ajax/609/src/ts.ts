@@ -13,7 +13,7 @@ async function search(e) {
 const paint = (obj) => {
   let child = "";
   obj.forEach(o => {
-    child += `<table><th>${o.title}</th><tr><td>Id: ${o.id}</td></tr><tr><td>Author: ${o.author}</td></tr><tr><td>Price: ${o.price}</td></tr><tr><td>Stock: ${o.stock}</td></tr></table>`;
+    child += `<table id=${o.id}><th colspan="2">${o.title}</th><tr><td>Author:</td> <td>${o.author}</td></tr><tr><td>Price:</td> <td>${o.price}</td></tr><tr><td>Stock:</td> <td>${o.stock}</td></tr></table>`;
   });
   document.getElementById("books").innerHTML = child;
 }

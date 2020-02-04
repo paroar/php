@@ -1,10 +1,11 @@
 <?php
 
-//require '../../vendor/autoload.php';
-//use Model\Book;
+require '../../vendor/autoload.php';
+use Model\Book;
+
 error_reporting(0);
 
-require "Model/Book.php";
+//require "Model/Book.php";
 
 if(isset($_REQUEST["search"])){
     $books = new Book();
