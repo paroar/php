@@ -1,0 +1,15 @@
+{
+  "name": "usuario/609",
+  "authors": [
+    {
+      "name": "paroar",
+      "email": "prodriguezarmida@gmail.com"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Model\\": "src/php/Model/"
+    }
+  }
+}
