@@ -4,6 +4,7 @@ namespace Crud;
 
 require '../vendor/autoload.php';
 use Connection\Connect;
+use Exception as Exception;
 
 class Crud extends Connect{
 
@@ -38,6 +39,34 @@ class Crud extends Connect{
         } catch (Exception $e) {
             $e->getMessage();
         }
+    }
+
+    public function update($obj){
+        try {
+            $fields = "";
+            foreach ($obj as $key => $value) {
+                $fields += "`$key`=:$key";
+            }
+            $fields = rtrim($fields, ",");
+            $this->sql = "UPDATE $this->table SET $fields $wheres";
+            return $this->exec($obj);
+        } catch (Exception $e) {
+            $e->getMessage();
+        }
+    }
+
+    public function delete(){
+        try {
+            $this->sql = "DELETE FROM $this->table $this->wheres";
+            return exec()
+        } catch (Exception $e) {
+            $e->getMessage();
+        }
+    }
+
+    public function where($key, $condition, $value){
+        $this->wheres .= strpos($this->wheres, "WHERE") ? " AND " : " WHERE ";
+        $this->wheres .= "$key $condition " . ((is_string($value)) ? "\"$value\"" : $valor) . " ";
     }
 
     private function exec($obj = null){
