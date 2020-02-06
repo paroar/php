@@ -1,0 +1,16 @@
+{
+  "name": "paroar/crud",
+  "authors": [
+    {
+      "name": "paroar",
+      "email": "prodriguezarmida@gmail.com"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Connection\\": "src/Connection/",
+      "Crud\\": "src/Crud/"
+    }
+  }
+}
