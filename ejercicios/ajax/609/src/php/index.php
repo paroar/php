@@ -5,10 +5,10 @@ use Model\Book;
 
 error_reporting(0);
 
-//require "Model/Book.php";
-
-if(isset($_REQUEST["search"])){
-    $books = new Book();
-    $arr = $books->searchPattern($_REQUEST["search"]);
+$books = new Book();
+if(isset($_GET["search"])){
+    $arr = $books->searchPattern($_GET["search"]);
     echo json_encode($arr,true);
+}elseif ($_GET["delete"]) {
+    echo $books->deleteBook($_GET["delete"]);
 }

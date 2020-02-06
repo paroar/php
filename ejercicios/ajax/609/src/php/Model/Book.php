@@ -3,8 +3,6 @@
 namespace Model;
 use Model\Connect;
 
-//require("Connect.php");
-
 class Book extends Connect{
 
     public function searchPattern($pattern){
@@ -14,5 +12,13 @@ class Book extends Connect{
         $stmt->bindValue(":pattern", $pattern);
         $stmt->execute();
         return $stmt->fetchAll();
+    }
+
+    public function deleteBook($id){
+        $sql = "DELETE FROM Book WHERE id = :id";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->bindValue(":id", $id);
+        $stmt->execute();
+        return $stmt->rowCount();
     }
 }
