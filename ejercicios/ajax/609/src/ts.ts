@@ -23,6 +23,7 @@ function clickController(e) {
 
 async function updateBook(id) {
   console.log("updating", id);
+  document.getElementById("body").innerHTML += `<div class="modal"><div id="content" class="content">CONTENIDO<div></div>`;
 }
 
 async function deleteBook(id) {

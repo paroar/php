@@ -6,6 +6,7 @@ use Model\Book;
 error_reporting(0);
 
 $books = new Book();
+$arr = $books->searchPattern("duck");
 if(isset($_GET["search"])){
     $arr = $books->searchPattern($_GET["search"]);
     echo json_encode($arr,true);

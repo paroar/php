@@ -10,7 +10,7 @@ class Connect
         try {
             $user = "root";
             $passwd = "";
-            $dsn = "mysql:host=127.0.0.1;dbname=books";
+            $dsn = "mysql:host=127.0.0.1;dbname=books;charset=utf8";
             $pdo = new PDO($dsn, $user, $passwd);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
