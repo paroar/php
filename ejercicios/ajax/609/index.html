@@ -10,7 +10,6 @@
   </head>
   <body id="body">
     <div>
-
       <form id="insert" class="insert">
         <button>insert</button>
         <input type="text" placeholder="isbn" name="isbn" />
@@ -19,7 +18,6 @@
         <input type="number" placeholder="Stock" name="stock" />
         <input type="number" placeholder="Price" name="price" />
       </form>
-
     </div>
     <input
       type="text"
@@ -28,6 +26,15 @@
       placeholder="Search..."
       class="search"
     />
-    <div id="books"></div>
+    <div id="books">
+      <table id="table">
+        <th>Title</th>
+        <th>Author</th>
+        <th>Stock</th>
+        <th>Price</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </table>
+    </div>
   </body>
 </html>
