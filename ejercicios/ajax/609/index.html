@@ -9,11 +9,24 @@
     <script src="src/ts.ts"></script>
   </head>
   <body id="body">
+    <div>
+
+      <form id="insert" class="insert">
+        <button>insert</button>
+        <input type="text" placeholder="isbn" name="isbn" />
+        <input type="text" placeholder="Title" name="title" />
+        <input type="text" placeholder="Author" name="author" />
+        <input type="number" placeholder="Stock" name="stock" />
+        <input type="number" placeholder="Price" name="price" />
+      </form>
+
+    </div>
     <input
       type="text"
       id="searchInputForm"
       name="searchInputForm"
       placeholder="Search..."
+      class="search"
     />
     <div id="books"></div>
   </body>
