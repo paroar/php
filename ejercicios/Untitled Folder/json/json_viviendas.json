@@ -1,0 +1,15 @@
+[
+  {
+    "id": "1",
+    "tipo": "Chalet",
+    "zona": "Majadahonda",
+    "precio": "200000",
+    "dormitorios": "3",
+    "garage": "si",
+    "jardin": "no",
+    "padel": "si",
+    "piscina": "si",
+    "zonascomunes": "no",
+    "imagen": "Null"
+  }
+]
