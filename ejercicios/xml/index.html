@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="./src/js/addCharBtn.js"></script>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <form id="insertMovieForm" class="movie-form">
+      <div class="title">
+        Title:<br />
+        <input type="text" placeholder="title" name="title" />
+      </div>
+
+      <div class="chars" id="chars">
+        Characters: <br /><button id="addCharBtn" class="btn addBtn">
+          Add character
+        </button>
+        &nbsp;&nbsp;&nbsp;&nbsp;Character:
+        <input type="text" placeholder="name" name="name[]" />
+        <input type="text" placeholder="actor" name="actor[]" /><br>
+      </div>
+
+      <div class="plot">
+        Plot:
+        <textarea placeholder="plot" class="text-plot" name="plot"></textarea>
+      </div>
+
+      <div class="rating">
+        Rating:<br />
+        <input type="number" min="0" placeholder="thumbs" name="thumbs" />
+        <input
+          type="number"
+          min="0"
+          max="10"
+          placeholder="stars"
+          name="stars"
+        />
+      </div>
+    </form>
+    <button id="submit" class="btn submitBtn">SUBMIT</button>
+    <script src="./src/js/submit.js"></script>
+  </body>
+</html>
