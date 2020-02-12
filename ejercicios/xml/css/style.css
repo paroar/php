@@ -1,0 +1,36 @@
+.movie-form{
+    display: grid;
+    border: 1px solid black;
+}
+
+.movie-form > * {
+    position: relative;
+    border: 1px solid black;
+    padding: 2rem;
+}
+
+.addBtn{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 2rem;
+}
+
+.text-plot{
+    width: 100%;
+    min-height: 5rem;
+}
+
+.btn{
+    border: none;
+    padding: .5rem 1rem;
+    cursor: pointer;
+}
+
+.btn:hover{
+   background-color: goldenrod;
+}
+
+.submitBtn{
+    margin: 2rem;
+}
