@@ -1,4 +1,4 @@
-<?xml version='1.0' standalone='yes'?>
+<?xml version="1.0" standalone="yes"?>
 <movies>
  <movie>
   <title>PHP: Behind the Parser</title>
@@ -9,7 +9,7 @@
    </character>
    <character>
     <name>Mr. Coder</name>
-    <actor>El Act&#211;r</actor>
+    <actor>El Act&#xD3;r</actor>
    </character>
   </characters>
   <plot>
@@ -20,4 +20,4 @@
   <rating type="thumbs">7</rating>
   <rating type="stars">5</rating>
  </movie>
-</movies>
+<title>titlestring</title><characters><character><name>namesstring1</name><actor>actorstring1</actor></character><character><name>namesstring2</name><actor>actorstring2</actor></character></characters><plot>plotstring</plot><rating type="thumbs">thumbsstring</rating><rating type="stars">starsstring</rating></movies>
