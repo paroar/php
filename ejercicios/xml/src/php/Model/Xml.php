@@ -17,27 +17,25 @@ class Xml
         return $this->xml;
     }
 
-    public function add_movie($title, $names, $actors, $plot, $thumbs, $stars, $submit)
+    public function add_movie($title, $names, $actors, $plot, $thumbs, $stars)
     {
         try {
-            $movie = $this->xml->movies;
-
+            $xml = $this->getXml();
+            $movie = $xml->addChild("movie");
             $movie->addChild("title", $title);
-
             $characters = $movie->addChild("characters");
             for ($i = 0; $i < count($actors); $i++) {
                 $character = $characters->addChild("character");
                 $character->addChild("name", $names[$i]);
                 $character->addChild("actor", $actors[$i]);
             }
-
             $movie->addChild("plot", $plot);
             $thumbs = $movie->addChild("rating", $thumbs);
             $thumbs->addAttribute("type", "thumbs");
             $stars = $movie->addChild("rating", $stars);
             $stars->addAttribute("type", "stars");
-
-            $this->xml->saveXML()->save("../xml/mvies.xml");
+            
+            $xml->asXML("./../xml/movies.xml");
 
         } catch (Throwable $th) {
             return $th;
