@@ -11,7 +11,7 @@ async function submitMovie(e) {
         body:data
     }
     )
-    const text = await res.json();
+    const text = await res.text();
     console.log("res",text);
 }
 
