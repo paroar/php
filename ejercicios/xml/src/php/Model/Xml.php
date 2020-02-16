@@ -3,18 +3,24 @@
 class Xml
 {
     private $xml;
+    private $path;
 
     public function __construct($path)
     {
-        try {
-            $this->xml = simplexml_load_file($path);
-        } catch (Throwable $th) {
-            return $th;
+        if (!file_exists($path)) {
+            throw new Exception("File doesn't exist");
         }
+        $this->path = $path;
+        $this->xml = simplexml_load_file($path);
     }
 
-    public function getXml(){
+    public function getXml()
+    {
         return $this->xml;
+    }
+    public function getPath()
+    {
+        return $this->path;
     }
 
     public function add_movie($title, $names, $actors, $plot, $thumbs, $stars)
@@ -30,13 +36,10 @@ class Xml
                 $character->addChild("actor", $actors[$i]);
             }
             $movie->addChild("plot", $plot);
-            $thumbs = $movie->addChild("rating", $thumbs);
-            $thumbs->addAttribute("type", "thumbs");
-            $stars = $movie->addChild("rating", $stars);
-            $stars->addAttribute("type", "stars");
+            $movie->addChild("rating", $thumbs)->addAttribute("type", "thumbs");
+            $movie->addChild("rating", $stars)->addAttribute("type", "stars");
             
-            $xml->asXML("./../xml/movies.xml");
-
+            $xml->asXML($this->getPath());
         } catch (Throwable $th) {
             return $th;
         }
