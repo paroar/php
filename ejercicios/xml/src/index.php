@@ -9,73 +9,31 @@
 </head>
 
 <body>
+    <h1>OTRO INDEX</h1>
     <?php
-    // $xml = simplexml_load_file("xml/movies.xml");
-    // echo "<pre>";
-    // var_dump($xml);
-    // echo "</pre>";
 
-    $users_array = array(
-        "total_users" => 3,
-        "users" => array(
-            array(
-                "id" => 1,
-                "name" => "Nitya",
-                "address" => array(
-                    "country" => "India",
-                    "city" => "Kolkata",
-                    "zip" => 700102,
-                )
-            ),
-            array(
-                "id" => 2,
-                "name" => "John",
-                "address" => array(
-                    "country" => "USA",
-                    "city" => "Newyork",
-                    "zip" => "NY1234",
-                )
-            ),
-            array(
-                "id" => 3,
-                "name" => "Viktor",
-                "address" => array(
-                    "country" => "Australia",
-                    "city" => "Sydney",
-                    "zip" => 123456,
-                )
-            ),
-        )
-    );
+$note=<<<XML
+<notes>
+<note>
+<to>Tove</to>
+<from>Jani</from>
+<heading>Reminder</heading>
+<body>Do not forget me this weekend!</body>
+</note>
+<note>
+<to>ASD</to>
+<from>QWE</from>
+<heading>QWERTY</heading>
+<body>MNBVCX</body>
+</note>
+</notes>
+XML;
 
+$xml = new SimpleXMLElement($note);
 
-    // create simpleXML object
-    $xml = new SimpleXMLElement("<?xml version=\"1.0\"?><SearchHotels></SearchHotels>");
-    $node = $xml->addChild('request');
+$result = $xml->xpath("/notes/note[to='Tove']");
 
-    // function call to convert array to xml
-    array_to_xml($param, $node);
-
-    // display XML to screen
-    echo $xml->asXML();
-    die();
-
-    // function to convert an array to XML using SimpleXML
-    function array_to_xml($array, &$xml)
-    {
-        foreach ($array as $key => $value) {
-            if (is_array($value)) {
-                if (!is_numeric($key)) {
-                    $subnode = $xml->addChild("$key");
-                    array_to_xml($value, $subnode);
-                } else {
-                    array_to_xml($value, $xml);
-                }
-            } else {
-                $xml->addChild("$key", "$value");
-            }
-        }
-    }
+print_r($result);
     ?>
 </body>
 

@@ -1,4 +1,5 @@
 document.getElementById("submit").addEventListener("click", submitMovie)
+document.getElementById("edit").addEventListener("click", editMovie)
 
 async function submitMovie(e) {
     e.preventDefault();
@@ -12,6 +13,22 @@ async function submitMovie(e) {
     }
     )
     const text = await res.json();
+    console.log(text);
+}
+
+
+async function editMovie(e) {
+    e.preventDefault();
+    
+    const form = document.getElementById("insertMovieForm");    
+    const data = new FormData(form);
+    data.append("edit","");
+    const res = await fetch("./src/php/index.php", {
+        method: 'POST',
+        body:data
+    }
+    )
+    const text = await res.text();
     console.log(text);
 }
 

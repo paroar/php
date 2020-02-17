@@ -1,83 +1,29 @@
 <?xml version="1.0" standalone="yes"?>
 <movies>
     <movie>
-        <title>PHP: Behind the Parser</title>
+        <id>3</id>
+        <title>ll</title>
         <characters>
             <character>
-                <name>Ms. Coder</name>
-                <actor>Onlivia Actora</actor>
+                <name>nombre</name>
+                <actor>actor</actor>
             </character>
+        <name>nombre</name><actor>actor</actor></characters>
+        <plot>plot</plot>
+        <rating type="thumbs">1</rating>
+        <rating type="stars">10</rating>
+    </movie>
+    <movie>
+        <id>3</id>
+        <title>lol</title>
+        <characters>
             <character>
-                <name>Mr. Coder</name>
-                <actor>El Act&#xD3;r</actor>
+                <name>name</name>
+                <actor>actress</actor>
             </character>
-        </characters>
-        <plot>
-   So, this language. It like, a programming language. Or is it a
-   scripting language? All is revealed in this thrilling horror spoof
-   of a documentary.
-        </plot>
-        <rating type="thumbs">7</rating>
+        <name>nombre</name><actor>actor</actor></characters>
+        <plot>sinopsis</plot>
+        <rating type="thumbs">1</rating>
         <rating type="stars">5</rating>
     </movie>
-    <movie>
-        <title>titulo tituloso</title>
-        <characters>
-            <character>
-                <name>name1</name>
-                <actor>actor1</actor>
-            </character>
-            <character>
-                <name>name2</name>
-                <actor>actor2</actor>
-            </character>
-        </characters>
-        <plot>Sinopsis muy larga</plot>
-        <rating type="thumbs">4478</rating>
-        <rating type="stars">6</rating>
-    </movie>
-    <movie>
-        <title>super titlte</title>
-        <characters>
-            <character>
-                <name>asd</name>
-                <actor>asd</actor>
-            </character>
-        </characters>
-        <plot>madre mia que pedazo de plot</plot>
-        <rating type="thumbs">587</rating>
-        <rating type="stars">1</rating>
-    </movie>
-    <movie>
-        <title>super titlte</title>
-        <characters>
-            <character>
-                <name>asd</name>
-                <actor>asd</actor>
-            </character>
-        </characters>
-        <plot>madre mia que pedazo de plot</plot>
-        <rating type="thumbs">587</rating>
-        <rating type="stars">1</rating>
-    </movie>
-    <movie>
-        <title>super titlte</title>
-        <characters>
-            <character>
-                <name>asd</name>
-                <actor>qwe</actor>
-            </character>
-            <character>
-                <name>asd</name>
-                <actor>wqe</actor>
-            </character>
-            <character>
-                <name>asdwqeqwe</name>
-                <actor>qweqweqwe</actor>
-            </character>
-        </characters>
-        <plot>madre mia que pedazo de plot</plot>
-        <rating type="thumbs">587</rating>
-        <rating type="stars">1</rating>
-    </movie>
-<movie><title/><characters><character><name/><actor/></character></characters><plot/><rating type="thumbs"/><rating type="stars"/></movie><movie><title/><characters><character><name/><actor/></character></characters><plot/><rating type="thumbs"/><rating type="stars"/></movie><movie><title/><characters><character><name/><actor/></character></characters><plot/><rating type="thumbs"/><rating type="stars"/></movie><movie><title/><characters><character><name/><actor/></character></characters><plot/><rating type="thumbs"/><rating type="stars"/></movie><movie><title/><characters><character><name/><actor/></character></characters><plot/><rating type="thumbs"/><rating type="stars"/></movie><movie><title/><characters><character><name/><actor/></character></characters><plot/><rating type="thumbs"/><rating type="stars"/></movie></movies>
+</movies>
