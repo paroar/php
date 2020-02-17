@@ -1,29 +1,68 @@
 <?xml version="1.0" standalone="yes"?>
 <movies>
     <movie>
-        <id>3</id>
-        <title>ll</title>
-        <characters>
-            <character>
-                <name>nombre</name>
-                <actor>actor</actor>
-            </character>
-        <name>nombre</name><actor>actor</actor></characters>
-        <plot>plot</plot>
-        <rating type="thumbs">1</rating>
-        <rating type="stars">10</rating>
-    </movie>
-    <movie>
-        <id>3</id>
-        <title>lol</title>
+        <id>1</id>
+        <title>title</title>
         <characters>
             <character>
                 <name>name</name>
-                <actor>actress</actor>
+                <actor>actor</actor>
             </character>
-        <name>nombre</name><actor>actor</actor></characters>
-        <plot>sinopsis</plot>
-        <rating type="thumbs">1</rating>
-        <rating type="stars">5</rating>
+        </characters>
+        <plot>plot</plot>
+        <rating type="thumbs">45</rating>
+        <rating type="stars">7</rating>
+    </movie>
+    <movie>
+        <id>2</id>
+        <title>title</title>
+        <characters>
+            <character>
+                <name>name</name>
+                <actor>actor</actor>
+            </character>
+        </characters>
+        <plot>plot</plot>
+        <rating type="thumbs">45</rating>
+        <rating type="stars">7</rating>
+    </movie>
+    <movie>
+        <id>3</id>
+        <title>title</title>
+        <characters>
+            <character>
+                <name>name</name>
+                <actor>actor</actor>
+            </character>
+        </characters>
+        <plot>plot</plot>
+        <rating type="thumbs">45</rating>
+        <rating type="stars">7</rating>
+    </movie>
+    <movie>
+        <id>4</id>
+        <title>title</title>
+        <characters>
+            <character>
+                <name>name</name>
+                <actor>actor</actor>
+            </character>
+        </characters>
+        <plot>plot</plot>
+        <rating type="thumbs">45</rating>
+        <rating type="stars">7</rating>
+    </movie>
+    <movie>
+        <id>5</id>
+        <title>title</title>
+        <characters>
+            <character>
+                <name>name</name>
+                <actor>actor</actor>
+            </character>
+        </characters>
+        <plot>plot</plot>
+        <rating type="thumbs">45</rating>
+        <rating type="stars">7</rating>
     </movie>
 </movies>
