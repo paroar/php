@@ -56,7 +56,7 @@ class Xml
         foreach ($movies->movie as $m) {
             if ((string)$m->title == $title) {
                 $count = 0;
-                foreach($m->characters->character as $c) {
+                foreach ($m->characters->character as $c) {
                     $c->name = $names[$count];
                     $c->actor = $actors[$count];
                     $count++;
@@ -64,6 +64,16 @@ class Xml
                 $m->rating[0] = $thumbs;
                 $m->rating[1] = $stars;
             }
+        }
+        $movies->asXML($this->getPath());
+    }
+
+    public function delete_movie($title)
+    {
+        $movies = $this->getXml();
+        foreach ($movies->xpath("/movies/movie[title='$title']") as $m) {
+                $dom = dom_import_simplexml($m);
+                $dom->parentNode->removeChild($dom);
         }
         $movies->asXML($this->getPath());
     }

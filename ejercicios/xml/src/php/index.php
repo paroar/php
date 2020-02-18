@@ -7,13 +7,16 @@ try {
     if (isset($_POST["submit"])) {
         $xml->add_movie(...array_values($_POST));
         echo json_encode(array("code" => 200), true);
-    } elseif(isset($_POST["search"])){
+    } elseif (isset($_POST["search"])) {
         $arr = $xml->search_movie_title($_POST["title"]);
         echo json_encode($arr, true);
-    }elseif(isset($_POST["edit"])){
+    } elseif (isset($_POST["edit"])) {
         $xml->update_movie(...array_values($_POST));
         echo json_encode(array("code" => 200, "edit" => "ok"), true);
-    }else {
+    } elseif (isset($_POST["delete"])) {
+        $xml->delete_movie($_POST["title"]);
+        echo json_encode(array("code" => 200, "delete" => "ok"), true);
+    } else {
         throw new Exception("Couldn't find method on the controller");
     }
 } catch (Throwable $e) {
