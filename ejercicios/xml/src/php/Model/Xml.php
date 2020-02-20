@@ -32,10 +32,10 @@ class Xml
         $movie->addChild("id", $id);
         $movie->addChild("title", $title);
         $characters = $movie->addChild("characters");
-        for ($i = 0; $i < count($actors); $i++) {
+        for ($i = 0; $i < count($actors); $i+=2) {
             $character = $characters->addChild("character");
             $character->addChild("name", $names[$i]);
-            $character->addChild("actor", $actors[$i]);
+            $character->addChild("actor", $actors[$i++]);
         }
         $movie->addChild("plot", $plot);
         $movie->addChild("rating", $thumbs)->addAttribute("type", "thumbs");
