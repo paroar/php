@@ -14,7 +14,7 @@ try {
         $xml->update_movie(...array_values($_POST));
         echo json_encode(array("code" => 200, "edit" => "ok"), true);
     } elseif (isset($_POST["delete"])) {
-        $xml->delete_movie($_POST["title"]);
+        $xml->delete_movie_by_title($_POST["title"]);
         echo json_encode(array("code" => 200, "delete" => "ok"), true);
     } else {
         throw new Exception("Couldn't find method on the controller");

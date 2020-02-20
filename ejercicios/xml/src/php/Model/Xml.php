@@ -61,6 +61,7 @@ class Xml
                     $c->actor = $actors[$count];
                     $count++;
                 }
+                $m->plot = $plot;
                 $m->rating[0] = $thumbs;
                 $m->rating[1] = $stars;
             }
@@ -68,7 +69,7 @@ class Xml
         $movies->asXML($this->getPath());
     }
 
-    public function delete_movie($title)
+    public function delete_movie_by_title($title)
     {
         $movies = $this->getXml();
         foreach ($movies->xpath("/movies/movie[title='$title']") as $m) {
