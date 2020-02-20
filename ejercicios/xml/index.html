@@ -15,30 +15,30 @@
         <input type="text" placeholder="title" name="title" />
       </div>
 
+      
+      <div class="plot">
+        Plot:
+        <textarea placeholder="plot" class="text-plot" name="plot"></textarea>
+      </div>
+      
+      <div class="rating">
+        Rating:<br />
+        <input type="number" min="0" placeholder="thumbs" name="thumbs" />
+        <input
+        type="number"
+        min="0"
+        max="10"
+        placeholder="stars"
+        name="stars"
+        />
+      </div>
       <div class="chars" id="chars">
         Characters: <br /><button id="addCharBtn" class="btn addBtn">
           Add character
         </button>
         &nbsp;&nbsp;&nbsp;&nbsp;Character:
-        <input type="text" placeholder="name" name="name[]" />
-        <input type="text" placeholder="actor" name="name[]" /><br />
-      </div>
-
-      <div class="plot">
-        Plot:
-        <textarea placeholder="plot" class="text-plot" name="plot"></textarea>
-      </div>
-
-      <div class="rating">
-        Rating:<br />
-        <input type="number" min="0" placeholder="thumbs" name="thumbs" />
-        <input
-          type="number"
-          min="0"
-          max="10"
-          placeholder="stars"
-          name="stars"
-        />
+        <input type="text" placeholder="name" name="character[]" />
+        <input type="text" placeholder="actor" name="character[]" /><br />
       </div>
     </form>
     <button id="submit" class="btn submitBtn">SUBMIT</button>

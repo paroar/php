@@ -1,55 +1,17 @@
 <?xml version="1.0" standalone="yes"?>
 <movies>
 
-
-
-
-
     <movie>
-        <id>6</id>
-        <title>titulo</title>
-        <characters>
-            <character>
-                <name>name</name>
-                <actor>actress</actor>
-            </character>
-        </characters>
-        <plot>sinopsis</plot>
-        <rating type="thumbs">900</rating>
-        <rating type="stars">5</rating>
-    </movie>
-    <movie>
-        <id>2</id>
         <title>title</title>
-        <characters>
-            <character>
-                <name>name1</name>
-                <actor>actor1</actor>
-            </character>
-            <character>
-                <name>name2</name>
-                <actor>actor2</actor>
-            </character>
-        </characters>
         <plot>plot</plot>
-        <rating type="thumbs">78</rating>
-        <rating type="stars">8</rating>
+        <thumbs>7</thumbs>
+        <stars>8</stars>
+        <submit/>
     </movie>
-    <movie>
-        <id>3</id>
-        <title>title</title>
-        <characters>
-            <character>
-                <name>name1</name>
-                <actor>actor1</actor>
-            </character>
-            <character>
-                <name>name2</name>
-                <actor>actor2</actor>
-            </character>
-        </characters>
-        <plot>plot</plot>
-        <rating type="thumbs">78</rating>
-        <rating type="stars">8</rating>
-    </movie>
+    <character>
+        <0>name1</0>
+        <1>actor1</1>
+        <2>name2</2>
+        <3>actor2</3>
+    </character>
 </movies>

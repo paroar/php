@@ -10,8 +10,8 @@ const addInputs = e => {
   e.preventDefault();
   document.getElementById("chars").innerHTML += `
     &nbsp;&nbsp;&nbsp;&nbsp;Character:
-    <input type="text" placeholder="name" name="name[]"/>
-    <input type="text" placeholder="actor" name="name[]"/><br />
+    <input type="text" placeholder="name" name="character[]"/>
+    <input type="text" placeholder="actor" name="character[]"/><br />
     `;
    addCharBtnListener();
 };

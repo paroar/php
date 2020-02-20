@@ -23,26 +23,46 @@ class Xml
         return $this->path;
     }
 
-    public function add_movie($title, $names, $actors, $plot, $thumbs, $stars)
+    // public function add_movie($title, $names, $actors, $plot, $thumbs, $stars)
+    // {
+    //     $xml = $this->getXml();
+    //     $movie = $xml->addChild("movie");
+
+    //     $id = $xml->count();
+    //     $movie->addChild("id", $id);
+    //     $movie->addChild("title", $title);
+    //     $characters = $movie->addChild("characters");
+    //     for ($i = 0; $i < count($actors); $i+=2) {
+    //         $character = $characters->addChild("character");
+    //         $character->addChild("name", $names[$i]);
+    //         $character->addChild("actor", $actors[$i++]);
+    //     }
+    //     $movie->addChild("plot", $plot);
+    //     $movie->addChild("rating", $thumbs)->addAttribute("type", "thumbs");
+    //     $movie->addChild("rating", $stars)->addAttribute("type", "stars");
+            
+    //     $xml->asXML($this->getPath());
+    // }
+
+        public function add_movie($arr, $root="movie", $element="")
     {
         $xml = $this->getXml();
-        $movie = $xml->addChild("movie");
+        $movie = $xml->addChild($root);
 
-        $id = $xml->count();
-        $movie->addChild("id", $id);
-        $movie->addChild("title", $title);
-        $characters = $movie->addChild("characters");
-        for ($i = 0; $i < count($actors); $i+=2) {
-            $character = $characters->addChild("character");
-            $character->addChild("name", $names[$i]);
-            $character->addChild("actor", $actors[$i++]);
+        foreach($arr as $key => $value){
+            if(is_array($value)){
+                $this->add_movie($value, $key);
+            }else{
+                $movie->addChild($key, $value);
+            }
         }
-        $movie->addChild("plot", $plot);
-        $movie->addChild("rating", $thumbs)->addAttribute("type", "thumbs");
-        $movie->addChild("rating", $stars)->addAttribute("type", "stars");
-            
+
         $xml->asXML($this->getPath());
     }
+
+    public function sub($arr, $root, $element){
+
+    } 
 
     public function search_movie_title($title)
     {

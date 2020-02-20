@@ -5,8 +5,8 @@ try {
     $path = "./../xml/movies.xml";
     $xml = new Xml($path);
     if (isset($_POST["submit"])) {
-        echo json_encode($_POST, true);
-        // $xml->add_movie(...array_values($_POST));
+        //echo json_encode($_POST, true);
+        $xml->add_movie($_POST);
         // echo json_encode(array("code" => 200), true);
     } elseif (isset($_POST["search"])) {
         $arr = $xml->search_movie_title($_POST["title"]);
