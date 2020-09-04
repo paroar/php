@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
-    "node-sass": "^4.12.0"
+    "node-sass": "^4.13.1"
   },
   "scripts": {
     "sass": "node-sass sass/style.scss css/style.css -w"
